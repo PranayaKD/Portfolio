@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranaya Kumar Dash - Python Full Stack Developer </title>
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="http://www.linkedin.com/in/pranayakd28" class="logo">PKD.</a>
+            <ul>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul><br>
+            <a href="#" class="hire-me-btn" onclick="openHireModal()">
+                <i class="fas fa-handshake"></i>
+                Hire Me
+            </a>
+        </div>
+    </nav>
+    <!-- Hire Me Modal -->
+    <div id="hireModal" class="hire-modal">
+        <div class="hire-modal-content">
+            <div class="hire-modal-header">
+                <span class="close" onclick="closeHireModal()">&times;</span>
+                <h2>Let's Work Together!</h2>
+                <p>Ready to bring your project to life? Choose how you'd like to get started.</p>
+            </div>
+            <div class="hire-modal-body">
+                <div class="hire-options">
+                    <div class="hire-option" onclick="redirectToContact('project')">
+                        <i class="fas fa-project-diagram"></i>
+                        <h4>New Project</h4>
+                        <p>Start a new web development project from scratch</p>
+                    </div>
+                    <div class="hire-option" onclick="redirectToContact('consultation')">
+                        <i class="fas fa-comments"></i>
+                        <h4>Consultation</h4>
+                        <p>Get expert advice on your existing project</p>
+                    </div>
+                    <div class="hire-option" onclick="redirectToContact('maintenance')">
+                        <i class="fas fa-tools"></i>
+                        <h4>Maintenance</h4>
+                        <p>Ongoing support and updates for your application</p>
+                    </div>
+                    <div class="hire-option" onclick="redirectToContact('urgent')">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Urgent Fix</h4>
+                        <p>Quick bug fixes and emergency support</p>
+                    </div>
+                </div>
+
+                <div class="contact-summary">
+                    <h4>Ready to discuss your project?</h4>
+                    <div class="contact-links">
+                        <a
+                            href="mailto:dashpranaya28@gmail.com?subject=Project%20Inquiry&body=Hi%20Pranaya,%0A%0AI'm%20interested%20in%20discussing%20a%20project%20with%20you.%0A%0AProject%20Type:%20%0ABudget%20Range:%20%0ATimeline:%20%0A%0AProject%20Details:%0A%0A%0ABest%20regards">
+                            <i class="fas fa-envelope"></i>
+                            Email Me
+                        </a>
+                        <a href="https://wa.me/917681806202?text=Hi%20Pranaya,%20I'm%20interested%20in%20hiring%20you%20for%20a%20project.%20Can%20we%20discuss?"
+                            target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp
+                        </a>
+                        <a href="https://www.linkedin.com/in/pranaya-kumar-dash" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                        <a href="tel:+917681806202">
+                            <i class="fas fa-phone"></i>
+                            Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Section -->
+    <section id="header">
+        <div class="container">
+            <div class="home-section">
+                <div class="header-text">
+                    <h1>Hi, I'm <span>Pranaya Kumar Dash</span></h1>
+                    <h2 class="typing-text">I am a <span id="role"></span><span class="cursor"></span></h2>
+                    <p style="color: #e0e0e0; font-size: 1.1rem; margin-bottom: 2rem;">
+                        Passionate Python Full Stack Developer with expertise in modern web technologies,
+                        ready to build scalable applications and drive innovation.
+                    </p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="./images/PYTHON_FULL_STACK_PRANAYA_DASH.pdf" style="border:  2px solid #beff8c;"
+                            download class="btn">Download CV</a>
+                        <a href="#portfolio" class="btn"
+                            style="background: transparent; color: chartreuse; border: 2px solid #beff8c;">View
+                            Portfolio</a>
+                    </div>
+                </div>
+                <div class="home-right">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="code-symbol">{</div>
+                    <div class="code-symbol">}</div>
+                    <div class="code-symbol">&lt;/&gt;</div>
+                    <div class="code-symbol">def</div>
+                    <div class="code-symbol">return</div>
+                    <div class="code-symbol">print()</div>
+                    <div class="code-symbol">#</div>
+                    <div class="code-symbol">import</div>
+                    <div class="code-symbol">class</div>
+                    <div class="developer-illustration">
+                        <img src="./images/background.png" alt="Python Developer Illustration">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="sub-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="./images/user.png" alt="Profile Photo">
+                </div>
+                <div class="about-details">
+                    <div class="about-text">
+                        <p>I'm a passionate <strong>Python Full Stack Developer</strong> with a unique blend of
+                            analytical thinking and creative problem-solving. With a strong foundation in both
+                            <strong>backend development using Django/Flask</strong> and <strong>modern frontend
+                                technologies</strong>, I create end-to-end web solutions that are both robust and
+                            user-friendly.
+                        </p>
+
+                        <p>My journey from <strong>Chemistry to Computer Applications</strong> has equipped me with
+                            exceptional analytical skills and attention to detail. I specialize in building
+                            <strong>scalable web applications, RESTful APIs, and data-driven solutions</strong> using
+                            Python, JavaScript, and modern frameworks.
+                        </p>
+
+                        <p>I'm passionate about <strong>clean code, agile methodologies,</strong> and staying updated
+                            with the latest tech trends. Currently seeking opportunities to contribute to innovative
+                            projects and grow as a developer in a collaborative environment.</p>
+                    </div>
+
+                    <div class="tab-titles">
+                        <button class="tab-links active-link" onclick="openTab(event, 'skills')">Technical
+                            Skills</button>
+                        <button class="tab-links" onclick="openTab(event, 'experience')">Experience</button>
+                        <button class="tab-links" onclick="openTab(event, 'education')">Education</button>
+                    </div>
+
+                    <div class="tab-contents active-tab" id="skills">
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <i class="fab fa-python"></i>
+                                <h4>Backend Development</h4>
+                                <p>Django, Flask, FastAPI, RESTful APIs, PostgreSQL, MongoDB</p>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-js-square"></i>
+                                <h4>Frontend Development</h4>
+                                <p>JavaScript, React.js, HTML5, CSS3, Bootstrap, Responsive Design</p>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-database"></i>
+                                <h4>Database & Analytics</h4>
+                                <p>SQL, PostgreSQL, MongoDB, Data Analysis, Pandas, NumPy</p>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-git-alt"></i>
+                                <h4>DevOps & Tools</h4>
+                                <p>Git, Docker, Linux, AWS basics, CI/CD, Testing frameworks</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li>
+                                <span>Full Stack Web Development Projects</span>
+                                <p>Developed multiple full-stack applications using Django backend with React frontend,
+                                    implementing user authentication, RESTful APIs, and responsive design.</p>
+                            </li>
+                            <li>
+                                <span>Data Analysis & Visualization Projects</span>
+                                <p>Created data-driven applications using Python, Pandas, and visualization libraries,
+                                    with web interfaces for interactive data exploration.</p>
+                            </li>
+                            <li>
+                                <span>API Development & Integration</span>
+                                <p>Built RESTful APIs with Django REST Framework and integrated third-party APIs for
+                                    enhanced application functionality.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li>
+                                <span>Master's in Computer Application</span>
+                                <p>Centurion University of Technology, Bhubaneswar<br>
+                                    CGPA: 8.35 | 2022 - 2024<br>
+                                    <em>Specialized in Software Development, Database Management, and Web
+                                        Technologies</em>
+                                </p>
+                            </li>
+                            <li>
+                                <span>Bachelor's in Chemistry</span>
+                                <p>F.M University, Baleswar<br>
+                                    CGPA: 8.21 | 2019 - 2022<br>
+                                    <em>Developed strong analytical and problem-solving skills</em>
+                                </p>
+                            </li>
+                            <li>
+                                <span>Professional Certifications</span>
+                                <p>• Python Full Stack Development (Udemy)<br>
+                                    • Data Analysis with Python<br>
+                                    • Web Development Fundamentals</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="sub-title">My Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-code"></i>
+                    <h3>Full Stack Web Development</h3>
+                    <p>End-to-end web application development using Python (Django/Flask) backend with modern JavaScript
+                        frontend frameworks.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-server"></i>
+                    <h3>API Development</h3>
+                    <p>RESTful API design and development with proper authentication, documentation, and testing for
+                        scalable applications.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Data Analysis & Visualization</h3>
+                    <p>Transform raw data into actionable insights using Python, Pandas, and create interactive web
+                        dashboards.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsive Web Design</h3>
+                    <p>Modern, mobile-first responsive websites with excellent user experience and performance
+                        optimization.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-database"></i>
+                    <h3>Database Design</h3>
+                    <p>Efficient database design, optimization, and management for both SQL and NoSQL databases.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Web Application Maintenance</h3>
+                    <p>Ongoing support, bug fixes, feature updates, and performance optimization for existing
+                        applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 class="sub-title">My Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="./images/work-1.png" alt="E-Commerce Platform">
+                    <div class="portfolio-content">
+                        <h3>ShopperMart</h3>
+                        <p>Full-stack e-commerce solution with user authentication, payment integration, and admin
+                            dashboard.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Bootstrap</span>
+                        </div>
+                        <a href="https://github.com/PranayaKD/ShopperMart" class="btn"
+                            style="margin-top: 1rem; display: inline-block;">View Project</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="./images/work-3.png" alt="Task Management">
+                    <div class="portfolio-content">
+                        <h3>TaskMaster</h3>
+                        <p>Collaborative task management tool with team features, notifications, and project tracking.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Django REST</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <a href="https://github.com/PranayaKD/TaskMaster" class="btn"
+                            style="margin-top: 1rem; display: inline-block;">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="./images/work-customer-segmentation.png"
+                        alt="Customer Segmentation & Product Profitability Analysis">
+                    <div class="portfolio-content">
+                        <h3>Customer Segmentation & Product Profitability Analysis</h3>
+                        <p>Analyze customer segments and product profitability to support targeted marketing and product
+                            positioning strategies.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">pandas</span>
+                            <span class="tech-tag">matplotlib</span>
+                            <span class="tech-tag">seaborn</span>
+                            <span class="tech-tag">Jupyter Notebook</span>
+                        </div>
+                        <a href=https://github.com/PranayaKD/Customer-Segmentation-Product-Profitability-Analysis"
+                            target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">View
+                            Project</a>
+                    </div>
+                </div>
+
+
+
+                <div class="portfolio-item">
+                    <img src="images/work-4.jpg" alt="Blog Platform">
+                    <div class="portfolio-content">
+                        <h3>Blog Platform</h3>
+                        <p>Full-featured blogging platform with user authentication, post management, and comments
+                            system.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">JWT Authentication</span>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 1rem; display: inline-block;">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="sub-title">Let's Work Together</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 2rem;">Get In Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>dashpranaya28@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91-7681806202</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Bhubaneswar, Odisha, India</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/pranaya-kumar-dash"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/PranayaKD"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/_pranay_28_/?hl=en"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:dashpranaya28@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    <a href="images/PYTHON_FULL_STACK_PRANAYA_DASH.pdf" download class="btn"
+                        style="margin-top: 2rem; background: rgb(0, 249, 4);">Download CV</a>
+                </div>
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 2rem;">Send Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer text-white py-3">
+        <div class="container text-center">
+            <p class="small mb-0">&copy; 2025 Pranaya Kumar Dash. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <script>
+        // Hire Me Modal Functions
+        function openHireModal() {
+            document.getElementById('hireModal').classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeHireModal() {
+            document.getElementById('hireModal').classList.remove('show');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function redirectToContact(type) {
+            closeHireModal();
+
+            // Smooth scroll to contact section
+            document.getElementById('contact').scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // Pre-fill contact form based on selection
+            setTimeout(() => {
+                const subjectField = document.querySelector('input[name="subject"]');
+                const messageField = document.querySelector('textarea[name="message"]');
+
+                if (subjectField && messageField) {
+                    switch (type) {
+                        case 'project':
+                            subjectField.value = 'New Project Inquiry';
+                            messageField.value = 'Hi Pranaya,\n\nI\'m interested in starting a new web development project. Here are the details:\n\nProject Type: \nBudget Range: \nTimeline: \n\nProject Requirements:\n\n\nLooking forward to hearing from you!';
+                            break;
+                        case 'consultation':
+                            subjectField.value = 'Technical Consultation Request';
+                            messageField.value = 'Hi Pranaya,\n\nI need expert consultation on my project. \n\nCurrent Tech Stack: \nSpecific Areas of Concern: \nPreferred Consultation Format: \n\nProject Details:\n\n\nThank you!';
+                            break;
+                        case 'maintenance':
+                            subjectField.value = 'Maintenance & Support Request';
+                            messageField.value = 'Hi Pranaya,\n\nI need ongoing maintenance and support for my application.\n\nWebsite/App URL: \nCurrent Issues: \nSupport Level Needed: \n\nTechnical Details:\n\n\nBest regards!';
+                            break;
+                        case 'urgent':
+                            subjectField.value = 'Urgent Fix Required';
+                            messageField.value = 'Hi Pranaya,\n\nI have an urgent issue that needs immediate attention.\n\nIssue Description: \nError Messages: \nWhen did it start: \nBusiness Impact: \n\nPlease contact me ASAP!\n\nThank you!';
+                            break;
+                    }
+
+                    // Focus on the form
+                    subjectField.focus();
+                    subjectField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 1000);
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function (event) {
+            const modal = document.getElementById('hireModal');
+            if (event.target == modal) {
+                closeHireModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeHireModal();
+            }
+        });
+        // Tab functionality
+        function openTab(evt, tabName) {
+            var tabContents = document.getElementsByClassName("tab-contents");
+            var tabLinks = document.getElementsByClassName("tab-links");
+
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active-tab");
+            }
+
+            for (var i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].classList.remove("active-link");
+            }
+
+            document.getElementById(tabName).classList.add("active-tab");
+            evt.currentTarget.classList.add("active-link");
+        }
+
+        // Typing animation
+        const roles = [
+            "Python Full Stack Developer",
+            "Django Backend Developer",
+            "Aspiring Frontend Developer",
+            "Ai Enthusiast",
+            "Programmer",
+            "Prompt Engineer",
+        ];
+
+        let roleIndex = 0;
+        let charIndex = 0;
+        const roleElement = document.getElementById("role");
+        const typingSpeed = 100;
+        const eraseSpeed = 50;
+        const delayBetweenRoles = 2000;
+
+        function typeRole() {
+            if (charIndex < roles[roleIndex].length) {
+                roleElement.textContent += roles[roleIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeRole, typingSpeed);
+            } else {
+                setTimeout(eraseRole, delayBetweenRoles);
+            }
+        }
+
+        function eraseRole() {
+            if (charIndex > 0) {
+                roleElement.textContent = roles[roleIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(eraseRole, eraseSpeed);
+            } else {
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(typeRole, typingSpeed);
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Start typing animation when page loads
+        window.addEventListener("load", typeRole);
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function () {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+                nav.querySelectorAll('a').forEach(link => {
+                    link.style.color = '#333';
+                });
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.1)';
+                nav.querySelectorAll('a').forEach(link => {
+                    link.style.color = 'white';
+                });
+            }
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.skill-item, .service-item, .portfolio-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
