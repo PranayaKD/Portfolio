@@ -6,6 +6,32 @@ Welcome to my personal portfolio! This website showcases my projects, skills, an
 
 ---
 
+## 💎 The Elite Refactor (2026 Edition)
+
+This portfolio has undergone a high-fidelity architectural and UI/UX overhaul. Key improvements include:
+- **Modern Design System**: A customized "Cool Slate" aesthetic with sapphire accents and glassmorphism.
+- **Mobile-First DNA**: Perfectly responsive layout with optimized touch targets and "Full-Bleed" mobile content.
+- **High-End Interactivity**: GSAP-powered mouse parallax, smooth scroll (Lenis), and staggered entrance animations.
+- **SEO & Data Mastery**: Integrated JSON-LD Schema Markup for professional indexing and a multi-channel "Hire Me" sync flow.
+
+### 🖼️ Visual Showcase
+
+#### **Hero Section & Interactive Parallax**
+![Hero Preview](images/hero_preview.png)
+
+#### **Technical Faculties (Core Expertise)**
+![Skills Preview](images/technical_faculties_preview.png)
+
+#### **Professional Timeline & Journey**
+![Timeline Preview](images/timeline_preview.png)
+
+#### **Services & Capabilities**
+![Services Preview](images/services_preview.png)
+
+#### **High-Tech "Hire Me" Modal**
+![Modal Preview](images/hire_me_modal_preview.png)
+
+
 ## About Me
 
 I am a passionate Python Full-Stack Developer with expertise in:
@@ -36,6 +62,6 @@ I enjoy building dynamic applications, analyzing data, and solving real-world pr
 
 ## Contact
 
-📧 Email: dashpranaya786@gmail.com  
-🔗 LinkedIn: [https://www.linkedin.com/in/pranaya-kumar-dash](https://www.linkedin.com/in/pranaya-kumar-dash)  
+📧 Email: dashpranaya28@gmail.com  
+🔗 LinkedIn: [https://www.linkedin.com/in/pranayakd28](https://www.linkedin.com/in/pranayakd28)  
 🐙 GitHub: [https://github.com/PranayaKD](https://github.com/PranayaKD)
