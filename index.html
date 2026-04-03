@@ -2020,7 +2020,11 @@
                   setTimeout(() => {
                     tExp.style.display = 'none';
                     tEdu.style.display = 'block';
-                    setTimeout(() => tEdu.style.opacity = '1', 50);
+                    setTimeout(() => {
+                      tEdu.style.opacity = '1';
+                      // Ensure GSAP didn't leave them hidden
+                      gsap.to("#timeline-education .timeline-entry", { opacity: 1, x: 0, duration: 0.5, stagger: 0.1 });
+                    }, 50);
                     if(typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
                   }, 400);
                 } else {
@@ -2030,7 +2034,11 @@
                   setTimeout(() => {
                     tEdu.style.display = 'none';
                     tExp.style.display = 'block';
-                    setTimeout(() => tExp.style.opacity = '1', 50);
+                    setTimeout(() => {
+                      tExp.style.opacity = '1';
+                      // Force visibility for experience entries
+                      gsap.to("#timeline-experience .timeline-entry", { opacity: 1, x: 0, duration: 0.5, stagger: 0.1 });
+                    }, 50);
                     if(typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
                   }, 400);
                 }
@@ -2325,7 +2333,7 @@
           <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
             <li><a href="https://github.com/PranayaKD" target="_blank" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><i class="devicon-github-original" style="font-size: 16px;"></i> GitHub</a></li>
             <li><a href="https://linkedin.com/in/pranayakd28" target="_blank" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><i class="devicon-linkedin-plain" style="font-size: 16px;"></i> LinkedIn</a></li>
-            <li><a href="javascript:void(0)" onclick="openHireModal()" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><span class="material-symbols-outlined" style="font-size: 16px;">mail</span> Email</a></li>
+            <li><a href="mailto:dashpranaya28@gmail.com" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><span class="material-symbols-outlined" style="font-size: 16px;">mail</span> Email</a></li>
             <li><a href="#contact" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><span class="material-symbols-outlined" style="font-size: 16px;">contact_page</span> Contact</a></li>
           </ul>
         </div>
@@ -2523,23 +2531,23 @@
           roleEl.textContent = current.slice(0, charIdx);
           if (charIdx === current.length) {
             deleting = true;
-            setTimeout(typeTransition, 2000);
+            setTimeout(typeTransition, 2500); // Wait longer on complete string
             return;
           }
-          setTimeout(typeTransition, 100);
+          setTimeout(typeTransition, 120); // Slightly slower typing
         } else {
           charIdx--;
           roleEl.textContent = current.slice(0, charIdx);
           if (charIdx === 0) {
             deleting = false;
             roleIdx = (roleIdx + 1) % roles.length;
-            setTimeout(typeTransition, 500);
+            setTimeout(typeTransition, 800); // Pause before next word
             return;
           }
-          setTimeout(typeTransition, 50);
+          setTimeout(typeTransition, 60); // Slightly slower deleting
         }
       }
-      setTimeout(typeTransition, 1200);
+      setTimeout(typeTransition, 1500);
 
       /* ═══════════════════════════════════════
          4. NAV SCROLL HANDLER
