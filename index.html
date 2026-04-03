@@ -311,18 +311,35 @@
     }
 
     .hero-meta-refined {
-      margin-top: 36px;
+      margin-top: 24px; /* Slightly tighter on mobile */
       display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: nowrap;
+      align-items: flex-start;
+      gap: 16px;
+      flex-direction: column; /* Stacked for mobile */
+    }
+
+    @media (min-width: 768px) {
+      .hero-meta-refined {
+        margin-top: 36px;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+      }
     }
 
     .hero-btn-group {
-      margin-top: 40px;
+      margin-top: 32px;
       display: flex;
-      gap: 24px;
+      gap: 16px;
       align-items: center;
+      flex-wrap: wrap; /* Handle narrow screens */
+    }
+
+    @media (min-width: 768px) {
+      .hero-btn-group {
+        margin-top: 40px;
+        gap: 24px;
+      }
     }
 
     .scroll-indicator-refined {
@@ -335,6 +352,13 @@
       cursor: pointer;
       transition: 0.3s;
       z-index: 10;
+      display: none; /* Hidden on mobile by default */
+    }
+
+    @media (min-width: 1024px) {
+      .scroll-indicator-refined {
+        display: block;
+      }
     }
 
     .scroll-indicator-refined:hover {
@@ -599,12 +623,22 @@
       .hero-role-wrapper {
         min-width: 320px;
         white-space: nowrap;
+        font-size: clamp(2rem, 6vw, 4rem); /* More cohesive size */
+        letter-spacing: -2px;
       }
     }
 
     @media (max-width: 767px) {
       .hero-role-wrapper {
         min-width: auto;
+        font-size: 2.2rem; /* Reduced to fit mobile screens comfortably */
+      }
+      .hero-word {
+        font-size: 1.5rem !important; /* Smaller context text */
+      }
+      .hero-services {
+        font-size: 11px !important; /* Denser subtext */
+        letter-spacing: 1px !important;
       }
     }
 
@@ -782,15 +816,12 @@
       .hero-right {
         order: 2;
         width: 100%;
-        margin-top: 20px;
+        margin-top: 40px; /* More space before image */
       }
       .hero-left {
         min-width: 0;
         overflow: hidden;
         order: 1;
-      }
-      .hero-tagline, .hero-meta {
-        order: 3;
       }
     }
 
@@ -1617,6 +1648,11 @@
             <span>dashpranaya28@gmail.com</span>
           </div>
         </div>
+        <style>
+          @media (max-width: 767px) {
+            .hero-meta-refined .meta-divider { display: none; }
+          }
+        </style>
 
         <div class="hero-btn-group">
           <a href="images/PranayaDash_PythonDeveloper_Resume.pdf" target="_blank" class="btn-pill btn-pill-primary">View My Resume</a>
