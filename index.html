@@ -578,25 +578,30 @@
     #hero {
       background: var(--bg);
       min-height: 100svh;
-      display: grid;
-      align-items: center;
+      display: flex; /* Changed from grid so we handle vertical centering gracefully without cutting top */
+      flex-direction: column;
+      justify-content: center;
       position: relative;
-      overflow: hidden;
-      padding: 100px 0 80px;
+      overflow-x: hidden; /* Only hide horizontal to prevent scrollbars, not vertical */
+      padding: 120px 0 40px; /* Reduced vertical padding on mobile, push content down slightly to clear nav */
     }
 
     .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 48px;
-      align-items: center;
+      display: flex; /* Use flex instead of grid for inner wrapping */
+      flex-direction: column;
+      gap: 32px; /* Tighter gap on small screens */
+      width: 100%;
     }
 
     @media (min-width: 768px) {
       .hero-inner {
-        grid-template-columns: 1.1fr 0.9fr; /* Slightly more stable grid split */
+        flex-direction: row; /* Switch to row on desktop */
+        justify-content: space-between;
+        align-items: center;
         gap: 64px;
       }
+      .hero-left { flex: 1.1; }
+      .hero-right { flex: 0.9; }
     }
 
     .hero-name-eyebrow {
