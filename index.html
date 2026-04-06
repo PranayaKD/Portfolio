@@ -1834,9 +1834,9 @@
         </div>
       </div>
 
-      <div class="skills-categorized-grid bento-grid-skills">
-        <!-- Group 1: Languages (Span 2 for wider feel) -->
-        <div class="skill-group-card bento-item-wide">
+      <div class="skills-categorized-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 32px;">
+        <!-- Languages -->
+        <div class="skill-group-card">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
             <div style="width: 44px; height: 44px; background: var(--accent-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent);">
               <span class="material-symbols-outlined" style="font-size: 24px;">code</span>
@@ -1850,22 +1850,22 @@
           </div>
         </div>
 
-        <!-- Group 2: Frameworks (Span 2 Height for emphasis) -->
-        <div class="skill-group-card bento-item-high">
+        <!-- Frameworks -->
+        <div class="skill-group-card">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
             <div style="width: 44px; height: 44px; background: var(--accent-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent);">
               <span class="material-symbols-outlined" style="font-size: 24px;">layers</span>
             </div>
             <h4 class="card-title-refined">Frameworks</h4>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
             <span class="skill-pill-refined tooltip" data-tooltip="MVT, Middleware, Auth, and Transaction management.">Django</span>
             <span class="skill-pill-refined tooltip" data-tooltip="Serialized APIs, Viewsets, and Custom Permissions.">REST Framework</span>
             <span class="skill-pill-refined tooltip" data-tooltip="Modern UI styling with grid and flexbox.">Bootstrap 5</span>
           </div>
         </div>
 
-        <!-- Group 3: Databases -->
+        <!-- Databases -->
         <div class="skill-group-card">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
             <div style="width: 44px; height: 44px; background: var(--accent-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent);">
@@ -1879,22 +1879,36 @@
           </div>
         </div>
 
-        <!-- Group 4: Cloud & Tools (Span 2 Horizontal) -->
-        <div class="skill-group-card bento-item-wide">
+        <!-- Auth & APIs -->
+        <div class="skill-group-card">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
             <div style="width: 44px; height: 44px; background: var(--accent-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent);">
-              <span class="material-symbols-outlined" style="font-size: 24px;">cloud</span>
+              <span class="material-symbols-outlined" style="font-size: 24px;">api</span>
             </div>
-            <h4 class="card-title-refined">Cloud & Infrastructure</h4>
+            <h4 class="card-title-refined">Auth & APIs</h4>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="skill-pill-refined tooltip" data-tooltip="S3, EC2, Lambda, and IAM Management.">AWS Practitioner</span>
-            <span class="skill-pill-refined tooltip" data-tooltip="Caching and real-time data handling.">Redis</span>
-            <span class="skill-pill-refined tooltip" data-tooltip="CI/CD, Workflows, and Branching.">Git/GitHub</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="JWT / Session Auth.">Auth</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="REST API Design.">REST</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="API Integration.">Integration</span>
           </div>
         </div>
 
-        <!-- Group 5: Concepts -->
+        <!-- Tools -->
+        <div class="skill-group-card">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+            <div style="width: 44px; height: 44px; background: var(--accent-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent);">
+              <span class="material-symbols-outlined" style="font-size: 24px;">construction</span>
+            </div>
+            <h4 class="card-title-refined">Tools</h4>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+            <span class="skill-pill-refined tooltip" data-tooltip="CI/CD, Workflows, and Branching.">Git/GitHub</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="S3, EC2, Lambda, and IAM.">AWS</span>
+          </div>
+        </div>
+
+        <!-- Concepts -->
         <div class="skill-group-card" style="background: var(--surface); border: 1px solid var(--border); padding: 40px; border-radius: 12px; transition: 0.4s ease;">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
             <div style="width: 44px; height: 44px; background: rgba(30, 64, 175, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent);">
@@ -1903,9 +1917,9 @@
             <h4 style="font-family: 'Antonio', sans-serif; font-size: 24px; text-transform: uppercase;">Core Logic</h4>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="skill-pill-refined tooltip" data-tooltip="Atomic operations and concurrency control.">Transactions</span>
-            <span class="skill-pill-refined tooltip" data-tooltip="System design for high-traffic apps.">Scalability</span>
-            <span class="skill-pill-refined tooltip" data-tooltip="Encapsulation, Inheritance, Poly.">OOP</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="Atomic operations and concurrency.">Transactions</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="System design for high-traffic.">Scalability</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="OO Programming.">OOP</span>
           </div>
         </div>
           <div style="display: flex; flex-wrap: wrap; gap: 12px;">
@@ -1933,26 +1947,6 @@
       position: relative;
       overflow: hidden;
     }
-    /* Bento Grid Logic */
-    .bento-grid-skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-      gap: 24px;
-    }
-
-    @media (min-width: 1024px) {
-      .bento-grid-skills {
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: minmax(200px, auto);
-      }
-      .bento-item-wide {
-        grid-column: span 2;
-      }
-      .bento-item-high {
-        grid-row: span 2;
-      }
-    }
-
     .skill-group-card h4 {
       color: var(--text) !important;
     }
