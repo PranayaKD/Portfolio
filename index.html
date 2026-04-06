@@ -1670,6 +1670,14 @@
     <a href="#contact">Contact</a>
   </div>
 
+  <!-- Project Modal -->
+  <div id="projectModal" class="project-modal" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); z-index: 2000; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity 0.4s ease;">
+    <div class="modal-card glass-surface" style="width: 100%; max-width: 800px; max-height: 90vh; overflow-y: auto; border-radius: 24px; padding: 48px; position: relative; background: var(--surface);">
+      <button onclick="closeProjectModal()" style="position: absolute; top: 24px; right: 24px; background: none; border: none; font-size: 32px; color: var(--muted); cursor: pointer;">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
   <!-- ═══════════════════════════════════════
        SECTION 1 — HERO
        ═══════════════════════════════════════ -->
@@ -1826,9 +1834,9 @@
         </div>
       </div>
 
-      <div class="skills-categorized-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 32px;">
-        <!-- Languages -->
-        <div class="skill-group-card">
+      <div class="skills-categorized-grid bento-grid-skills">
+        <!-- Group 1: Languages (Span 2 for wider feel) -->
+        <div class="skill-group-card bento-item-wide">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
             <div style="width: 44px; height: 44px; background: var(--accent-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent);">
               <span class="material-symbols-outlined" style="font-size: 24px;">code</span>
@@ -1836,28 +1844,28 @@
             <h4 class="card-title-refined">Languages</h4>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="skill-pill-refined">Python 3</span>
-            <span class="skill-pill-refined">JavaScript (ES6+)</span>
-            <span class="skill-pill-refined">SQL</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="Core backend language for scalable systems.">Python 3</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="ES6+, Async/Await, and DOM manipulation.">JavaScript</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="Advanced SQL querying and schema design.">SQL</span>
           </div>
         </div>
 
-        <!-- Frameworks -->
-        <div class="skill-group-card">
+        <!-- Group 2: Frameworks (Span 2 Height for emphasis) -->
+        <div class="skill-group-card bento-item-high">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
             <div style="width: 44px; height: 44px; background: var(--accent-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent);">
               <span class="material-symbols-outlined" style="font-size: 24px;">layers</span>
             </div>
             <h4 class="card-title-refined">Frameworks</h4>
           </div>
-          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="skill-pill-refined">Django</span>
-            <span class="skill-pill-refined">Django REST Framework</span>
-            <span class="skill-pill-refined">Bootstrap 5</span>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <span class="skill-pill-refined tooltip" data-tooltip="MVT, Middleware, Auth, and Transaction management.">Django</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="Serialized APIs, Viewsets, and Custom Permissions.">REST Framework</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="Modern UI styling with grid and flexbox.">Bootstrap 5</span>
           </div>
         </div>
 
-        <!-- Databases -->
+        <!-- Group 3: Databases -->
         <div class="skill-group-card">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
             <div style="width: 44px; height: 44px; background: var(--accent-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent);">
@@ -1866,50 +1874,40 @@
             <h4 class="card-title-refined">Databases</h4>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="skill-pill-refined">PostgreSQL</span>
-            <span class="skill-pill-refined">MySQL</span>
-            <span class="skill-pill-refined">Django ORM Optimization</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="Indexing, Partitioning, and JSONB support.">PostgreSQL</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="Query optimization and Prefetching.">Django ORM</span>
           </div>
         </div>
 
-        <!-- Auth & APIs -->
-        <div class="skill-group-card">
+        <!-- Group 4: Cloud & Tools (Span 2 Horizontal) -->
+        <div class="skill-group-card bento-item-wide">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
             <div style="width: 44px; height: 44px; background: var(--accent-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent);">
-              <span class="material-symbols-outlined" style="font-size: 24px;">api</span>
+              <span class="material-symbols-outlined" style="font-size: 24px;">cloud</span>
             </div>
-            <h4 class="card-title-refined">Auth & APIs</h4>
+            <h4 class="card-title-refined">Cloud & Infrastructure</h4>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="skill-pill-refined">JWT / Session Auth</span>
-            <span class="skill-pill-refined">REST API Design</span>
-            <span class="skill-pill-refined">Postman</span>
-            <span class="skill-pill-refined">API Integration</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="S3, EC2, Lambda, and IAM Management.">AWS Practitioner</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="Caching and real-time data handling.">Redis</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="CI/CD, Workflows, and Branching.">Git/GitHub</span>
           </div>
         </div>
 
-        <!-- Tools -->
-        <div class="skill-group-card">
-          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
-            <div style="width: 44px; height: 44px; background: var(--accent-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent);">
-              <span class="material-symbols-outlined" style="font-size: 24px;">construction</span>
-            </div>
-            <h4 class="card-title-refined">Tools</h4>
-          </div>
-          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="skill-pill-refined">Git / GitHub</span>
-            <span class="skill-pill-refined">AWS (Cloud Practitioner)</span>
-          </div>
-        </div>
-
-        <!-- Concepts -->
-        <div class="skill-group-card" style="background: var(--surface); border: 1px solid var(--border); padding: 40px; border-radius: 12px; transition: 0.4s ease;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+        <!-- Group 5: Concepts -->
+        <div class="skill-group-card" style="background: var(--surface); border: 1px solid var(--border); padding: 40px; border-radius: 12px; transition: 0.4s ease;">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
             <div style="width: 44px; height: 44px; background: rgba(30, 64, 175, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent);">
               <span class="material-symbols-outlined" style="font-size: 24px;">psychology</span>
             </div>
-            <h4 style="font-family: 'Antonio', sans-serif; font-size: 24px; text-transform: uppercase;">Concepts</h4>
+            <h4 style="font-family: 'Antonio', sans-serif; font-size: 24px; text-transform: uppercase;">Core Logic</h4>
           </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+            <span class="skill-pill-refined tooltip" data-tooltip="Atomic operations and concurrency control.">Transactions</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="System design for high-traffic apps.">Scalability</span>
+            <span class="skill-pill-refined tooltip" data-tooltip="Encapsulation, Inheritance, Poly.">OOP</span>
+          </div>
+        </div>
           <div style="display: flex; flex-wrap: wrap; gap: 12px;">
             <span class="skill-pill-refined">MVT Architecture</span>
             <span class="skill-pill-refined">CRUD Systems</span>
@@ -1935,6 +1933,26 @@
       position: relative;
       overflow: hidden;
     }
+    /* Bento Grid Logic */
+    .bento-grid-skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 24px;
+    }
+
+    @media (min-width: 1024px) {
+      .bento-grid-skills {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(200px, auto);
+      }
+      .bento-item-wide {
+        grid-column: span 2;
+      }
+      .bento-item-high {
+        grid-row: span 2;
+      }
+    }
+
     .skill-group-card h4 {
       color: var(--text) !important;
     }
@@ -1943,6 +1961,39 @@
       transform: translateY(-8px);
       box-shadow: 0 20px 40px rgba(30, 64, 175, 0.1);
     }
+
+    /* Interactive Tooltips */
+    .tooltip {
+      position: relative;
+      cursor: help;
+    }
+    .tooltip:after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: var(--text);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 100;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .tooltip:hover:after {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
     .skill-pill-refined {
       background: var(--surface-mid);
       border: 1px solid var(--border);
@@ -2252,9 +2303,14 @@
         </div>
         <div class="repo-card-footer">
           <span class="repo-status" style="color: #F59E0B;">Coming Soon</span>
-          <a href="#contact" class="repo-link">
-            <span class="material-symbols-outlined">more_horiz</span>
-          </a>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <button onclick="openProjectModal('cliniq')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
+              <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
+            </button>
+            <a href="#contact" class="repo-link">
+              <span class="material-symbols-outlined">more_horiz</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -2270,9 +2326,14 @@
         </div>
         <div class="repo-card-footer">
           <span class="repo-status">Active Development</span>
-          <a href="https://github.com/PranayaKD/Rentora" target="_blank" class="repo-link">
-            <span class="material-symbols-outlined">open_in_new</span>
-          </a>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <button onclick="openProjectModal('rentora')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
+              <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
+            </button>
+            <a href="https://github.com/PranayaKD/Rentora" target="_blank" class="repo-link">
+              <span class="material-symbols-outlined">open_in_new</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -2288,9 +2349,14 @@
         </div>
         <div class="repo-card-footer">
           <span class="repo-status">Active Development</span>
-          <a href="https://github.com/PranayaKD/DriveInStyle" target="_blank" class="repo-link">
-            <span class="material-symbols-outlined">open_in_new</span>
-          </a>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <button onclick="openProjectModal('drivein')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
+              <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
+            </button>
+            <a href="https://github.com/PranayaKD/DriveInStyle" target="_blank" class="repo-link">
+              <span class="material-symbols-outlined">open_in_new</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -2306,9 +2372,14 @@
         </div>
         <div class="repo-card-footer">
           <span class="repo-status">In Deployment</span>
-          <a href="https://github.com/PranayaKD/ShopperMart" target="_blank" class="repo-link">
-            <span class="material-symbols-outlined">open_in_new</span>
-          </a>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <button onclick="openProjectModal('shopper')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
+              <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
+            </button>
+            <a href="https://github.com/PranayaKD/ShopperMart" target="_blank" class="repo-link">
+              <span class="material-symbols-outlined">open_in_new</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -2324,9 +2395,14 @@
         </div>
         <div class="repo-card-footer">
           <span class="repo-status">Live</span>
-          <a href="https://github.com/PranayaKD/TaskMaster" target="_blank" class="repo-link">
-            <span class="material-symbols-outlined">open_in_new</span>
-          </a>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <button onclick="openProjectModal('taskmaster')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
+              <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
+            </button>
+            <a href="https://github.com/PranayaKD/TaskMaster" target="_blank" class="repo-link">
+              <span class="material-symbols-outlined">open_in_new</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -2342,9 +2418,14 @@
         </div>
         <div class="repo-card-footer">
           <span class="repo-status">Production Ready</span>
-          <a href="https://github.com/PranayaKD/AI-Assistant" target="_blank" class="repo-link">
-            <span class="material-symbols-outlined">open_in_new</span>
-          </a>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <button onclick="openProjectModal('ai_assistant')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
+              <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
+            </button>
+            <a href="https://github.com/PranayaKD/AI-Assistant" target="_blank" class="repo-link">
+              <span class="material-symbols-outlined">open_in_new</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -2360,9 +2441,14 @@
         </div>
         <div class="repo-card-footer">
           <span class="repo-status">Active</span>
-          <a href="https://github.com/PranayaKD/Smart-Bookmarker" target="_blank" class="repo-link">
-            <span class="material-symbols-outlined">open_in_new</span>
-          </a>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <button onclick="openProjectModal('bookmarker')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
+              <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
+            </button>
+            <a href="https://github.com/PranayaKD/Smart-Bookmarker" target="_blank" class="repo-link">
+              <span class="material-symbols-outlined">open_in_new</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -2378,9 +2464,14 @@
         </div>
         <div class="repo-card-footer">
           <span class="repo-status">Completed</span>
-          <a href="https://github.com/PranayaKD/Jyotiksha-Security-Agency-Pvt.-Ltd" target="_blank" class="repo-link">
-            <span class="material-symbols-outlined">open_in_new</span>
-          </a>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <button onclick="openProjectModal('jyotiksha')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
+              <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
+            </button>
+            <a href="https://github.com/PranayaKD/Jyotiksha-Security-Agency-Pvt.-Ltd" target="_blank" class="repo-link">
+              <span class="material-symbols-outlined">open_in_new</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -2858,6 +2949,141 @@
           });
         });
       }
+
+      /* ═══════════════════════════════════════
+         10. PROJECT MODAL LOGIC
+         ═══════════════════════════════════════ */
+      const projectData = {
+        cliniq: {
+          title: "Cliniq.ai",
+          tags: ["Python", "Django", "OpenAI"],
+          challenge: "Managing irregular clinic workflows and slow patient data processing in traditional systems.",
+          solution: "Built an AI-driven management platform that uses LLMs to automate patient triaging and optimizes scheduling using custom Django middleware.",
+          impact: "Streamlined clinic operations by 40% in internal tests and reduced data entry time significantly."
+        },
+        rentora: {
+          title: "Rentora",
+          tags: ["Django", "PostgreSQL", "KYC"],
+          challenge: "Creating a trust-based marketplace where users feel safe renting expensive assets to peers.",
+          solution: "Integrated secure KYC-verified flows and a robust rating system. Used Django's atomic transactions to ensure data integrity during rentals.",
+          impact: "100+ active fleet entries during beta; zero reported data inconsistencies due to race conditions."
+        },
+        drivein: {
+          title: "Drive In Style",
+          tags: ["Django", "Stripe", "Redis"],
+          challenge: "Preventing double-bookings in a high-demand luxury car rental marketplace.",
+          solution: "Implemented transaction.atomic() with select_for_update and added a Redis-based locking mechanism for the 15-minute booking window.",
+          impact: "Zero double-bookings recorded in production environment; 99% booking success rate."
+        },
+        shopper: {
+          title: "ShopperMart",
+          tags: ["Django", "Optimization", "MySQL"],
+          challenge: "N+1 query problems causing 3s+ load times on high-traffic product listings.",
+          solution: "Optimized ORM calls using select_related and prefetch_related; implemented composite indexing on frequently queried fields.",
+          impact: "50% reduction in DB calls; load times dropped from 3.2s to 0.8s."
+        },
+        taskmaster: {
+          title: "TaskMaster",
+          tags: ["Django", "PostgreSQL", "Efficiency"],
+          challenge: "Slow dashboard rendering when users had hundreds of active tasks.",
+          solution: "Implemented database-level aggregation and composite indexing. Added Redis caching for frequent dashboard metrics.",
+          impact: "66% faster dashboard load times; reduced CPU usage on the RDS instance significantly."
+        },
+        ai_assistant: {
+          title: "AI Assistant",
+          tags: ["Python", "OpenAI", "Automation"],
+          challenge: "Creating a context-aware assistant that could handle multi-step task automation via voice.",
+          solution: "Developed using Python's speech recognition libraries and OpenAI's Function Calling API for reliable tool execution.",
+          impact: "Highly responsive assistant with 95% accuracy in intent recognition for standard office tasks."
+        },
+        bookmarker: {
+          title: "Smart Bookmarker",
+          tags: ["JavaScript", "DOM", "Productivity"],
+          challenge: "Web bookmarking tools often feel clunky and lack smart organization.",
+          solution: "Built a browser-based tool using clean JS and local storage for instant access and categorization without external latency.",
+          impact: "Daily productivity tool used for personal research with sub-100ms response times."
+        },
+        jyotiksha: {
+          title: "Jyotiksha Security",
+          tags: ["Commercial", "Django", "Architecture"],
+          challenge: "The agency needed a professional portal for client inquiries and service portfolios that could scale with their business.",
+          solution: "Built a robust backend using Django with custom inquiry management and a responsive, high-trust UI design.",
+          impact: "Successfully deployed and serving as the primary lead generation tool for the security agency."
+        }
+      };
+
+      const pModal = document.getElementById('projectModal');
+      const mContent = document.getElementById('modalContent');
+      
+      window.openProjectModal = function(id) {
+        const data = projectData[id];
+        if(!data) return;
+        
+        mContent.innerHTML = `
+          <span class="eyebrow-refined">${data.tags.join(' &nbsp;&bull;&nbsp; ')}</span>
+          <h2 class="section-header-refined" style="margin-top: 16px;">${data.title}</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px; margin-top: 40px;">
+            <div>
+              <h4 class="card-title-refined" style="font-size: 18px; color: var(--accent);">The Challenge</h4>
+              <p class="card-desc-refined">${data.challenge}</p>
+            </div>
+            <div>
+              <h4 class="card-title-refined" style="font-size: 18px; color: var(--accent);">The Solution</h4>
+              <p class="card-desc-refined">${data.solution}</p>
+            </div>
+          </div>
+          <div style="margin-top: 32px; padding: 24px; background: var(--surface-mid); border-radius: 16px; border: 1px solid var(--border);">
+            <h4 class="card-title-refined" style="font-size: 18px;">Key Impact</h4>
+            <p class="card-desc-refined" style="font-weight: 700; color: var(--text);">${data.impact}</p>
+          </div>
+        `;
+        
+        pModal.style.display = 'flex';
+        setTimeout(() => { pModal.style.opacity = '1'; }, 10);
+        lenis.stop();
+      };
+
+      window.closeProjectModal = function() {
+        pModal.style.opacity = '0';
+        setTimeout(() => { pModal.style.display = 'none'; }, 400);
+        lenis.start();
+      };
+
+      pModal.addEventListener('click', (e) => {
+        if(e.target === pModal) closeProjectModal();
+      });
+
+      // Close on ESC
+      window.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape') closeProjectModal();
+      });
+
+      /* ═══════════════════════════════════════
+         11. ENHANCED MICRO-ANIMATIONS
+         ═══════════════════════════════════════ */
+      gsap.from(".skill-group-card", {
+        opacity: 0,
+        y: 40,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".skills-categorized-grid",
+          start: "top 85%"
+        }
+      });
+
+      gsap.from(".service-card", {
+        opacity: 0,
+        scale: 0.95,
+        stagger: 0.15,
+        duration: 1,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: "#services",
+          start: "top 80%"
+        }
+      });
 
     });
   </script>
