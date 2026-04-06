@@ -1834,7 +1834,7 @@
         </div>
       </div>
 
-      <div class="skills-categorized-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 32px;">
+      <div class="skills-categorized-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(16px, 4vw, 32px);">
         <!-- Languages -->
         <div class="skill-group-card">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
@@ -1844,9 +1844,9 @@
             <h4 class="card-title-refined">Languages</h4>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="skill-pill-refined tooltip" data-tooltip="Core backend language for scalable systems.">Python 3</span>
-            <span class="skill-pill-refined tooltip" data-tooltip="ES6+, Async/Await, and DOM manipulation.">JavaScript</span>
-            <span class="skill-pill-refined tooltip" data-tooltip="Advanced SQL querying and schema design.">SQL</span>
+            <span class="skill-pill-refined">Python 3</span>
+            <span class="skill-pill-refined">JavaScript (ES6+)</span>
+            <span class="skill-pill-refined">SQL</span>
           </div>
         </div>
 
@@ -1859,9 +1859,9 @@
             <h4 class="card-title-refined">Frameworks</h4>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="skill-pill-refined tooltip" data-tooltip="MVT, Middleware, Auth, and Transaction management.">Django</span>
-            <span class="skill-pill-refined tooltip" data-tooltip="Serialized APIs, Viewsets, and Custom Permissions.">REST Framework</span>
-            <span class="skill-pill-refined tooltip" data-tooltip="Modern UI styling with grid and flexbox.">Bootstrap 5</span>
+            <span class="skill-pill-refined">Django</span>
+            <span class="skill-pill-refined">Django REST Framework</span>
+            <span class="skill-pill-refined">Bootstrap 5</span>
           </div>
         </div>
 
@@ -1874,8 +1874,9 @@
             <h4 class="card-title-refined">Databases</h4>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="skill-pill-refined tooltip" data-tooltip="Indexing, Partitioning, and JSONB support.">PostgreSQL</span>
-            <span class="skill-pill-refined tooltip" data-tooltip="Query optimization and Prefetching.">Django ORM</span>
+            <span class="skill-pill-refined">PostgreSQL</span>
+            <span class="skill-pill-refined">MySQL</span>
+            <span class="skill-pill-refined">Django ORM Optimization</span>
           </div>
         </div>
 
@@ -1888,9 +1889,10 @@
             <h4 class="card-title-refined">Auth & APIs</h4>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="skill-pill-refined tooltip" data-tooltip="JWT / Session Auth.">Auth</span>
-            <span class="skill-pill-refined tooltip" data-tooltip="REST API Design.">REST</span>
-            <span class="skill-pill-refined tooltip" data-tooltip="API Integration.">Integration</span>
+            <span class="skill-pill-refined">JWT / Session Auth</span>
+            <span class="skill-pill-refined">REST API Design</span>
+            <span class="skill-pill-refined">Postman</span>
+            <span class="skill-pill-refined">API Integration</span>
           </div>
         </div>
 
@@ -1903,23 +1905,24 @@
             <h4 class="card-title-refined">Tools</h4>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="skill-pill-refined tooltip" data-tooltip="CI/CD, Workflows, and Branching.">Git/GitHub</span>
-            <span class="skill-pill-refined tooltip" data-tooltip="S3, EC2, Lambda, and IAM.">AWS</span>
+            <span class="skill-pill-refined">Git / GitHub</span>
+            <span class="skill-pill-refined">AWS (Cloud Practitioner)</span>
           </div>
         </div>
 
         <!-- Concepts -->
-        <div class="skill-group-card" style="background: var(--surface); border: 1px solid var(--border); padding: 40px; border-radius: 12px; transition: 0.4s ease;">
+        <div class="skill-group-card" style="background: var(--surface); border: 1px solid var(--border); padding: 40px; border-radius: 12px; transition: 0.4s ease;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
             <div style="width: 44px; height: 44px; background: rgba(30, 64, 175, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent);">
               <span class="material-symbols-outlined" style="font-size: 24px;">psychology</span>
             </div>
-            <h4 style="font-family: 'Antonio', sans-serif; font-size: 24px; text-transform: uppercase;">Core Logic</h4>
+            <h4 style="font-family: 'Antonio', sans-serif; font-size: 24px; text-transform: uppercase;">Concepts</h4>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-            <span class="skill-pill-refined tooltip" data-tooltip="Atomic operations and concurrency.">Transactions</span>
-            <span class="skill-pill-refined tooltip" data-tooltip="System design for high-traffic.">Scalability</span>
-            <span class="skill-pill-refined tooltip" data-tooltip="OO Programming.">OOP</span>
+            <span class="skill-pill-refined">MVT ARCHITECTURE</span>
+            <span class="skill-pill-refined">CRUD SYSTEMS</span>
+            <span class="skill-pill-refined">QUERY OPTIMIZATION</span>
+            <span class="skill-pill-refined">RBAC FLOW</span>
           </div>
         </div>
           <div style="display: flex; flex-wrap: wrap; gap: 12px;">
@@ -1956,51 +1959,20 @@
       box-shadow: 0 20px 40px rgba(30, 64, 175, 0.1);
     }
 
-    /* Interactive Tooltips */
-    .tooltip {
-      position: relative;
-      cursor: help;
-    }
-    .tooltip:after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: 125%;
-      left: 50%;
-      transform: translateX(-50%) translateY(10px);
-      background: var(--text);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 11px;
-      white-space: nowrap;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 100;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      font-weight: 500;
-      text-transform: none;
-      letter-spacing: 0;
-    }
-    .tooltip:hover:after {
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(0);
-    }
-
+    /* Interactive Tooltips removed as per revert request */
     .skill-pill-refined {
       background: var(--surface-mid);
       border: 1px solid var(--border);
-      padding: 10px 20px;
+      padding: clamp(8px, 1.5vw, 10px) clamp(16px, 2vw, 20px);
       border-radius: var(--radius-pill);
-      font-size: 13px;
+      font-size: clamp(11px, 1.2vw, 13px);
       font-weight: 800;
       color: var(--text);
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: var(--shadow-sm);
-      opacity: 1 !important; /* Force visible by default */
+      white-space: nowrap;
     }
     .skill-group-card:hover .skill-pill-refined {
       border-color: var(--accent);
