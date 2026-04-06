@@ -184,6 +184,16 @@
       }
     }
 
+    .section-tight-mobile {
+      padding: 64px 0;
+    }
+
+    @media (min-width: 768px) {
+      .section-tight-mobile {
+        padding: 120px 0;
+      }
+    }
+
     /* ═══════════════════════════════════════
        NEW: DESIGN SYSTEM UTILITIES
        ═══════════════════════════════════════ */
@@ -253,8 +263,8 @@
 
     .section-header-refined {
       font-family: 'Antonio', sans-serif;
-      font-size: clamp(2.5rem, 6vw, 4.2rem); /* Reduced to prevent screen-eating */
-      line-height: 1.1; /* Breathe more */
+      font-size: clamp(2rem, 5.5vw, 4rem); /* Reduced to prevent screen-eating on mobile */
+      line-height: 1.1;
       text-transform: uppercase;
       margin-top: 16px;
       color: var(--text);
@@ -409,6 +419,22 @@
       border-radius: 50px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
       transition: all 0.4s ease;
+    }
+
+    @media (max-width: 360px) {
+      #nav {
+        width: calc(100% - 24px);
+        padding: 0 16px;
+        top: 16px;
+      }
+      .nav-logo img {
+        height: 32px;
+        width: 32px;
+      }
+      .btn-pill-nav {
+        padding: 8px 16px;
+        font-size: 10px;
+      }
     }
 
     @media (min-width: 768px) {
@@ -633,15 +659,15 @@
     }
 
     .hero-role-wrapper {
-      font-size: clamp(1.4rem, 5vw, 2.8rem);
+      font-size: clamp(1.6rem, 7vw, 3.2rem); /* Adjusted for better mobile fit */
       letter-spacing: -1.5px;
       line-height: 1;
       color: var(--text);
       display: inline-block;
       min-height: 1.1em;
-      min-width: 0; /* Let it wrap on very small screens */
+      min-width: 0;
       vertical-align: middle;
-      white-space: normal; /* Allow wrap on mobile to avoid overflow */
+      white-space: normal;
       overflow: hidden;
     }
     @media (min-width: 768px) {
@@ -1653,7 +1679,7 @@
       <div class="hero-left">
         <p class="eyebrow-refined">PRANAYA KUMAR DASH</p>
         <h1 class="hero-heading-refined">
-          <span class="hero-word">I BUILD AS A</span>
+          <span class="hero-word" id="hero-prefix">I BUILD AS A</span>
           <span class="hero-role-wrapper">
             <span class="hero-role" id="hero-role">BACKEND DEV.</span><span class="type-cursor">|</span>
           </span>
@@ -1744,9 +1770,9 @@
   <!-- ═══════════════════════════════════════
        SECTION 2 — ABOUT (SAPPHIRE)
        ═══════════════════════════════════════ -->
-  <section id="about" class="section-surface" style="padding: 120px 0;">
+  <section id="about" class="section-surface section-tight-mobile">
     <div class="container">
-      <div class="about-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 80px; align-items: center;">
+      <div class="about-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(40px, 8vw, 80px); align-items: center;">
         <div class="about-image-wrapper">
           <img src="images/aboutme.png" alt="About Pranaya Kumar Dash" class="about-main-img" style="width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--border);">
         </div>
@@ -1771,7 +1797,7 @@
   <!-- ═══════════════════════════════════════
        SECTION 3 — TECHNICAL FACULTIES
        ═══════════════════════════════════════ -->
-  <section id="skills" class="section-bg" style="padding: 120px 0;">
+  <section id="skills" class="section-bg section-tight-mobile">
     <div class="container">
       <div style="margin-bottom: 80px; text-align: center;">
         <span class="eyebrow-refined">SKILLS</span>
@@ -1944,7 +1970,7 @@
   <!-- ═══════════════════════════════════════
        SECTION 4 — SERVICES
        ═══════════════════════════════════════ -->
-  <section id="services" class="section-bg" style="padding: 120px 0; border-top: 1px solid var(--border);">
+  <section id="services" class="section-bg section-tight-mobile" style="border-top: 1px solid var(--border);">
     <div class="container">
       <div style="margin-bottom: 80px; text-align: center;">
         <span class="eyebrow-refined">SOLUTIONS</span>
@@ -2018,7 +2044,7 @@
   <!-- ═══════════════════════════════════════
        SECTION 5 — EXPERIENCE TIMELINE (SAPPHIRE)
        ═══════════════════════════════════════ -->
-  <section id="experience" class="section-surface" style="padding: 120px 0; background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <section id="experience" class="section-surface section-tight-mobile" style="background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div class="container">
       <div class="experience-grid-layout" style="display: grid; grid-template-columns: 1fr; gap: 80px;">
         <!-- Sticky Sidebar -->
@@ -2645,33 +2671,46 @@
          ═══════════════════════════════════════ */
       const roles = ["BACKEND DEVELOPER.", "PYTHON DEVELOPER.", "DJANGO DEVELOPER.", "API ENGINEER."];
       const roleEl = document.getElementById('hero-role');
+      const prefixEl = document.getElementById('hero-prefix');
       let roleIdx = 0;
       let charIdx = 0;
       let deleting = false;
 
+      function updatePrefix(role) {
+        if (!prefixEl) return;
+        const firstChar = role.charAt(0).toLowerCase();
+        const isVowel = ['a', 'e', 'i', 'o', 'u'].includes(firstChar);
+        prefixEl.textContent = isVowel ? "I BUILD AS AN " : "I BUILD AS A ";
+      }
+
       function typeTransition() {
         const current = roles[roleIdx];
+
         if (!deleting) {
           charIdx++;
           roleEl.textContent = current.slice(0, charIdx);
           if (charIdx === current.length) {
             deleting = true;
-            setTimeout(typeTransition, 2500); // Wait longer on complete string
+            setTimeout(typeTransition, 2500); 
             return;
           }
-          setTimeout(typeTransition, 120); // Slightly slower typing
+          setTimeout(typeTransition, 120); 
         } else {
           charIdx--;
           roleEl.textContent = current.slice(0, charIdx);
           if (charIdx === 0) {
             deleting = false;
             roleIdx = (roleIdx + 1) % roles.length;
-            setTimeout(typeTransition, 800); // Pause before next word
+            updatePrefix(roles[roleIdx]); // Update prefix when role changes
+            setTimeout(typeTransition, 800); 
             return;
           }
-          setTimeout(typeTransition, 60); // Slightly slower deleting
+          setTimeout(typeTransition, 60); 
         }
       }
+      
+      // Initialize prefix for the first role
+      updatePrefix(roles[0]);
       setTimeout(typeTransition, 1500);
 
       /* ═══════════════════════════════════════
