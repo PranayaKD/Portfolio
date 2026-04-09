@@ -11,6 +11,19 @@
   <link rel="canonical" href="https://pranayakd.in/">
   <link rel="icon" href="images/logo.png" type="image/png">
 
+  <!-- Anti-Clickjacking Frame-Busting Script -->
+  <style id="antiClickjack">body{display:none !important;}</style>
+  <script type="text/javascript">
+    if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        if (antiClickjack) {
+            antiClickjack.parentNode.removeChild(antiClickjack);
+        }
+    } else {
+        top.location = self.location;
+    }
+  </script>
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pranayakd.in/">
@@ -55,6 +68,9 @@
 
   <!-- Devicons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  
+  <!-- Boneyard Skeleton Loader -->
+  <link rel="stylesheet" href="css/boneyard.css">
 
   <style>
     /* ═══════════════════════════════════════
@@ -3042,5 +3058,8 @@
 
     });
   </script>
+  
+  <!-- Boneyard Skeleton Library -->
+  <script src="js/boneyard.js"></script>
 </body>
 </html>
