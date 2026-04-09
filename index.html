@@ -12,7 +12,30 @@
   <link rel="icon" href="images/logo.png" type="image/png">
 
   <!-- Anti-Clickjacking Frame-Busting Script -->
-  <style id="antiClickjack">body{display:none !important;}</style>
+  <style id="antiClickjack">body{display:none !important;}
+
+    /* Enhanced Mobile-First Overrides */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px !important;
+      }
+      .glass-card {
+        padding: 24px !important;
+        height: auto !important;
+        min-height: 280px;
+      }
+      /* Reduce massive paddings on mobile */
+      div[style*="padding: 64px 48px;"],
+      div[style*="padding: 48px;"],
+      div[style*="padding: 32px 48px;"] {
+        padding: 32px 24px !important;
+      }
+      .section-header-refined {
+        font-size: clamp(2rem, 8vw, 3rem) !important;
+      }
+    }
+
+  </style>
   <script type="text/javascript">
     if (self === top) {
         var antiClickjack = document.getElementById("antiClickjack");
@@ -1647,6 +1670,29 @@
       transition: width 0.4s ease, opacity 0.4s ease;
       opacity: 0;
     }
+  
+
+    /* Enhanced Mobile-First Overrides */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px !important;
+      }
+      .glass-card {
+        padding: 24px !important;
+        height: auto !important;
+        min-height: 280px;
+      }
+      /* Reduce massive paddings on mobile */
+      div[style*="padding: 64px 48px;"],
+      div[style*="padding: 48px;"],
+      div[style*="padding: 32px 48px;"] {
+        padding: 32px 24px !important;
+      }
+      .section-header-refined {
+        font-size: clamp(2rem, 8vw, 3rem) !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1728,12 +1774,35 @@
           @media (max-width: 767px) {
             .hero-meta-refined .meta-divider { display: none; }
           }
-        </style>
+        
+
+    /* Enhanced Mobile-First Overrides */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px !important;
+      }
+      .glass-card {
+        padding: 24px !important;
+        height: auto !important;
+        min-height: 280px;
+      }
+      /* Reduce massive paddings on mobile */
+      div[style*="padding: 64px 48px;"],
+      div[style*="padding: 48px;"],
+      div[style*="padding: 32px 48px;"] {
+        padding: 32px 24px !important;
+      }
+      .section-header-refined {
+        font-size: clamp(2rem, 8vw, 3rem) !important;
+      }
+    }
+
+  </style>
 
 
         <div class="hero-btn-group">
-          <a href="images/PranayaKumarDash_Python_Backend_Developer.pdf" target="_blank" class="btn-pill btn-pill-primary" rel="noopener">View My Resume</a>
-          <a href="https://github.com/PranayaKD" target="_blank" class="social-link-lite" style="display: flex; align-items: center; gap: 8px;">
+          <a href="images/PranayaKumarDash_Python_Backend_Developer.pdf" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary" rel="noopener">View My Resume</a>
+          <a href="https://github.com/PranayaKD" target="_blank" rel="noopener noreferrer" class="social-link-lite" style="display: flex; align-items: center; gap: 8px;">
             <span class="material-symbols-outlined">code</span> GitHub
           </a>
         </div>
@@ -1751,7 +1820,30 @@
             30% { opacity: 1; transform: translate(-50%, 4px); }
             100% { opacity: 0; transform: translate(-50%, 12px); }
           }
-        </style>
+        
+
+    /* Enhanced Mobile-First Overrides */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px !important;
+      }
+      .glass-card {
+        padding: 24px !important;
+        height: auto !important;
+        min-height: 280px;
+      }
+      /* Reduce massive paddings on mobile */
+      div[style*="padding: 64px 48px;"],
+      div[style*="padding: 48px;"],
+      div[style*="padding: 32px 48px;"] {
+        padding: 32px 24px !important;
+      }
+      .section-header-refined {
+        font-size: clamp(2rem, 8vw, 3rem) !important;
+      }
+    }
+
+  </style>
       </div>
 
       <!-- Right Column — Floating Photo Card -->
@@ -1794,7 +1886,7 @@
     <div class="container">
       <div class="about-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(40px, 8vw, 80px); align-items: center;">
         <div class="about-image-wrapper">
-          <img src="images/aboutme.png" alt="About Pranaya Kumar Dash" class="about-main-img" style="width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--border);">
+          <img src="images/aboutme.png" alt="About Pranaya Kumar Dash" class="about-main-img" style="width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--border);" loading="lazy">
         </div>
         <div class="about-right" id="aboutRight">
           <span class="eyebrow-refined">ABOUT</span>
@@ -1806,7 +1898,7 @@
             MCA graduate specialising in AI and ML. I've cut DB calls by 50% on a live e-commerce platform, fixed race conditions in production with transaction.atomic(), and reduced dashboard load times by 66% through composite indexing. Currently building Cliniq.ai.
           </p>
           <div style="margin-top: 48px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center;">
-            <a href="images/PranayaKumarDash_Python_Backend_Developer.pdf" class="btn-pill btn-pill-primary" target="_blank" rel="noopener">View Resume</a>
+            <a href="images/PranayaKumarDash_Python_Backend_Developer.pdf" class="btn-pill btn-pill-primary" target="_blank" rel="noopener noreferrer" rel="noopener">View Resume</a>
             <a href="#contact" class="social-link-lite" style="border-bottom: 2px solid var(--accent); padding-bottom: 4px;">Get in touch &rarr;</a>
           </div>
         </div>
@@ -2059,6 +2151,29 @@
       background: var(--surface);
       transform: scale(1.05);
     }
+  
+
+    /* Enhanced Mobile-First Overrides */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px !important;
+      }
+      .glass-card {
+        padding: 24px !important;
+        height: auto !important;
+        min-height: 280px;
+      }
+      /* Reduce massive paddings on mobile */
+      div[style*="padding: 64px 48px;"],
+      div[style*="padding: 48px;"],
+      div[style*="padding: 32px 48px;"] {
+        padding: 32px 24px !important;
+      }
+      .section-header-refined {
+        font-size: clamp(2rem, 8vw, 3rem) !important;
+      }
+    }
+
   </style>
 
 
@@ -2113,7 +2228,7 @@
             <button onclick="openProjectModal('rentora')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
               <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
             </button>
-            <a href="https://github.com/PranayaKD/Rentora" target="_blank" class="repo-link">
+            <a href="https://github.com/PranayaKD/Rentora" target="_blank" rel="noopener noreferrer" class="repo-link">
               <span class="material-symbols-outlined">open_in_new</span>
             </a>
           </div>
@@ -2136,7 +2251,7 @@
             <button onclick="openProjectModal('drivein')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
               <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
             </button>
-            <a href="https://github.com/PranayaKD/DriveInStyle" target="_blank" class="repo-link">
+            <a href="https://github.com/PranayaKD/DriveInStyle" target="_blank" rel="noopener noreferrer" class="repo-link">
               <span class="material-symbols-outlined">open_in_new</span>
             </a>
           </div>
@@ -2159,7 +2274,7 @@
             <button onclick="openProjectModal('shopper')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
               <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
             </button>
-            <a href="https://github.com/PranayaKD/ShopperMart" target="_blank" class="repo-link">
+            <a href="https://github.com/PranayaKD/ShopperMart" target="_blank" rel="noopener noreferrer" class="repo-link">
               <span class="material-symbols-outlined">open_in_new</span>
             </a>
           </div>
@@ -2182,7 +2297,7 @@
             <button onclick="openProjectModal('taskmaster')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
               <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
             </button>
-            <a href="https://github.com/PranayaKD/TaskMaster" target="_blank" class="repo-link">
+            <a href="https://github.com/PranayaKD/TaskMaster" target="_blank" rel="noopener noreferrer" class="repo-link">
               <span class="material-symbols-outlined">open_in_new</span>
             </a>
           </div>
@@ -2205,7 +2320,7 @@
             <button onclick="openProjectModal('ai_assistant')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
               <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
             </button>
-            <a href="https://github.com/PranayaKD/AI-Assistant" target="_blank" class="repo-link">
+            <a href="https://github.com/PranayaKD/AI-Assistant" target="_blank" rel="noopener noreferrer" class="repo-link">
               <span class="material-symbols-outlined">open_in_new</span>
             </a>
           </div>
@@ -2228,7 +2343,7 @@
             <button onclick="openProjectModal('bookmarker')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
               <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
             </button>
-            <a href="https://github.com/PranayaKD/Smart-Bookmarker" target="_blank" class="repo-link">
+            <a href="https://github.com/PranayaKD/Smart-Bookmarker" target="_blank" rel="noopener noreferrer" class="repo-link">
               <span class="material-symbols-outlined">open_in_new</span>
             </a>
           </div>
@@ -2251,7 +2366,7 @@
             <button onclick="openProjectModal('jyotiksha')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
               <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
             </button>
-            <a href="https://github.com/PranayaKD/Jyotiksha-Security-Agency-Pvt.-Ltd" target="_blank" class="repo-link">
+            <a href="https://github.com/PranayaKD/Jyotiksha-Security-Agency-Pvt.-Ltd" target="_blank" rel="noopener noreferrer" class="repo-link">
               <span class="material-symbols-outlined">open_in_new</span>
             </a>
           </div>
@@ -2261,7 +2376,7 @@
 
     <!-- View More Button -->
     <div style="margin-top: 64px; text-align: center;">
-      <a href="https://github.com/PranayaKD" target="_blank" class="btn-pill btn-pill-primary" style="background: #000; padding: 16px 40px;">
+      <a href="https://github.com/PranayaKD" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary" style="background: #000; padding: 16px 40px;">
         <i class="devicon-github-original" style="font-size: 20px; margin-right: 12px;"></i>
         <span>VIEW MORE ON GITHUB</span>
       </a>
@@ -2313,7 +2428,30 @@
               }
               #timeline-experience { display: none; }
               #timeline-education, #timeline-experience { transition: opacity 0.4s ease; }
-            </style>
+            
+
+    /* Enhanced Mobile-First Overrides */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px !important;
+      }
+      .glass-card {
+        padding: 24px !important;
+        height: auto !important;
+        min-height: 280px;
+      }
+      /* Reduce massive paddings on mobile */
+      div[style*="padding: 64px 48px;"],
+      div[style*="padding: 48px;"],
+      div[style*="padding: 32px 48px;"] {
+        padding: 32px 24px !important;
+      }
+      .section-header-refined {
+        font-size: clamp(2rem, 8vw, 3rem) !important;
+      }
+    }
+
+  </style>
             <div style="display: flex; gap: 12px; margin-top: 32px;">
               <button id="btn-education" class="timeline-tab-btn active" onclick="switchTimeline('education')">Education</button>
               <button id="btn-experience" class="timeline-tab-btn" onclick="switchTimeline('experience')">Experience</button>
@@ -2481,11 +2619,11 @@
               <div style="width: 40px; height: 40px; background: var(--surface-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><span class="material-symbols-outlined" style="font-size: 20px; color: var(--accent);">mail</span></div>
               <span style="font-weight: 700; color: var(--text);">dashpranaya28@gmail.com</span>
             </a>
-            <a href="https://linkedin.com/in/pranayakd28" target="_blank" class="social-link-lite" style="display: flex; align-items: center; gap: 16px;">
+            <a href="https://linkedin.com/in/pranayakd28" target="_blank" rel="noopener noreferrer" class="social-link-lite" style="display: flex; align-items: center; gap: 16px;">
               <div style="width: 40px; height: 40px; background: var(--surface-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="devicon-linkedin-plain" style="font-size: 20px; color: #0A66C2;"></i></div>
               <span style="font-weight: 700; color: var(--text);">LinkedIn Profile</span>
             </a>
-            <a href="https://github.com/PranayaKD" target="_blank" class="social-link-lite" style="display: flex; align-items: center; gap: 16px;">
+            <a href="https://github.com/PranayaKD" target="_blank" rel="noopener noreferrer" class="social-link-lite" style="display: flex; align-items: center; gap: 16px;">
               <div style="width: 40px; height: 40px; background: var(--surface-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="devicon-github-original" style="font-size: 20px; color: var(--text);"></i></div>
               <span style="font-weight: 700; color: var(--text);">GitHub Repository</span>
             </a>
@@ -2493,7 +2631,7 @@
               <div style="width: 40px; height: 40px; background: var(--surface-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><span class="material-symbols-outlined" style="font-size: 20px; color: var(--accent);">call</span></div>
               <span style="font-weight: 700;">+91-7681806202</span>
             </a>
-            <a href="https://wa.me/917681806202" target="_blank" style="display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--text);">
+            <a href="https://wa.me/917681806202" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--text);">
               <div style="width: 40px; height: 40px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;"><span class="material-symbols-outlined" style="font-size: 20px;">chat</span></div>
               <span style="font-weight: 700;">WhatsApp Me</span>
             </a>
@@ -2564,9 +2702,9 @@
         <div>
           <h4 class="eyebrow-refined" style="color: var(--accent); margin-bottom: 24px;">Connect</h4>
           <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
-            <li><a href="https://github.com/PranayaKD" target="_blank" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><i class="devicon-github-original" style="font-size: 16px;"></i> GitHub</a></li>
-            <li><a href="https://linkedin.com/in/pranayakd28" target="_blank" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><i class="devicon-linkedin-plain" style="font-size: 16px;"></i> LinkedIn</a></li>
-            <li><a href="mailto:dashpranaya28@gmail.com" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><span class="material-symbols-outlined" style="font-size: 16px;">mail</span> Email</a></li>
+            <li><a href="https://github.com/PranayaKD" target="_blank" rel="noopener noreferrer" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><i class="devicon-github-original" style="font-size: 16px;"></i> GitHub</a></li>
+            <li><a href="https://linkedin.com/in/pranayakd28" target="_blank" rel="noopener noreferrer" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><i class="devicon-linkedin-plain" style="font-size: 16px;"></i> LinkedIn</a></li>
+            <li><a href="mailto:dashpranaya28@gmail.com" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><span class="material-symbols-outlined" style="font-size: 16px;">mail</span> Email</a> <button onclick="copyToClipboard('dashpranaya28@gmail.com', event)" style="background: none; border: none; cursor: pointer; color: var(--accent); margin-left: 8px; vertical-align: middle;" title="Copy to Clipboard"><span class="material-symbols-outlined" style="font-size: 16px;">content_copy</span></button></li>
             <li><a href="#contact" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><span class="material-symbols-outlined" style="font-size: 16px;">contact_page</span> Contact</a></li>
           </ul>
         </div>
@@ -2604,6 +2742,29 @@
     .social-link-lite:hover {
       color: var(--accent);
     }
+  
+
+    /* Enhanced Mobile-First Overrides */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px !important;
+      }
+      .glass-card {
+        padding: 24px !important;
+        height: auto !important;
+        min-height: 280px;
+      }
+      /* Reduce massive paddings on mobile */
+      div[style*="padding: 64px 48px;"],
+      div[style*="padding: 48px;"],
+      div[style*="padding: 32px 48px;"] {
+        padding: 32px 24px !important;
+      }
+      .section-header-refined {
+        font-size: clamp(2rem, 8vw, 3rem) !important;
+      }
+    }
+
   </style>
 
   <!-- Hire Me Confirmation Modal (Elite Refined) -->
@@ -3075,5 +3236,51 @@
   
   <!-- Boneyard Skeleton Library -->
   <script src="js/boneyard.js"></script>
+
+  <!-- Scroll Spy Navigation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-links a');
+      
+      const observer = new IntersectionObserver((entries) => {
+        let activeSectionId = null;
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            activeSectionId = entry.target.id;
+          }
+        });
+        
+        if (activeSectionId) {
+          navLinks.forEach(link => {
+            link.style.color = 'var(--muted)';
+            const href = link.getAttribute('href');
+            if (href && href === '#' + activeSectionId) {
+              link.style.color = 'var(--accent)';
+            }
+          });
+        }
+      }, { threshold: 0.3, rootMargin: "-100px 0px -100px 0px" });
+      
+      sections.forEach(sec => observer.observe(sec));
+    });
+  </script>
+
+
+  <!-- Click to Copy Utility -->
+  <script>
+    function copyToClipboard(text, e) {
+      if(e) e.preventDefault();
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.createElement('div');
+        toast.textContent = 'Copied to Clipboard!';
+        toast.style.cssText = 'position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--text); color: var(--bg); padding: 12px 24px; border-radius: 30px; z-index: 9999; font-family: "Archivo Narrow", sans-serif; font-weight: 700; box-shadow: 0 10px 20px rgba(0,0,0,0.15); transition: opacity 0.3s;';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.style.opacity = '0', 2000);
+        setTimeout(() => toast.remove(), 2400);
+      });
+    }
+  </script>
+
 </body>
 </html>
