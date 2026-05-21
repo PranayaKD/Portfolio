@@ -1760,7 +1760,7 @@
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-actions" style="display: flex; align-items: center; gap: 16px;">
-      <a href="#contact" class="btn-hire-nav" style="background: var(--accent); color: white; padding: 8px 20px; border-radius: 30px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase;">Hire Me</a>
+      <button onclick="openHireModalForm()" class="btn-hire-nav" style="background: var(--accent); color: white; padding: 8px 20px; border-radius: 30px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; border: none; cursor: pointer; transition: transform 0.2s, background-color 0.2s;">Hire Me</button>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -1770,12 +1770,13 @@
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#hero">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#skills">Skills</a>
-    <a href="#repositories">Projects</a>
-    <a href="#contact">Contact</a>
+    <a href="#hero" onclick="mobileMenu.classList.remove('open'); hamburger.classList.remove('active');">Home</a>
+    <a href="#about" onclick="mobileMenu.classList.remove('open'); hamburger.classList.remove('active');">About</a>
+    <a href="#services" onclick="mobileMenu.classList.remove('open'); hamburger.classList.remove('active');">Services</a>
+    <a href="#skills" onclick="mobileMenu.classList.remove('open'); hamburger.classList.remove('active');">Skills</a>
+    <a href="#repositories" onclick="mobileMenu.classList.remove('open'); hamburger.classList.remove('active');">Projects</a>
+    <a href="#contact" onclick="mobileMenu.classList.remove('open'); hamburger.classList.remove('active');">Contact</a>
+    <a href="javascript:void(0)" onclick="mobileMenu.classList.remove('open'); hamburger.classList.remove('active'); openHireModalForm();" style="display: block; background: var(--accent); color: white !important; padding: 12px 24px; border-radius: 30px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; text-align: center; margin-top: 12px; text-decoration: none;">Hire Me</a>
   </div>
 
   <!-- Project Modal -->
@@ -2856,6 +2857,91 @@
     </div>
   </div>
 
+  <!-- Hire Me Form Modal (Premium Glassmorphism) -->
+  <div id="hireMeFormModal" class="modal-overlay" style="position: fixed; inset: 0; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 2100; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease, backdrop-filter 0.4s ease;">
+    <style>
+      .hire-form-modal-input:focus {
+        border-color: var(--accent) !important;
+        box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.1);
+      }
+      .hire-form-modal-select {
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        background-size: 16px;
+      }
+      @media (max-width: 580px) {
+        .hire-form-grid-2col {
+          grid-template-columns: 1fr !important;
+        }
+        .hire-form-modal-card {
+          padding: 24px !important;
+        }
+      }
+    </style>
+    <div class="modal-card hire-form-modal-card glass-surface" style="width: 95%; max-width: 600px; max-height: 90vh; overflow-y: auto; border-radius: 24px; padding: 40px; position: relative; background: var(--surface); border: 1px solid var(--border); box-shadow: 0 50px 100px rgba(0,0,0,0.3);">
+      
+      <!-- Close button -->
+      <button onclick="closeHireModalForm()" style="position: absolute; top: 24px; right: 24px; border: none; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--surface-mid); transition: 0.3s;" onmouseover="this.style.transform='rotate(90deg)'" onmouseout="this.style.transform='rotate(0deg)'">
+        <span class="material-symbols-outlined" style="color: var(--text); font-size: 20px;">close</span>
+      </button>
+      
+      <div style="margin-bottom: 32px;">
+        <span class="eyebrow-refined" style="color: var(--accent);">COLLABORATION</span>
+        <h2 class="section-header-refined" style="font-size: 32px; margin-top: 8px; line-height: 1.1;">Let's Build<br/>Something Epic.</h2>
+        <p class="card-desc-refined" style="font-size: 15px; margin-top: 8px;">Fill in the details below, and I will get back to you within 24 hours.</p>
+      </div>
+
+      <form id="hireForm" name="hire" data-netlify="true" onsubmit="handleHireSubmit(event)" style="display: flex; flex-direction: column; gap: 20px;">
+        <input type="hidden" name="form-name" value="hire">
+        
+        <div class="form-group hire-form-grid-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div>
+            <label for="hireName" style="display: block; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 8px;">Name</label>
+            <input type="text" id="hireName" name="name" placeholder="Your Name" required class="hire-form-modal-input" style="width: 100%; background: var(--bg); border: 1px solid var(--border); padding: 14px 18px; border-radius: 12px; color: var(--text); font-family: 'Archivo Narrow', sans-serif; font-size: 15px; transition: border-color 0.3s; box-sizing: border-box;">
+          </div>
+          <div>
+            <label for="hireEmail" style="display: block; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 8px;">Email</label>
+            <input type="email" id="hireEmail" name="email" placeholder="you@example.com" required class="hire-form-modal-input" style="width: 100%; background: var(--bg); border: 1px solid var(--border); padding: 14px 18px; border-radius: 12px; color: var(--text); font-family: 'Archivo Narrow', sans-serif; font-size: 15px; transition: border-color 0.3s; box-sizing: border-box;">
+          </div>
+        </div>
+
+        <div class="form-group hire-form-grid-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div>
+            <label for="hireProjectType" style="display: block; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 8px;">Project Type</label>
+            <select id="hireProjectType" name="project_type" class="hire-form-modal-select" style="width: 100%; background: var(--bg); border: 1px solid var(--border); padding: 14px 36px 14px 18px; border-radius: 12px; color: var(--text); font-family: 'Archivo Narrow', sans-serif; font-size: 15px; transition: border-color 0.3s; cursor: pointer; outline: none; box-sizing: border-box;">
+              <option value="API Development">API Development</option>
+              <option value="Full Web App">Full Web Application</option>
+              <option value="Database Tuning">Database Tuning / Optimization</option>
+              <option value="AI Integration">AI Integration</option>
+              <option value="Other">Other Project</option>
+            </select>
+          </div>
+          <div>
+            <label for="hireBudget" style="display: block; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 8px;">Estimated Budget</label>
+            <select id="hireBudget" name="budget" class="hire-form-modal-select" style="width: 100%; background: var(--bg); border: 1px solid var(--border); padding: 14px 36px 14px 18px; border-radius: 12px; color: var(--text); font-family: 'Archivo Narrow', sans-serif; font-size: 15px; transition: border-color 0.3s; cursor: pointer; outline: none; box-sizing: border-box;">
+              <option value="<$1k">Under $1,000</option>
+              <option value="$1k-$5k">$1,000 - $5,000</option>
+              <option value="$5k-$10k">$5,000 - $10,000</option>
+              <option value="$10k+">$10,000+</option>
+              <option value="TBD">To Be Discussed</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="hireMessage" style="display: block; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 8px;">Project Details</label>
+          <textarea id="hireMessage" name="message" placeholder="Briefly describe the challenge or scope of your project..." required rows="4" class="hire-form-modal-input" style="width: 100%; background: var(--bg); border: 1px solid var(--border); padding: 14px 18px; border-radius: 12px; color: var(--text); font-family: 'Archivo Narrow', sans-serif; font-size: 15px; resize: none; transition: border-color 0.3s; box-sizing: border-box;"></textarea>
+        </div>
+
+        <button type="submit" class="btn-pill btn-pill-primary" style="padding: 16px; font-size: 14px; font-weight: 700; width: 100%; justify-content: center; letter-spacing: 1px; border: none; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+          Send Proposal &rarr;
+        </button>
+      </form>
+    </div>
+  </div>
+
   <script>
     function copyEmailToClipboard() {
       const email = "dashpranaya28@gmail.com";
@@ -3043,6 +3129,7 @@
          7. HIRE MODAL LOGIC
          ═══════════════════════════════════════ */
       const hireModal = document.getElementById('hireModal');
+      const hireMeFormModal = document.getElementById('hireMeFormModal');
       
       window.openHireModal = function() {
         hireModal.style.display = 'flex';
@@ -3055,6 +3142,70 @@
         setTimeout(() => { hireModal.style.display = 'none'; }, 400);
         lenis.start();
       }
+
+      window.openHireModalForm = function() {
+        hireMeFormModal.style.display = 'flex';
+        setTimeout(() => { hireMeFormModal.style.opacity = '1'; }, 10);
+        lenis.stop();
+      };
+
+      window.closeHireModalForm = function() {
+        hireMeFormModal.style.opacity = '0';
+        setTimeout(() => { hireMeFormModal.style.display = 'none'; }, 400);
+        lenis.start();
+      };
+
+      // Close on modal overlay click
+      hireMeFormModal.addEventListener('click', (e) => {
+        if(e.target === hireMeFormModal) closeHireModalForm();
+      });
+
+      // Submit handler for Hire Form
+      window.handleHireSubmit = async function(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('button');
+        const originalText = btn.textContent;
+        
+        btn.textContent = "TRANSMITTING PROPOSAL...";
+        btn.disabled = true;
+
+        const bodyData = new URLSearchParams({
+          "form-name": "hire",
+          "name": document.getElementById('hireName').value,
+          "email": document.getElementById('hireEmail').value,
+          "project_type": document.getElementById('hireProjectType').value,
+          "budget": document.getElementById('hireBudget').value,
+          "message": document.getElementById('hireMessage').value
+        });
+
+        try {
+          const response = await fetch("/", {
+            method: "POST",
+            headers: { 
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: bodyData.toString()
+          });
+
+          if (!response.ok) throw new Error("Transmission failed");
+          
+          btn.textContent = "PROPOSAL TRANSMITTED ✓";
+          btn.style.background = "#10B981"; // Success green state
+          e.target.reset();
+          
+          setTimeout(() => { 
+            closeHireModalForm();
+            window.openHireModal(); // Open success screen
+            btn.textContent = originalText;
+            btn.disabled = false;
+            btn.style.background = "var(--accent)";
+          }, 1200);
+          
+        } catch (err) {
+          btn.textContent = "FAILED — TRY EMAIL DIRECTLY";
+          setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 3000);
+        }
+      };
 
     
 
@@ -3248,7 +3399,11 @@
 
       // Close on ESC
       window.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape') closeProjectModal();
+        if(e.key === 'Escape') {
+          closeProjectModal();
+          closeHireModalForm();
+          closeHireModal();
+        }
       });
 
       /* ═══════════════════════════════════════
