@@ -1,0 +1,2 @@
+# Keep large original backup images out of the repository
+images/*_original.png
