@@ -1737,6 +1737,25 @@
       .section-header-refined {
         font-size: clamp(2rem, 8vw, 3rem) !important;
       }
+      
+      /* Responsive Modals Overrides */
+      .modal-overlay, .project-modal {
+        padding: 16px 12px !important;
+        align-items: flex-start !important; /* Align to top on mobile so scrolling works cleanly */
+      }
+      .modal-card, .modal-content, .hire-form-modal-card {
+        max-height: none !important;
+        margin: 24px auto !important;
+        padding: 32px 20px !important;
+      }
+      .modal-card button[onclick*="close"],
+      .modal-content button[onclick*="close"] {
+        top: 16px !important;
+        right: 16px !important;
+      }
+      .modal-card h2, .modal-content h2, .hire-form-modal-card h2 {
+        padding-right: 40px !important; /* Leave space for close button */
+      }
     }
 
   </style>
@@ -1780,8 +1799,8 @@
   </div>
 
   <!-- Project Modal -->
-  <div id="projectModal" class="project-modal" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); z-index: 2000; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity 0.4s ease;">
-    <div class="modal-card glass-surface" style="width: 100%; max-width: 800px; max-height: 90vh; overflow-y: auto; border-radius: 24px; padding: 48px; position: relative; background: var(--surface);">
+  <div id="projectModal" class="project-modal" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); z-index: 2000; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity 0.4s ease; overflow-y: auto;">
+    <div class="modal-card glass-surface" style="width: 100%; max-width: 800px; max-height: 90vh; overflow-y: auto; border-radius: 24px; padding: 48px; position: relative; background: var(--surface); margin: auto;">
       <button onclick="closeProjectModal()" style="position: absolute; top: 24px; right: 24px; background: none; border: none; font-size: 32px; color: var(--muted); cursor: pointer;">&times;</button>
       <div id="modalContent"></div>
     </div>
@@ -2752,7 +2771,7 @@
           <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
             <li><a href="https://github.com/PranayaKD" target="_blank" rel="noopener noreferrer" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><i class="devicon-github-original" style="font-size: 16px;"></i> GitHub</a></li>
             <li><a href="https://linkedin.com/in/pranayakd28" target="_blank" rel="noopener noreferrer" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><i class="devicon-linkedin-plain" style="font-size: 16px;"></i> LinkedIn</a></li>
-            <li><a href="mailto:dashpranaya28@gmail.com" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><span class="material-symbols-outlined" style="font-size: 16px;">mail</span> Email</a> <button onclick="copyToClipboard('dashpranaya28@gmail.com', event)" style="background: none; border: none; cursor: pointer; color: var(--accent); margin-left: 8px; vertical-align: middle;" title="Copy to Clipboard"><span class="material-symbols-outlined" style="font-size: 16px;">content_copy</span></button></li>
+            <li style="display: flex; align-items: center; gap: 8px;"><a href="mailto:dashpranaya28@gmail.com" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><span class="material-symbols-outlined" style="font-size: 16px;">mail</span> Email</a> <button onclick="copyToClipboard('dashpranaya28@gmail.com', event)" style="background: none; border: none; cursor: pointer; color: var(--accent); display: flex; align-items: center; justify-content: center; padding: 4px;" title="Copy to Clipboard"><span class="material-symbols-outlined" style="font-size: 16px;">content_copy</span></button></li>
             <li><a href="#contact" class="social-link-lite" style="display: flex; align-items: center; gap: 10px;"><span class="material-symbols-outlined" style="font-size: 16px;">contact_page</span> Contact</a></li>
           </ul>
         </div>
@@ -2816,8 +2835,8 @@
   </style>
 
   <!-- Hire Me Confirmation Modal (Elite Refined) -->
-  <div id="hireModal" class="modal-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(16px); z-index: 1000; display: none; align-items: center; justify-content: center; opacity: 0; transition: 0.4s ease;">
-    <div class="modal-content" style="background: var(--bg); width: 95%; max-width: 900px; max-height: 95vh; overflow-y: auto; border-radius: 20px; display: flex; flex-direction: column; border: 1px solid var(--border); box-shadow: 0 40px 100px rgba(0,0,0,0.5);">
+  <div id="hireModal" class="modal-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(16px); z-index: 1000; display: none; align-items: center; justify-content: center; opacity: 0; transition: 0.4s ease; overflow-y: auto; padding: 20px; box-sizing: border-box;">
+    <div class="modal-content" style="background: var(--bg); width: 95%; max-width: 900px; max-height: 95vh; overflow-y: auto; border-radius: 20px; display: flex; flex-direction: column; border: 1px solid var(--border); box-shadow: 0 40px 100px rgba(0,0,0,0.5); margin: auto;">
       <div class="modal-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));">
         <!-- Visual Side -->
         <div class="modal-left" style="background: var(--accent); padding: 64px 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: white;">
@@ -2858,7 +2877,7 @@
   </div>
 
   <!-- Hire Me Form Modal (Premium Glassmorphism) -->
-  <div id="hireMeFormModal" class="modal-overlay" style="position: fixed; inset: 0; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 2100; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease, backdrop-filter 0.4s ease;">
+  <div id="hireMeFormModal" class="modal-overlay" style="position: fixed; inset: 0; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 2100; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease, backdrop-filter 0.4s ease; overflow-y: auto; padding: 20px; box-sizing: border-box;">
     <style>
       .hire-form-modal-input:focus {
         border-color: var(--accent) !important;
@@ -2880,7 +2899,7 @@
         }
       }
     </style>
-    <div class="modal-card hire-form-modal-card glass-surface" style="width: 95%; max-width: 600px; max-height: 90vh; overflow-y: auto; border-radius: 24px; padding: 40px; position: relative; background: var(--surface); border: 1px solid var(--border); box-shadow: 0 50px 100px rgba(0,0,0,0.3);">
+    <div class="modal-card hire-form-modal-card glass-surface" style="width: 95%; max-width: 600px; max-height: 90vh; overflow-y: auto; border-radius: 24px; padding: 40px; position: relative; background: var(--surface); border: 1px solid var(--border); box-shadow: 0 50px 100px rgba(0,0,0,0.3); margin: auto;">
       
       <!-- Close button -->
       <button onclick="closeHireModalForm()" style="position: absolute; top: 24px; right: 24px; border: none; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--surface-mid); transition: 0.3s;" onmouseover="this.style.transform='rotate(90deg)'" onmouseout="this.style.transform='rotate(0deg)'">
