@@ -2261,24 +2261,48 @@
         <div class="repo-card-content">
           <div class="repo-meta-top">
             <span class="repo-tag-refined">Python / Django / OpenAI</span>
+            <i class="devicon-github-original"></i>
           </div>
           <h3 class="card-title-refined">Cliniq.ai</h3>
           <p class="card-desc-refined">AI-driven SaaS platform for healthcare management, optimizing clinic workflows and patient data processing.</p>
         </div>
         <div class="repo-card-footer">
-          <span class="repo-status" style="color: #F59E0B;">Coming Soon</span>
+          <span class="repo-status" style="color: #10B981;">Ready for Deployment</span>
           <div style="display: flex; gap: 12px; align-items: center;">
             <button onclick="openProjectModal('cliniq')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
               <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
             </button>
-            <a href="#contact" class="repo-link">
-              <span class="material-symbols-outlined">more_horiz</span>
+            <a href="https://github.com/PranayaKD/cliniqai" target="_blank" rel="noopener noreferrer" class="repo-link">
+              <span class="material-symbols-outlined">open_in_new</span>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Repo 1: Rentora -->
+      <!-- Repo 1: Trimrr -->
+      <div class="repo-card glass-card glass-surface glass-surface-hover">
+        <div class="repo-card-content">
+          <div class="repo-meta-top">
+            <span class="repo-tag-refined">Django / HTMX / Razorpay</span>
+            <i class="devicon-github-original"></i>
+          </div>
+          <h3 class="card-title-refined">Trimrr</h3>
+          <p class="card-desc-refined">Premium URL shortener SaaS with real-time tracking analytics, custom aliases, dynamic QR codes, and integrated Razorpay subscriptions.</p>
+        </div>
+        <div class="repo-card-footer">
+          <span class="repo-status" style="color: #10B981;">Ready for Deployment</span>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <button onclick="openProjectModal('trimrr')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
+              <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
+            </button>
+            <a href="https://github.com/PranayaKD/trimrr" target="_blank" rel="noopener noreferrer" class="repo-link">
+              <span class="material-symbols-outlined">open_in_new</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Repo 2: Rentora -->
       <div class="repo-card glass-card glass-surface glass-surface-hover">
         <div class="repo-card-content">
           <div class="repo-meta-top">
@@ -2301,7 +2325,7 @@
         </div>
       </div>
 
-      <!-- Repo 2: Drive In Style -->
+      <!-- Repo 3: Drive In Style -->
       <div class="repo-card glass-card glass-surface glass-surface-hover">
         <div class="repo-card-content">
           <div class="repo-meta-top">
@@ -2324,12 +2348,12 @@
         </div>
       </div>
 
-      <!-- Repo 3: ShopperMart -->
+      <!-- Repo 4: ShopperMart -->
       <div class="repo-card glass-card glass-surface glass-surface-hover">
         <div class="repo-card-content">
           <div class="repo-meta-top">
             <span class="repo-tag-refined">Django / E-commerce</span>
-            <span class="material-symbols-outlined" style="font-size: 24px; color: var(--accent);">shopping_cart</span>
+            <i class="devicon-github-original"></i>
           </div>
           <h3 class="card-title-refined">ShopperMart</h3>
           <p class="card-desc-refined">Full-stack e-commerce platform. Achieved 50% reduction in DB calls via query optimisation for high-traffic environments.</p>
@@ -2347,28 +2371,7 @@
         </div>
       </div>
 
-      <!-- Repo 4: TaskMaster -->
-      <div class="repo-card glass-card glass-surface glass-surface-hover">
-        <div class="repo-card-content">
-          <div class="repo-meta-top">
-            <span class="repo-tag-refined">Django / Task Management</span>
-            <span class="material-symbols-outlined" style="font-size: 24px; color: var(--accent);">task_alt</span>
-          </div>
-          <h3 class="card-title-refined">TaskMaster</h3>
-          <p class="card-desc-refined">Performance-focused task management. Achieved 66% faster dashboard loads via composite indexing.</p>
-        </div>
-        <div class="repo-card-footer">
-          <span class="repo-status">Live</span>
-          <div style="display: flex; gap: 12px; align-items: center;">
-            <button onclick="openProjectModal('taskmaster')" class="repo-link" style="background: none; border: none; cursor: pointer; padding: 0;">
-              <span class="material-symbols-outlined" style="font-size: 20px;">info</span>
-            </button>
-            <a href="https://github.com/PranayaKD/TaskMaster" target="_blank" rel="noopener noreferrer" class="repo-link">
-              <span class="material-symbols-outlined">open_in_new</span>
-            </a>
-          </div>
-        </div>
-      </div>
+
 
       <!-- Repo 5: AI Assistant -->
       <div class="repo-card glass-card glass-surface glass-surface-hover">
@@ -3324,6 +3327,13 @@
           solution: "Built an AI-driven management platform that uses LLMs to automate patient triaging and optimizes scheduling using custom Django middleware.",
           impact: "Streamlined clinic operations by 40% in internal tests and reduced data entry time significantly."
         },
+        trimrr: {
+          title: "Trimrr",
+          tags: ["Django", "HTMX", "Razorpay"],
+          challenge: "Building a premium URL shortener that goes beyond basic link shortening with enterprise-grade analytics and monetization.",
+          solution: "Engineered a full SaaS with real-time click tracking, custom aliases, dynamic QR codes, Razorpay subscription billing, and automated malicious link filtering using Celery/Redis background queues.",
+          impact: "Enterprise-level link management with sub-200ms redirect times and self-healing background task queues."
+        },
         rentora: {
           title: "Rentora",
           tags: ["Django", "PostgreSQL", "KYC"],
@@ -3344,13 +3354,6 @@
           challenge: "N+1 query problems causing 3s+ load times on high-traffic product listings.",
           solution: "Optimized ORM calls using select_related and prefetch_related; implemented composite indexing on frequently queried fields.",
           impact: "50% reduction in DB calls; load times dropped from 3.2s to 0.8s."
-        },
-        taskmaster: {
-          title: "TaskMaster",
-          tags: ["Django", "PostgreSQL", "Efficiency"],
-          challenge: "Slow dashboard rendering when users had hundreds of active tasks.",
-          solution: "Implemented database-level aggregation and composite indexing. Added Redis caching for frequent dashboard metrics.",
-          impact: "66% faster dashboard load times; reduced CPU usage on the RDS instance significantly."
         },
         ai_assistant: {
           title: "AI Assistant",
