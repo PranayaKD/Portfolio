@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cliniq.ai — AI-Driven Healthcare SaaS by Pranaya Kumar Dash</title>
+<meta name="description" content="Cliniq.ai is an AI-driven SaaS platform for healthcare management built by Pranaya Kumar Dash (pranayakd) using Django and OpenAI, optimizing clinic workflows and patient data processing.">
+<link rel="canonical" href="https://www.pranayakd.in/projects/cliniq-ai.html">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Pranaya Kumar Dash (pranayakd)">
+<link rel="icon" href="/images/logo.webp" type="image/webp">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.pranayakd.in/projects/cliniq-ai.html">
+<meta property="og:title" content="Cliniq.ai — AI-Driven Healthcare SaaS by Pranaya Kumar Dash">
+<meta property="og:description" content="Django + OpenAI healthcare management platform automating clinic workflows and patient triaging.">
+<meta property="og:image" content="https://www.pranayakd.in/images/aboutme.webp">
+<meta property="og:site_name" content="pranayakd — Portfolio">
+<meta property="og:locale" content="en_IN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cliniq.ai — AI-Driven Healthcare SaaS by Pranaya Kumar Dash">
+<meta name="twitter:description" content="Django + OpenAI healthcare management platform automating clinic workflows and patient triaging.">
+<meta name="twitter:image" content="https://www.pranayakd.in/images/aboutme.webp">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@graph": [
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://www.pranayakd.in/projects/cliniq-ai.html#project",
+      "name": "Cliniq.ai",
+      "description": "AI-driven SaaS platform for healthcare management, optimizing clinic workflows and patient data processing.",
+      "programmingLanguage": ["Python", "Django"],
+      "codeRepository": "https://github.com/PranayaKD/cliniqai",
+      "author": { "@id": "https://www.pranayakd.in/#person" },
+      "url": "https://www.pranayakd.in/projects/cliniq-ai.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pranayakd.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://www.pranayakd.in/#repositories" },
+        { "@type": "ListItem", "position": 3, "name": "Cliniq.ai", "item": "https://www.pranayakd.in/projects/cliniq-ai.html" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+<style>
+  :root {
+    --bg: #F8FAFC; --surface: #FFFFFF; --surface-mid: #F1F5F9;
+    --accent: #1E40AF; --accent-soft: rgba(30,64,175,0.1);
+    --text: #0F172A; --muted: #475569; --border: #E2E8F0;
+    --radius-card: 16px; --radius-pill: 50px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 16px; line-height: 1.7;
+    color: var(--text); background: var(--bg);
+  }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  nav { padding: 32px 0; border-bottom: 1px solid var(--border); }
+  nav a {
+    font-weight: 700; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--accent);
+  }
+  main { padding: 64px 0; }
+  .eyebrow {
+    font-weight: 700; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 3px; color: var(--accent); display: block; margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Antonio', sans-serif; font-weight: 700; text-transform: uppercase;
+    font-size: clamp(2.2rem, 6vw, 3.5rem); line-height: 1; color: var(--text); margin-bottom: 32px;
+  }
+  h2 {
+    font-family: 'Antonio', sans-serif; font-weight: 700; text-transform: uppercase;
+    font-size: 22px; color: var(--accent); margin-top: 40px; margin-bottom: 12px;
+  }
+  p { color: var(--muted); margin-bottom: 8px; }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+  .tag {
+    border: 1px solid var(--border); border-radius: var(--radius-pill);
+    padding: 6px 16px; font-size: 12px; font-weight: 700; color: var(--text);
+  }
+  .impact-box {
+    margin-top: 40px; padding: 24px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: var(--radius-card);
+  }
+  .impact-box p { color: var(--text); font-weight: 700; }
+  .links { margin-top: 48px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 28px; border-radius: var(--radius-pill);
+    font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .btn-primary { background: var(--accent); color: white; }
+  .btn-secondary { border: 1px solid var(--text); color: var(--text); }
+  footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 64px; }
+  footer p { font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+  <nav><div class="container"><a href="/">&larr; Back to Pranaya Kumar Dash's Portfolio</a></div></nav>
+
+  <main class="container">
+    <span class="eyebrow">Python &middot; Django &middot; OpenAI</span>
+    <h1>Cliniq.ai — AI-Driven Healthcare SaaS</h1>
+
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">Django</span>
+      <span class="tag">OpenAI</span>
+    </div>
+
+    <h2>The Challenge</h2>
+    <p>Managing irregular clinic workflows and slow, manual patient data processing in traditional healthcare management systems.</p>
+
+    <h2>The Solution</h2>
+    <p>Built an AI-driven management platform that uses large language models to automate patient triaging and optimizes appointment scheduling through custom Django middleware, reducing the manual overhead on front-desk and clinical staff.</p>
+
+    <h2>Tech Stack</h2>
+    <p>Django provides the backend application and data layer, with the OpenAI API integrated for triage automation and intelligent scheduling suggestions, wired through custom middleware that keeps AI calls out of the request-critical path.</p>
+
+    <div class="impact-box">
+      <h2 style="margin-top:0;">Key Impact</h2>
+      <p>Streamlined clinic operations by 40% in internal tests, with a significant reduction in manual data entry time.</p>
+    </div>
+
+    <div class="links">
+      <a href="https://github.com/PranayaKD/cliniqai" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        <i class="devicon-github-original"></i> View on GitHub
+      </a>
+      <a href="/#repositories" class="btn btn-secondary">See More Projects</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Built by <a href="/" style="color: var(--accent); font-weight: 700;">Pranaya Kumar Dash (pranayakd)</a> — Python &amp; Django Backend Developer, Bengaluru, India.</p>
+    </div>
+  </footer>
+</body>
+</html>

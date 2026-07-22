@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drive In Style — Luxury Car Booking Platform by Pranaya Kumar Dash</title>
+<meta name="description" content="Drive In Style is a premium luxury car booking ecosystem built by Pranaya Kumar Dash (pranayakd) using Django and Stripe, with race-condition-free concurrent booking via transaction.atomic().">
+<link rel="canonical" href="https://www.pranayakd.in/projects/drive-in-style.html">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Pranaya Kumar Dash (pranayakd)">
+<link rel="icon" href="/images/logo.webp" type="image/webp">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.pranayakd.in/projects/drive-in-style.html">
+<meta property="og:title" content="Drive In Style — Luxury Car Booking Platform by Pranaya Kumar Dash">
+<meta property="og:description" content="Django + Stripe + Redis luxury car booking ecosystem with race-condition-free concurrent bookings.">
+<meta property="og:image" content="https://www.pranayakd.in/images/aboutme.webp">
+<meta property="og:site_name" content="pranayakd — Portfolio">
+<meta property="og:locale" content="en_IN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Drive In Style — Luxury Car Booking Platform by Pranaya Kumar Dash">
+<meta name="twitter:description" content="Django + Stripe + Redis luxury car booking ecosystem with race-condition-free concurrent bookings.">
+<meta name="twitter:image" content="https://www.pranayakd.in/images/aboutme.webp">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@graph": [
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://www.pranayakd.in/projects/drive-in-style.html#project",
+      "name": "Drive In Style",
+      "description": "Premium luxury car booking ecosystem. Race condition eliminated with transaction.atomic() during concurrent booking windows.",
+      "programmingLanguage": ["Python", "Django"],
+      "codeRepository": "https://github.com/PranayaKD/DriveInStyle",
+      "author": { "@id": "https://www.pranayakd.in/#person" },
+      "url": "https://www.pranayakd.in/projects/drive-in-style.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pranayakd.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://www.pranayakd.in/#repositories" },
+        { "@type": "ListItem", "position": 3, "name": "Drive In Style", "item": "https://www.pranayakd.in/projects/drive-in-style.html" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+<style>
+  :root {
+    --bg: #F8FAFC; --surface: #FFFFFF; --surface-mid: #F1F5F9;
+    --accent: #1E40AF; --accent-soft: rgba(30,64,175,0.1);
+    --text: #0F172A; --muted: #475569; --border: #E2E8F0;
+    --radius-card: 16px; --radius-pill: 50px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 16px; line-height: 1.7;
+    color: var(--text); background: var(--bg);
+  }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  nav { padding: 32px 0; border-bottom: 1px solid var(--border); }
+  nav a {
+    font-weight: 700; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--accent);
+  }
+  main { padding: 64px 0; }
+  .eyebrow {
+    font-weight: 700; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 3px; color: var(--accent); display: block; margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Antonio', sans-serif; font-weight: 700; text-transform: uppercase;
+    font-size: clamp(2.2rem, 6vw, 3.5rem); line-height: 1; color: var(--text); margin-bottom: 32px;
+  }
+  h2 {
+    font-family: 'Antonio', sans-serif; font-weight: 700; text-transform: uppercase;
+    font-size: 22px; color: var(--accent); margin-top: 40px; margin-bottom: 12px;
+  }
+  p { color: var(--muted); margin-bottom: 8px; }
+  code {
+    background: var(--surface-mid); border: 1px solid var(--border);
+    padding: 2px 6px; border-radius: 4px; font-size: 14px;
+  }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+  .tag {
+    border: 1px solid var(--border); border-radius: var(--radius-pill);
+    padding: 6px 16px; font-size: 12px; font-weight: 700; color: var(--text);
+  }
+  .impact-box {
+    margin-top: 40px; padding: 24px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: var(--radius-card);
+  }
+  .impact-box p { color: var(--text); font-weight: 700; }
+  .links { margin-top: 48px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 28px; border-radius: var(--radius-pill);
+    font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .btn-primary { background: var(--accent); color: white; }
+  .btn-secondary { border: 1px solid var(--text); color: var(--text); }
+  footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 64px; }
+  footer p { font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+  <nav><div class="container"><a href="/">&larr; Back to Pranaya Kumar Dash's Portfolio</a></div></nav>
+
+  <main class="container">
+    <span class="eyebrow">Python &middot; Django &middot; Stripe &middot; Redis</span>
+    <h1>Drive In Style — Luxury Car Booking Platform</h1>
+
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">Django</span>
+      <span class="tag">Stripe</span>
+      <span class="tag">Redis</span>
+    </div>
+
+    <h2>The Challenge</h2>
+    <p>Preventing double-bookings in a high-demand luxury car rental marketplace, where two customers requesting the same vehicle in the same window is a real and costly risk.</p>
+
+    <h2>The Solution</h2>
+    <p>Implemented <code>transaction.atomic()</code> with <code>select_for_update</code> at the database layer, combined with a Redis-based locking mechanism during the 15-minute booking confirmation window, so a vehicle can never be reserved twice simultaneously.</p>
+
+    <h2>Tech Stack</h2>
+    <p>Django handles the booking and inventory logic, Stripe processes secure payments for reservations, and Redis provides the short-lived distributed lock that closes the race-condition window between "browsing" and "confirmed booking."</p>
+
+    <div class="impact-box">
+      <h2 style="margin-top:0;">Key Impact</h2>
+      <p>Zero double-bookings recorded in the production environment, with a 99% booking success rate.</p>
+    </div>
+
+    <div class="links">
+      <a href="https://github.com/PranayaKD/DriveInStyle" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        <i class="devicon-github-original"></i> View on GitHub
+      </a>
+      <a href="/#repositories" class="btn btn-secondary">See More Projects</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Built by <a href="/" style="color: var(--accent); font-weight: 700;">Pranaya Kumar Dash (pranayakd)</a> — Python &amp; Django Backend Developer, Bengaluru, India.</p>
+    </div>
+  </footer>
+</body>
+</html>
