@@ -2070,16 +2070,16 @@
             width="1000" height="1250">
         </div>
         <div class="about-right" id="aboutRight">
-          <span class="eyebrow-refined">ABOUT</span>
+          <span class="eyebrow-refined">ABOUT ME</span>
           <h2 class="section-header-refined">
-            I build systems that scale.<br>
-            Not just code that runs.
+            Python &amp; Django Backend Engineer.<br>
+            Building High-Throughput APIs &amp; Scalable Systems.
           </h2>
-          <p class="card-desc-refined" style="font-size: 18px; margin-top: 24px;">
-            Hi, I'm Pranaya Kumar Dash (widely known online as <strong>Pranaya KD</strong> or
-            <strong>pranayakd</strong>). I am an MCA graduate specializing in AI and ML. I've cut DB calls by 50% on a
-            live e-commerce platform, fixed race conditions in production with transaction.atomic(), and reduced
-            dashboard load times by 66% through composite indexing. Currently building Cliniq.ai.
+          <p class="card-desc-refined" style="font-size: 18px; margin-top: 24px; line-height: 1.8;">
+            Hi, I'm <strong>Pranaya Kumar Dash</strong> (widely known online as <strong>Pranaya KD</strong> / <strong>pranayakd</strong>), a dedicated <strong>Python &amp; Django Backend Developer</strong> based in Bengaluru, India. I specialize in designing scalable RESTful APIs, optimizing heavy database query engines, and engineering asynchronous background processing systems.
+          </p>
+          <p class="card-desc-refined" style="font-size: 16px; margin-top: 16px; line-height: 1.7; color: var(--muted);">
+            With deep expertise in <strong>Python, Django, PostgreSQL, Redis, and Celery</strong>, I focus on system reliability and speed — from eliminating production race conditions with <code>transaction.atomic()</code> to reducing DB query payloads by 50% through ORM optimization and strategic indexing. Currently building healthcare AI backend infrastructure at <strong>Cliniq.ai</strong>.
           </p>
           <div style="margin-top: 48px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center;">
             <a href="images/PranayaKumarDash_Python_Backend_Developer.pdf" class="btn-pill btn-pill-primary"
@@ -3542,9 +3542,13 @@
       const coreGroup = new THREE.Group();
       coreGroup.scale.set(0.65, 0.65, 0.65); // Scale down 3D core object to perfect compact proportion
       
-      // Shift core group slightly to the right side of the screen on desktop
-      if (window.innerWidth > 768) {
-        coreGroup.position.x = 2.0;
+      // Shift core group further to the right side of the screen on desktop
+      if (window.innerWidth > 1200) {
+        coreGroup.position.x = 3.3;
+      } else if (window.innerWidth > 768) {
+        coreGroup.position.x = 2.2;
+      } else {
+        coreGroup.position.x = 0;
       }
       scene.add(coreGroup);
 
@@ -3646,10 +3650,12 @@
         camera.updateProjectionMatrix();
         renderer.setSize(width, height);
 
-        if (window.innerWidth <= 768) {
-          coreGroup.position.x = 0;
+        if (window.innerWidth > 1200) {
+          coreGroup.position.x = 3.3;
+        } else if (window.innerWidth > 768) {
+          coreGroup.position.x = 2.2;
         } else {
-          coreGroup.position.x = 2.0;
+          coreGroup.position.x = 0;
         }
       }
       window.addEventListener('resize', onWindowResize);
