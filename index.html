@@ -2323,7 +2323,7 @@
             and patient data processing.</p>
         </div>
         <div class="repo-card-footer">
-          <a href="/projects/cliniq-ai.html" class="repo-case-study-link">Read Case Study &rarr;</a>
+          <a href="projects/cliniq-ai.html" class="repo-case-study-link">Read Case Study &rarr;</a>
           <div class="repo-card-footer-row">
             <span class="repo-status" style="color: #10B981;">Ready for Deployment</span>
             <div style="display: flex; gap: 12px; align-items: center;">
@@ -2352,7 +2352,7 @@
             dynamic QR codes, and integrated Razorpay subscriptions.</p>
         </div>
         <div class="repo-card-footer">
-          <a href="/projects/trimrr.html" class="repo-case-study-link">Read Case Study &rarr;</a>
+          <a href="projects/trimrr.html" class="repo-case-study-link">Read Case Study &rarr;</a>
           <div class="repo-card-footer-row">
             <span class="repo-status" style="color: #10B981;">Ready for Deployment</span>
             <div style="display: flex; gap: 12px; align-items: center;">
@@ -2380,7 +2380,7 @@
             verified peer renters under secure KYC flows.</p>
         </div>
         <div class="repo-card-footer">
-          <a href="/projects/rentora.html" class="repo-case-study-link">Read Case Study &rarr;</a>
+          <a href="projects/rentora.html" class="repo-case-study-link">Read Case Study &rarr;</a>
           <div class="repo-card-footer-row">
             <span class="repo-status">Active Development</span>
             <div style="display: flex; gap: 12px; align-items: center;">
@@ -2409,7 +2409,7 @@
             transaction.atomic() during concurrent booking windows.</p>
         </div>
         <div class="repo-card-footer">
-          <a href="/projects/drive-in-style.html" class="repo-case-study-link">Read Case Study &rarr;</a>
+          <a href="projects/drive-in-style.html" class="repo-case-study-link">Read Case Study &rarr;</a>
           <div class="repo-card-footer-row">
             <span class="repo-status">Active Development</span>
             <div style="display: flex; gap: 12px; align-items: center;">
@@ -2438,7 +2438,7 @@
             optimisation for high-traffic environments.</p>
         </div>
         <div class="repo-card-footer">
-          <a href="/projects/shoppermart.html" class="repo-case-study-link">Read Case Study &rarr;</a>
+          <a href="projects/shoppermart.html" class="repo-case-study-link">Read Case Study &rarr;</a>
           <div class="repo-card-footer-row">
             <span class="repo-status">In Deployment</span>
             <div style="display: flex; gap: 12px; align-items: center;">
@@ -2467,7 +2467,7 @@
             query resolution using advanced LLMs.</p>
         </div>
         <div class="repo-card-footer">
-          <a href="/projects/ai-assistant.html" class="repo-case-study-link">Read Case Study &rarr;</a>
+          <a href="projects/ai-assistant.html" class="repo-case-study-link">Read Case Study &rarr;</a>
           <div class="repo-card-footer-row">
             <span class="repo-status">Production Ready</span>
             <div style="display: flex; gap: 12px; align-items: center;">
@@ -2496,7 +2496,7 @@
             enhancing daily browsing productivity.</p>
         </div>
         <div class="repo-card-footer">
-          <a href="/projects/smart-bookmarker.html" class="repo-case-study-link">Read Case Study &rarr;</a>
+          <a href="projects/smart-bookmarker.html" class="repo-case-study-link">Read Case Study &rarr;</a>
           <div class="repo-card-footer-row">
             <span class="repo-status">Active</span>
             <div style="display: flex; gap: 12px; align-items: center;">
@@ -2525,7 +2525,7 @@
             inquiry management for private security services.</p>
         </div>
         <div class="repo-card-footer">
-          <a href="/projects/jyotiksha-security.html" class="repo-case-study-link">Read Case Study &rarr;</a>
+          <a href="projects/jyotiksha-security.html" class="repo-case-study-link">Read Case Study &rarr;</a>
           <div class="repo-card-footer-row">
             <span class="repo-status">Completed</span>
             <div style="display: flex; gap: 12px; align-items: center;">
@@ -3378,6 +3378,7 @@
       const projectData = {
         cliniq: {
           title: "Cliniq.ai",
+          caseStudy: "projects/cliniq-ai.html",
           tags: ["Python", "Django", "OpenAI"],
           challenge: "Managing irregular clinic workflows and slow patient data processing in traditional systems.",
           solution: "Built an AI-driven management platform that uses LLMs to automate patient triaging and optimizes scheduling using custom Django middleware.",
@@ -3385,6 +3386,7 @@
         },
         trimrr: {
           title: "Trimrr",
+          caseStudy: "projects/trimrr.html",
           tags: ["Django", "HTMX", "Razorpay"],
           challenge: "Building a premium URL shortener that goes beyond basic link shortening with enterprise-grade analytics and monetization.",
           solution: "Engineered a full SaaS with real-time click tracking, custom aliases, dynamic QR codes, Razorpay subscription billing, and automated malicious link filtering using Celery/Redis background queues.",
@@ -3392,6 +3394,7 @@
         },
         rentora: {
           title: "Rentora",
+          caseStudy: "projects/rentora.html",
           tags: ["Django", "PostgreSQL", "KYC"],
           challenge: "Creating a trust-based marketplace where users feel safe renting expensive assets to peers.",
           solution: "Integrated secure KYC-verified flows and a robust rating system. Used Django's atomic transactions to ensure data integrity during rentals.",
@@ -3399,6 +3402,7 @@
         },
         drivein: {
           title: "Drive In Style",
+          caseStudy: "projects/drive-in-style.html",
           tags: ["Django", "Stripe", "Redis"],
           challenge: "Preventing double-bookings in a high-demand luxury car rental marketplace.",
           solution: "Implemented transaction.atomic() with select_for_update and added a Redis-based locking mechanism for the 15-minute booking window.",
@@ -3406,6 +3410,7 @@
         },
         shopper: {
           title: "ShopperMart",
+          caseStudy: "projects/shoppermart.html",
           tags: ["Django", "Optimization", "MySQL"],
           challenge: "N+1 query problems causing 3s+ load times on high-traffic product listings.",
           solution: "Optimized ORM calls using select_related and prefetch_related; implemented composite indexing on frequently queried fields.",
@@ -3413,6 +3418,7 @@
         },
         ai_assistant: {
           title: "AI Assistant",
+          caseStudy: "projects/ai-assistant.html",
           tags: ["Python", "OpenAI", "Automation"],
           challenge: "Creating a context-aware assistant that could handle multi-step task automation via voice.",
           solution: "Developed using Python's speech recognition libraries and OpenAI's Function Calling API for reliable tool execution.",
@@ -3420,6 +3426,7 @@
         },
         bookmarker: {
           title: "Smart Bookmarker",
+          caseStudy: "projects/smart-bookmarker.html",
           tags: ["JavaScript", "DOM", "Productivity"],
           challenge: "Web bookmarking tools often feel clunky and lack smart organization.",
           solution: "Built a browser-based tool using clean JS and local storage for instant access and categorization without external latency.",
@@ -3427,6 +3434,7 @@
         },
         jyotiksha: {
           title: "Jyotiksha Security",
+          caseStudy: "projects/jyotiksha-security.html",
           tags: ["Commercial", "Django", "Architecture"],
           challenge: "The agency needed a professional portal for client inquiries and service portfolios that could scale with their business.",
           solution: "Built a robust backend using Django with custom inquiry management and a responsive, high-trust UI design.",
@@ -3457,6 +3465,11 @@
           <div style="margin-top: 32px; padding: 24px; background: var(--surface-mid); border-radius: 16px; border: 1px solid var(--border);">
             <h4 class="card-title-refined" style="font-size: 18px;">Key Impact</h4>
             <p class="card-desc-refined" style="font-weight: 700; color: var(--text);">${data.impact}</p>
+          </div>
+          <div style="margin-top: 32px; display: flex; justify-content: flex-end; gap: 16px; align-items: center; flex-wrap: wrap;">
+            <a href="${data.caseStudy}" class="repo-case-study-link" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--accent); text-transform: uppercase; font-size: 13px; letter-spacing: 1px;">
+              Read Full Case Study &rarr;
+            </a>
           </div>
         `;
 
