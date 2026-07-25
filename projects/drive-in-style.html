@@ -53,6 +53,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 
 <style>
   :root {
@@ -137,9 +138,24 @@
     <h2>Tech Stack</h2>
     <p>Django handles the booking and inventory logic, Stripe processes secure payments for reservations, and Redis provides the short-lived distributed lock that closes the race-condition window between "browsing" and "confirmed booking."</p>
 
+    <h2>System Concurrency Architecture</h2>
+    <div style="background: var(--surface); padding: 24px; border-radius: var(--radius-card); border: 1px solid var(--border); margin: 16px 0 32px; overflow-x: auto;">
+      <pre class="mermaid">
+      graph TD
+          Client1[Renter A: Checkout Request] -->|1. Acquire Lock| Redis[(Redis Distributed Lock)]
+          Client2[Renter B: Concurrent Request] -->|Blocked| Redis
+          Redis -->|2. Lock Granted 15m Window| Django[Django Core Handler]
+          Django -->|3. transaction.atomic & select_for_update| Postgres[(PostgreSQL DB Row Lock)]
+          Postgres -->|4. Validate Vehicle State| DBCheck{Is Available?}
+          DBCheck -->|Yes| Stripe[Stripe Payment Gateway]
+          DBCheck -->|No / Race Prevented| Error[Return 409 Conflict]
+          Stripe -->|5. Success Webhook| Commit[Commit Transaction & Release Lock]
+      </pre>
+    </div>
+
     <div class="impact-box">
       <h2 style="margin-top:0;">Key Impact</h2>
-      <p>Zero double-bookings recorded in the production environment, with a 99% booking success rate.</p>
+      <p>Zero double-bookings recorded in the production environment, with a 99% booking success rate under high-concurrency simulation tests.</p>
     </div>
 
     <div class="links">

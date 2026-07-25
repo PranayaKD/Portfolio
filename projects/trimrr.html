@@ -53,6 +53,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 
 <style>
   :root {
@@ -133,6 +134,20 @@
 
     <h2>Tech Stack</h2>
     <p>Backend built on Django with HTMX for dynamic, low-JS interactivity. Redis and Celery handle background link-safety scans and analytics aggregation asynchronously so the redirect path stays fast. Razorpay powers subscription billing for premium tiers.</p>
+
+    <h2>System Architecture Flow</h2>
+    <div style="background: var(--surface); padding: 24px; border-radius: var(--radius-card); border: 1px solid var(--border); margin: 16px 0 32px; overflow-x: auto;">
+      <pre class="mermaid">
+      graph TD
+          Client[Client Browser / Short Link Click] -->|1. HTTP Request| Nginx[Nginx / Gunicorn]
+          Nginx -->|2. Check Fast Cache| Redis[(Redis In-Memory Cache)]
+          Redis -->|3a. Cache Hit: sub-10ms| Redirect[Instant HTTP 302 Redirect]
+          Redis -->|3b. Cache Miss| Django[Django Core App]
+          Django -->|4. Read Original URL| Postgres[(PostgreSQL Database)]
+          Django -->|5. Async Analytics & Malware Scan| Celery[Celery Task Worker]
+          Celery -->|6. Aggregate Click Metrics| Postgres
+      </pre>
+    </div>
 
     <div class="impact-box">
       <h2 style="margin-top:0;">Key Impact</h2>

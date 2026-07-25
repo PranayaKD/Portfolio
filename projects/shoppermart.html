@@ -53,6 +53,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 
 <style>
   :root {
@@ -132,6 +133,18 @@
 
     <h2>Tech Stack</h2>
     <p>Full-stack backend built with Django, powered by MySQL for transactional database reliability. Implemented ORM-level caching, pagination, and query profiling to handle scalable product catalog browsing.</p>
+
+    <h2>Query Optimization Architecture</h2>
+    <div style="background: var(--surface); padding: 24px; border-radius: var(--radius-card); border: 1px solid var(--border); margin: 16px 0 32px; overflow-x: auto;">
+      <pre class="mermaid">
+      graph TD
+          Client[Client Catalog Request] -->|1. HTTP GET /products| Router[Django URL Router]
+          Router -->|2. Unoptimized: N+1 Loop (3.2s)| LegacyDB[(MySQL DB - 150+ Queries)]
+          Router -->|3. Optimized: Joined Query (0.8s)| TunedORM[select_related + prefetch_related]
+          TunedORM -->|4. Single Composite B-Tree Query| OptimizedDB[(MySQL B-Tree Indexed DB)]
+          OptimizedDB -->|5. Single Batch Payload| Response[Rendered Catalog Response: 0.8s]
+      </pre>
+    </div>
 
     <div class="impact-box">
       <h2 style="margin-top:0;">Key Impact</h2>

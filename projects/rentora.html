@@ -53,6 +53,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 
 <style>
   :root {
@@ -132,6 +133,20 @@
 
     <h2>Tech Stack</h2>
     <p>Django and PostgreSQL power the core marketplace logic, with schema design optimized for fast fleet search and filtering. Booking writes are wrapped in <code>transaction.atomic()</code> blocks to prevent partial or inconsistent state during high-concurrency periods.</p>
+
+    <h2>System Architecture Flow</h2>
+    <div style="background: var(--surface); padding: 24px; border-radius: var(--radius-card); border: 1px solid var(--border); margin: 16px 0 32px; overflow-x: auto;">
+      <pre class="mermaid">
+      graph TD
+          Renter[Peer Renter / User Onboarding] -->|1. Submit KYC Data| Auth[KYC Verification Engine]
+          Auth -->|2. Verify Identity| IdentityCheck{Identity Approved?}
+          IdentityCheck -->|Yes| Django[Django REST Engine]
+          IdentityCheck -->|No| Reject[Reject Onboarding]
+          Django -->|3. Initiates Rental Transaction| Atomic[transaction.atomic Block]
+          Atomic -->|4. Lock Vehicle State & Billing| Postgres[(PostgreSQL B-Tree Database)]
+          Postgres -->|5. Atomic Commit| Confirm[Rental Contract Confirmed]
+      </pre>
+    </div>
 
     <div class="impact-box">
       <h2 style="margin-top:0;">Key Impact</h2>

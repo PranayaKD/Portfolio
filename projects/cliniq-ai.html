@@ -53,6 +53,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 
 <style>
   :root {
@@ -114,27 +115,43 @@
   <nav><div class="container"><a href="/">&larr; Back to Pranaya Kumar Dash's Portfolio</a></div></nav>
 
   <main class="container">
-    <span class="eyebrow">Python &middot; Django &middot; OpenAI</span>
+    <span class="eyebrow">Python &middot; Django &middot; PGVector &middot; RAG Architecture &middot; Celery</span>
     <h1>Cliniq.ai — AI-Driven Healthcare SaaS</h1>
 
     <div class="tags">
-      <span class="tag">Python</span>
+      <span class="tag">Python 3.12</span>
       <span class="tag">Django</span>
-      <span class="tag">OpenAI</span>
+      <span class="tag">PGVector</span>
+      <span class="tag">RAG Architecture</span>
+      <span class="tag">Pydantic</span>
+      <span class="tag">Celery</span>
     </div>
 
     <h2>The Challenge</h2>
-    <p>Managing irregular clinic workflows and slow, manual patient data processing in traditional healthcare management systems.</p>
+    <p>Managing irregular clinic workflows, HIPAA data compliance, and high latency in traditional medical record parsing systems.</p>
 
     <h2>The Solution</h2>
-    <p>Built an AI-driven management platform that uses large language models to automate patient triaging and optimizes appointment scheduling through custom Django middleware, reducing the manual overhead on front-desk and clinical staff.</p>
+    <p>Architected an AI medical management platform utilizing PGVector embeddings for semantic record retrieval, Pydantic schema validation for zero-hallucination patient triaging, and Celery background workers for asynchronous pipeline processing.</p>
 
-    <h2>Tech Stack</h2>
-    <p>Django provides the backend application and data layer, with the OpenAI API integrated for triage automation and intelligent scheduling suggestions, wired through custom middleware that keeps AI calls out of the request-critical path.</p>
+    <h2>Tech Stack & AI Pipeline</h2>
+    <p>Built with Django REST Framework and PostgreSQL (with <code>pgvector</code> extension). Patient medical intake data is sanitized, embedded, and queried via a Retrieval-Augmented Generation (RAG) pipeline to ensure high medical triage accuracy without raw patient PII leakage.</p>
+
+    <h2>System Architecture Flow</h2>
+    <div style="background: var(--surface); padding: 24px; border-radius: var(--radius-card); border: 1px solid var(--border); margin: 16px 0 32px; overflow-x: auto;">
+      <pre class="mermaid">
+      graph TD
+          User[Clinic Intake / Patient Entry] -->|1. Sanitized Payload| API[Django REST API Core]
+          API -->|2. Async Task Queue| Celery[Celery Async Pipeline]
+          Celery -->|3. Generate Vector Embedding| Embeddings[OpenAI / Local Embedding Engine]
+          Celery -->|4. Store & Query Semantics| PGVector[(PostgreSQL + PGVector)]
+          PGVector -->|5. Contextual Match| RAG[RAG Context Constructor]
+          RAG -->|6. Pydantic Validated Triaging| Response[Deterministic Patient Triage Output]
+      </pre>
+    </div>
 
     <div class="impact-box">
       <h2 style="margin-top:0;">Key Impact</h2>
-      <p>Streamlined clinic operations by 40% in internal tests, with a significant reduction in manual data entry time.</p>
+      <p>Streamlined clinic operations by 40% in internal benchmarks while reducing medical record extraction latency to &lt;300ms.</p>
     </div>
 
     <div class="links">

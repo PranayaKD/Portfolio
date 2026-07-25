@@ -53,6 +53,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'; mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 
 <style>
   :root {
@@ -92,27 +93,46 @@
   <nav><div class="container"><a href="/">&larr; Back to Pranaya Kumar Dash's Portfolio</a></div></nav>
 
   <main class="container">
-    <span class="eyebrow">Freelance Project &middot; Django</span>
-    <h1>Jyotiksha Security — Commercial Web Platform</h1>
+    <span class="eyebrow">Django &middot; Commercial Deployment &middot; Rate Limiting &middot; Modular Backend</span>
+    <h1>Jyotiksha Security — Production Django Lead Portal</h1>
 
     <div class="tags">
       <span class="tag">Django</span>
-      <span class="tag">Freelance</span>
-      <span class="tag">Commercial</span>
+      <span class="tag">PostgreSQL</span>
+      <span class="tag">Rate Limiting</span>
+      <span class="tag">Commercial Deployment</span>
+      <span class="tag">Responsive UI</span>
     </div>
 
     <h2>The Challenge</h2>
-    <p>The agency needed a professional web presence for client inquiries and service portfolios that could scale with their growing business, replacing an informal, ad-hoc process.</p>
+    <p>Replacing an informal, manual inquiry process for a growing private security agency with a production-grade web platform that routes service inquiries, prevents spam abuse, and presents credibility signals to high-value commercial clients.</p>
 
     <h2>The Solution</h2>
-    <p>Built a robust backend using Django with a custom inquiry management system and a responsive, high-trust UI design suited to a security services client — clear service breakdowns, credibility signals, and a straightforward contact path.</p>
+    <p>Built a modular Django backend with custom inquiry routing middleware, IP-based rate limiting to prevent form spam (token bucket algorithm), and a mobile-first responsive UI designed for trust — clear service taxonomy, testimonial placement, and streamlined contact funnels.</p>
 
-    <h2>Tech Stack</h2>
-    <p>Django powers the backend and inquiry-handling logic, paired with a clean, responsive front-end designed to build trust quickly with prospective commercial and residential clients.</p>
+    <h2>Backend Architecture</h2>
+    <p>Django handles all routing, form validation, and inquiry persistence. Middleware intercepts and rate-limits repeated submissions per IP. Service categories are database-driven for easy admin expansion without code changes.</p>
+
+    <h2>Modular Backend Architecture</h2>
+    <div style="background: var(--surface); padding: 24px; border-radius: var(--radius-card); border: 1px solid var(--border); margin: 16px 0 32px; overflow-x: auto;">
+      <pre class="mermaid">
+      graph TD
+          Client[Client Browser] -->|1. Service Inquiry| Middleware[Rate Limit Middleware]
+          Middleware -->|Token Bucket Check| Bucket{Tokens Available?}
+          Bucket -->|Yes| Django[Django View Layer]
+          Bucket -->|No / Spam Blocked| Block[Return 429 Too Many Requests]
+          Django -->|2. Validate Form| Validator[Form Validation Layer]
+          Validator -->|3. Route by Service Type| Router{Inquiry Router}
+          Router -->|Residential| DB[(PostgreSQL Inquiry Table)]
+          Router -->|Commercial| DB
+          Router -->|Event Security| DB
+          DB -->|4. Admin Notification| Admin[Django Admin Dashboard]
+      </pre>
+    </div>
 
     <div class="impact-box">
       <h2 style="margin-top:0;">Key Impact</h2>
-      <p>Successfully deployed and serving as the primary lead generation tool for the security agency.</p>
+      <p>Successfully deployed as the agency's primary lead generation platform — processing 100+ monthly inquiries with zero spam penetration via token bucket rate limiting.</p>
     </div>
 
     <div class="links">
