@@ -178,6 +178,9 @@
   <!-- Boneyard Skeleton Loader -->
   <link rel="stylesheet" href="css/boneyard.css">
 
+  <!-- Ported Animation Styles -->
+  <link rel="stylesheet" href="css/animations.css">
+
   <style>
     /* ═══════════════════════════════════════
        RESET & CUSTOM PROPERTIES
@@ -1943,6 +1946,20 @@
 </head>
 
 <body>
+  <!-- ═══════════════════════════════════════
+       PRELOADER (SVG Curve-Wipe)
+       ═══════════════════════════════════════ -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-heading">
+      <img src="images/logo.webp" alt="pranayakd Logo" class="preloader-logo" width="56" height="56">
+      <div class="load-text">Pranaya KD</div>
+      <div class="load-sub">Python &amp; Django Backend Engineer</div>
+    </div>
+    <svg id="preloaderSvg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+      <path d="M0 1000S175 1000 500 1000s500 0 500 0V0H0Z"></path>
+    </svg>
+  </div>
+
   <div id="nav-loader"></div>
 
   <!-- ═══════════════════════════════════════
@@ -2063,8 +2080,8 @@
     <div class="container">
       <div class="about-grid"
         style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(40px, 8vw, 80px); align-items: center;">
-        <div class="about-image-wrapper">
-          <img src="images/background.webp" alt="Pranaya Kumar Dash — Python and Django backend developer"
+        <div class="about-image-wrapper" data-mosaic>
+          <img src="images/aboutme.webp" alt="Pranaya Kumar Dash — Python and Django backend developer"
             class="about-main-img"
             style="width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--border);" loading="lazy"
             width="1000" height="1250">
@@ -2087,6 +2104,27 @@
             <a href="#contact" class="social-link-lite"
               style="border-bottom: 2px solid var(--accent); padding-bottom: 4px;">Get in touch &rarr;</a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION — ANIMATED METRICS STRIP
+       ═══════════════════════════════════════ -->
+  <section class="stats-strip">
+    <div class="container">
+      <div class="stats-strip-inner">
+        <div class="stat-item">
+          <div class="stat-number" data-target="50" data-suffix="%">0%</div>
+          <div class="stat-label">DB Call Reduction</div>
+          <div class="stat-context">ORM Query Optimization</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="66" data-suffix="%">0%</div>
+          <div class="stat-label">Load Time Reduction</div>
+          <div class="stat-context">Sub-300ms API Endpoints</div>
         </div>
       </div>
     </div>
@@ -2312,7 +2350,7 @@
       <h2 class="section-header-refined">SaaS Platforms &<br />Backend Systems.</h2>
     </div>
 
-    <div class="repo-grid">
+    <div class="repo-grid" data-stacked>
 
       <!-- Repo 0: Cliniq.ai -->
       <div class="repo-card glass-card glass-surface glass-surface-hover">
@@ -3111,6 +3149,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/animations.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></script>
 
@@ -3225,7 +3264,7 @@
       gsap.from(".hero-role-wrapper", { opacity: 0, y: 30, duration: 1, ease: "power3.out", delay: 0.4 });
       gsap.from(".hero-photo-card", { opacity: 0, x: 50, scale: 0.95, duration: 1.2, ease: "power3.out", delay: 0.5 });
 
-      gsap.from("#about .about-image-wrapper", { opacity: 0, x: -50, duration: 1, scrollTrigger: { trigger: "#about", start: "top 80%" } });
+      // About image mosaic animation handled in js/animations.js
       gsap.from("#about .about-right", { opacity: 0, x: 50, duration: 1, scrollTrigger: { trigger: "#about", start: "top 80%" } });
 
       gsap.from(".project-card-sapphire", { opacity: 0, y: 50, duration: 1, scrollTrigger: { trigger: "#projects", start: "top 80%" } });
