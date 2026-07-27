@@ -362,27 +362,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
-  /* ───────────────────────────────────────
-     7. FLOATING CAPSULE IMAGE CURSOR FOLLOW
-     (Services list cursor follow thumbnail)
-     ─────────────────────────────────────── */
-  const floatImg = document.getElementById("serviceFloatImg");
-  const floatImgEl = floatImg ? floatImg.querySelector("img") : null;
-  if (floatImg && floatImgEl) {
-    document.querySelectorAll(".service-row-capsule").forEach((row) => {
-      row.addEventListener("mouseenter", () => {
-        if (row.dataset.img) floatImgEl.src = row.dataset.img;
-        floatImg.style.opacity = "1";
-      });
-      row.addEventListener("mouseleave", () => {
-        floatImg.style.opacity = "0";
-      });
-      row.addEventListener("mousemove", (e) => {
-        floatImg.style.left = e.clientX + "px";
-        floatImg.style.top = e.clientY + "px";
-      });
-    });
-  }
 });
-
