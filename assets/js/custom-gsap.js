@@ -23,18 +23,26 @@
   ////////////////////////////////////////////////////
   // 01. Smooth Scroll Js
   function smoothSctoll() {
-    $(".smooth a").on("click", function (event) {
-      var target = $(this.getAttribute("href"));
-      if (target.length) {
-        event.preventDefault();
-        $("html, body")
-          .stop()
-          .animate(
-            {
-              scrollTop: target.offset().top - 120,
-            },
-            1500,
-          );
+    $('a[href^="#"]').on("click", function (event) {
+      var href = this.getAttribute("href");
+      if (href && href !== "#" && href.startsWith("#")) {
+        var target = $(href);
+        if (target.length) {
+          event.preventDefault();
+          var targetTop = target.offset().top - 80;
+          if (typeof smoother !== "undefined" && smoother) {
+            smoother.scrollTo(target[0], true, "top 80px");
+          } else {
+            $("html, body")
+              .stop()
+              .animate(
+                {
+                  scrollTop: targetTop,
+                },
+                800,
+              );
+          }
+        }
       }
     });
   }

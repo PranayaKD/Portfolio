@@ -8192,52 +8192,56 @@ body.tw-magic-cursor #magic-cursor {
   }
 }
 .banner-three-title {
-  font-size: 397px;
-  line-height: 83%;
+  font-size: clamp(32px, 10vw, 170px) !important;
+  line-height: 85%;
+  white-space: nowrap !important;
+  text-align: center;
+  overflow: hidden;
+  display: block;
 }
 @media screen and (max-width: 1799px) {
   .banner-three-title {
-    font-size: 370px;
+    font-size: clamp(32px, 10vw, 160px) !important;
   }
 }
 @media screen and (max-width: 1699px) {
   .banner-three-title {
-    font-size: 350px;
+    font-size: clamp(32px, 10vw, 155px) !important;
   }
 }
 @media screen and (max-width: 1499px) {
   .banner-three-title {
-    font-size: 307px;
+    font-size: clamp(32px, 10vw, 145px) !important;
   }
 }
 @media screen and (max-width: 1399px) {
   .banner-three-title {
-    font-size: 260px;
+    font-size: clamp(30px, 9.5vw, 135px) !important;
   }
 }
 @media screen and (max-width: 1199px) {
   .banner-three-title {
-    font-size: 216px;
+    font-size: clamp(28px, 9vw, 120px) !important;
   }
 }
 @media screen and (max-width: 991px) {
   .banner-three-title {
-    font-size: 166px;
+    font-size: clamp(26px, 8.5vw, 95px) !important;
   }
 }
 @media screen and (max-width: 767px) {
   .banner-three-title {
-    font-size: 123px;
+    font-size: clamp(24px, 8vw, 75px) !important;
   }
 }
 @media screen and (max-width: 575px) {
   .banner-three-title {
-    font-size: 88px;
+    font-size: clamp(22px, 7.5vw, 60px) !important;
   }
 }
 @media screen and (max-width: 424px) {
   .banner-three-title {
-    font-size: 78px;
+    font-size: clamp(20px, 7vw, 50px) !important;
   }
 }
 .banner-three-left {
@@ -8421,11 +8425,33 @@ body.tw-magic-cursor #magic-cursor {
   border-radius: 50%;
 }
 .banner-three-man {
-  inset-block-end: 27%;
+  inset-block-end: 18%;
+  max-width: 500px;
+}
+.banner-three-man img {
+  max-height: 650px;
+  width: auto;
+  object-fit: contain;
+}
+@media screen and (max-width: 1199px) {
+  .banner-three-man {
+    inset-block-end: 22%;
+    max-width: 400px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .banner-three-man {
+    inset-block-end: 28%;
+    max-width: 320px;
+  }
 }
 @media screen and (max-width: 575px) {
   .banner-three-man {
-    inset-block-end: 38%;
+    inset-block-end: 35%;
+    max-width: 250px;
+  }
+  .banner-three-man img {
+    max-height: 400px;
   }
 }
 
