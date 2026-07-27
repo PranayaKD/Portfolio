@@ -2020,7 +2020,8 @@
        ═══════════════════════════════════════ -->
   <section id="hero" class="section-hero" style="position: relative; overflow: hidden;">
     <!-- Seamless Full-Hero 3D Background Canvas -->
-    <canvas id="cyberCoreCanvas" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
+    <canvas id="cyberCoreCanvas"
+      style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
 
     <div class="container hero-inner" style="position: relative; z-index: 2;">
       <div class="hero-left">
@@ -2081,7 +2082,7 @@
       <div class="about-grid"
         style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(40px, 8vw, 80px); align-items: center;">
         <div class="about-image-wrapper" data-mosaic>
-          <img src="images/aboutme.webp" alt="Pranaya Kumar Dash — Python and Django backend developer"
+          <img src="./images/background_original.png" alt="Pranaya Kumar Dash — Python and Django backend developer"
             class="about-main-img"
             style="width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--border);" loading="lazy"
             width="1000" height="1250">
@@ -2093,10 +2094,17 @@
             Building High-Throughput APIs &amp; Scalable Systems.
           </h2>
           <p class="card-desc-refined" style="font-size: 18px; margin-top: 24px; line-height: 1.8;">
-            Hi, I'm <strong>Pranaya Kumar Dash</strong> (widely known online as <strong>Pranaya KD</strong> / <strong>pranayakd</strong>), a dedicated <strong>Python &amp; Django Backend Developer</strong> based in Bengaluru, India. I specialize in designing scalable RESTful APIs, optimizing heavy database query engines, and engineering asynchronous background processing systems.
+            Hi, I'm <strong>Pranaya Kumar Dash</strong> (widely known online as <strong>Pranaya KD</strong> /
+            <strong>pranayakd</strong>), a dedicated <strong>Python &amp; Django Backend Developer</strong> based in
+            Bengaluru, India. I specialize in designing scalable RESTful APIs, optimizing heavy database query engines,
+            and engineering asynchronous background processing systems.
           </p>
-          <p class="card-desc-refined" style="font-size: 16px; margin-top: 16px; line-height: 1.7; color: var(--muted);">
-            With deep expertise in <strong>Python, Django, PostgreSQL, Redis, and Celery</strong>, I focus on system reliability and speed — from eliminating production race conditions with <code>transaction.atomic()</code> to reducing DB query payloads by 50% through ORM optimization and strategic indexing. Currently building healthcare AI backend infrastructure at <strong>Cliniq.ai</strong>.
+          <p class="card-desc-refined"
+            style="font-size: 16px; margin-top: 16px; line-height: 1.7; color: var(--muted);">
+            With deep expertise in <strong>Python, Django, PostgreSQL, Redis, and Celery</strong>, I focus on system
+            reliability and speed — from eliminating production race conditions with <code>transaction.atomic()</code>
+            to reducing DB query payloads by 50% through ORM optimization and strategic indexing. Currently building
+            healthcare AI backend infrastructure at <strong>Cliniq.ai</strong>.
           </p>
           <div style="margin-top: 48px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center;">
             <a href="images/PranayaKumarDash_Python_Backend_Developer.pdf" class="btn-pill btn-pill-primary"
@@ -2226,14 +2234,16 @@
           <div class="marquee-item"><i class="devicon-django-plain colored"></i> <b>DJANGO &amp; DRF</b></div>
           <div class="marquee-item"><i class="devicon-postgresql-plain colored"></i> <b>POSTGRESQL / PGVECTOR</b></div>
           <div class="marquee-item"><i class="devicon-redis-plain colored"></i> <b>REDIS &amp; CELERY</b></div>
-          <div class="marquee-item"><span class="material-symbols-outlined">psychology</span> <b>AI / RAG PIPELINES</b></div>
+          <div class="marquee-item"><span class="material-symbols-outlined">psychology</span> <b>AI / RAG PIPELINES</b>
+          </div>
           <div class="marquee-item"><span class="material-symbols-outlined">api</span> <b>FASTAPI &amp; REST</b></div>
           <div class="marquee-item"><i class="devicon-docker-plain colored"></i> <b>DOCKER &amp; AWS</b></div>
           <div class="marquee-item"><i class="devicon-python-plain colored"></i> <b>PYTHON 3.12</b></div>
           <div class="marquee-item"><i class="devicon-django-plain colored"></i> <b>DJANGO &amp; DRF</b></div>
           <div class="marquee-item"><i class="devicon-postgresql-plain colored"></i> <b>POSTGRESQL / PGVECTOR</b></div>
           <div class="marquee-item"><i class="devicon-redis-plain colored"></i> <b>REDIS &amp; CELERY</b></div>
-          <div class="marquee-item"><span class="material-symbols-outlined">psychology</span> <b>AI / RAG PIPELINES</b></div>
+          <div class="marquee-item"><span class="material-symbols-outlined">psychology</span> <b>AI / RAG PIPELINES</b>
+          </div>
         </div>
       </div>
 
@@ -3572,7 +3582,7 @@
 
       const heroSection = document.getElementById('hero');
       const scene = new THREE.Scene();
-      
+
       const camera = new THREE.PerspectiveCamera(45, heroSection.clientWidth / heroSection.clientHeight, 0.1, 1000);
       camera.position.z = 7;
 
@@ -3583,7 +3593,7 @@
       // Group holding background 3D elements
       const coreGroup = new THREE.Group();
       coreGroup.scale.set(0.65, 0.65, 0.65); // Scale down 3D core object to perfect compact proportion
-      
+
       // Shift core group further to the right side of the screen on desktop
       if (window.innerWidth > 1200) {
         coreGroup.position.x = 3.3;

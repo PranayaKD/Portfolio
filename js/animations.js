@@ -76,25 +76,52 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!element || element.dataset.splitDone) return;
     element.dataset.splitDone = "true";
 
-    const text = element.textContent;
-    element.textContent = "";
+    function processText(text) {
+      const fragment = document.createDocumentFragment();
+      const tokens = text.split(/(\s+)/);
 
-    const fragment = document.createDocumentFragment();
+      tokens.forEach((token) => {
+        if (!token) return;
+        if (/^\s+$/.test(token)) {
+          const spaceSpan = document.createElement("span");
+          spaceSpan.className = "char-span-space";
+          spaceSpan.innerHTML = "&nbsp;";
+          fragment.appendChild(spaceSpan);
+        } else {
+          const wordSpan = document.createElement("span");
+          wordSpan.className = "word-span";
 
-    for (let char of text) {
-      if (char === " ") {
-        const spaceSpan = document.createElement("span");
-        spaceSpan.className = "char-span-space";
-        spaceSpan.innerHTML = "&nbsp;";
-        fragment.appendChild(spaceSpan);
-      } else {
-        const charSpan = document.createElement("span");
-        charSpan.className = "char-span";
-        charSpan.textContent = char;
-        fragment.appendChild(charSpan);
-      }
+          for (let char of token) {
+            const charSpan = document.createElement("span");
+            charSpan.className = "char-span";
+            charSpan.textContent = char;
+            wordSpan.appendChild(charSpan);
+          }
+          fragment.appendChild(wordSpan);
+        }
+      });
+      return fragment;
     }
-    element.appendChild(fragment);
+
+    const childNodes = Array.from(element.childNodes);
+    element.innerHTML = "";
+
+    childNodes.forEach((child) => {
+      if (child.nodeType === Node.TEXT_NODE) {
+        element.appendChild(processText(child.textContent));
+      } else if (child.nodeName === "BR") {
+        element.appendChild(document.createElement("br"));
+      } else {
+        const clone = child.cloneNode(true);
+        // If child node has text content, split its internal text
+        if (clone.textContent && clone.children.length === 0) {
+          const innerFrag = processText(clone.textContent);
+          clone.innerHTML = "";
+          clone.appendChild(innerFrag);
+        }
+        element.appendChild(clone);
+      }
+    });
   }
 
   function initHeroCharReveal() {

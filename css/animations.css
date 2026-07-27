@@ -22,6 +22,10 @@
 .preloader-heading {
   text-align: center;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .preloader-heading .load-text {
@@ -49,7 +53,8 @@
   height: 56px;
   border-radius: 14px;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
+  display: block;
   object-fit: cover;
 }
 
@@ -69,6 +74,11 @@
 /* ───────────────────────────────────────
    2. HERO CHAR REVEAL
    ─────────────────────────────────────── */
+.word-span {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .char-span {
   display: inline-block;
   will-change: transform, opacity;
