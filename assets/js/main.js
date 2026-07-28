@@ -43,7 +43,7 @@
     })
       // SVG curve animation
       .to(svg, {
-        duration: 0.6,
+        duration: 0.3,
         attr: { d: curve },
         ease: "power2.inOut",
       })
@@ -56,7 +56,7 @@
       // Slide preloader up
       .to(".preloader", {
         y: "-130%",
-        duration: 0.8,
+        duration: 0.5,
         ease: "power4.inOut",
       })
       // Remove from DOM flow
