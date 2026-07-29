@@ -193,14 +193,16 @@
   ////////////////////////////////////////////////////
   // 11. Feature Widget Animation Js
   function service_animation() {
-    var active_bg = $(".feature-widget .active-bg");
-    var element = $(".feature-widget .current");
-    $(".feature-widget .feature-2-item").on("mouseenter", function () {
+    var widget = $(".feature-widget");
+    if (!widget.length) return;
+    var active_bg = widget.find(".active-bg");
+    var element = widget.find(".current");
+    widget.find(".feature-2-item").on("mouseenter", function () {
       var e = $(this);
       activeService(active_bg, e);
     });
-    $(".feature-widget").on("mouseleave", function () {
-      element = $(".feature-widget .current");
+    widget.on("mouseleave", function () {
+      element = widget.find(".current");
       activeService(active_bg, element);
       element.closest(".feature-2-item").siblings().removeClass("mleave");
     });
@@ -208,7 +210,7 @@
   }
   service_animation();
   function activeService(active_bg, e) {
-    if (!e.length) {
+    if (!e || !e.length || !active_bg.length) {
       return false;
     }
     var topOff = e.offset().top;
@@ -225,13 +227,15 @@
 
   ////////////////////////////////////////////////////
   // 12. Service Two Images Hover Animation Js
-  $(".service-two-list-wrap .service-two-list-item").on(
-    "mouseenter",
-    function () {
-      $("#service-two-thumb").removeClass().addClass($(this).attr("rel"));
-      $(this).addClass("active").siblings().removeClass("active");
-    },
-  );
+  if ($(".service-two-list-wrap .service-two-list-item").length) {
+    $(".service-two-list-wrap .service-two-list-item").on(
+      "mouseenter",
+      function () {
+        $("#service-two-thumb").removeClass().addClass($(this).attr("rel"));
+        $(this).addClass("active").siblings().removeClass("active");
+      },
+    );
+  }
 
   ////////////////////////////////////////////////////
   // 13. Bg Image For Attribute  Js
@@ -247,10 +251,6 @@
   $(document).ready(function () {
     $(".service-ip-wrapper").on("mouseenter", function () {
       $(this).addClass("active").siblings().removeClass("active");
-    });
-
-    $(".service-ip-wrapper").on("mouseenter", function () {
-      $(this).addClass("active");
       $(this)
         .parent()
         .siblings()
@@ -261,6 +261,7 @@
 
   $(document).ready(function () {
     function initRipples() {
+      if (!$(".ripple-image").length) return;
       $(".ripple-image").each(function () {
         var $container = $(this);
         var $img = $container.find("img").first();
