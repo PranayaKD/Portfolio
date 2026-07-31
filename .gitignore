@@ -1,6 +1,22 @@
-# Keep large original backup images out of the repository
-images/*_original.png
+# VS Code
+.vscode/
 
-# Reference template
-shan-portfolio-main/
-shan-portfolio-main.zip
+# Copilot / AI
+.agent.md
+
+# Local documentation
+extensions.txt
+full audit.md
+
+# Archives
+*.zip
+
+# Logs
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
+
+.copilot-instructions.md
+.Style_Guide.md

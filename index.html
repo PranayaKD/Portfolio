@@ -23,7 +23,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="canonical" href="https://pranayakd.in/" />
 
-  <!-- Open Graph / Facebook -->
+
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://pranayakd.in/" />
   <meta property="og:title" content="Pranaya Kumar Dash (pranayakd) | Python & Django Backend Developer" />
@@ -51,8 +51,8 @@
     "image": "https://pranayakd.in/images/hero_banner.png",
     "jobTitle": "Python & Django Backend Developer",
     "worksFor": {
-      "@type": "Organization",
-      "name": "Cliniq.ai"
+      "@type": "Freelancer",
+      "name": "Freelancing"
     },
     "address": {
       "@type": "PostalAddress",
@@ -83,17 +83,10 @@
   <link rel="stylesheet" href="assets/css/aos.css" />
   <!-- Main css -->
   <link rel="stylesheet" href="assets/css/main.css" />
-  <style>
-    @media (min-width: 1200px) {
-      .banner-three-man {
-        inset-block-end: unset !important;
-        bottom: 380px !important;
-      }
-    }
-  </style>
 </head>
 
 <body class="tw-magic-cursor">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <!--==================== Preloader Start ====================-->
   <div class="preloader">
     <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
@@ -216,7 +209,7 @@
             </ul>
             <div class="tw-mt-4">
               <a class="tw-hover-btn bg-main-two-600 text-heading fw-bold tw-py-3 tw-px-6 d-inline-block hover-text-heading text-uppercase tw-rounded-md"
-                href="/assets/Pranaya_Kumar_Dash_Python_Backend_Developer_Resume.pdf"
+                href="assets/Pranaya_Kumar_Dash_Python_Backend_Developer_Resume.pdf"
                 download="PranayaKumarDash_Resume.pdf">
                 download cv
                 <span class="tw-hover-btn-circle-dot bg-white"></span>
@@ -315,8 +308,9 @@
         <div class="header-right d-flex align-items-center tw-gap-705">
           <!-- Menu Button Start  -->
           <div class="header-three-menu">
-            <button
-              class="tw-offcanvas-open-btn tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center tw-transition-3 tw-rounded-md">
+            <button type="button"
+              class="tw-offcanvas-open-btn tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center tw-transition-3 tw-rounded-md"
+              aria-label="Open navigation menu" aria-expanded="false">
               <span><img class="tw-transition-3" src="assets/images/icons/header-three-toggle.svg"
                   alt="toggle" /></span>
             </button>
@@ -326,7 +320,7 @@
           <!-- Header Button Start  -->
           <div class="header-three-button d-none d-md-block">
             <a class="tw-hover-btn bg-black text-white fw-bold tw-py-4 tw-px-10 d-inline-block hover-text-white text-uppercase tw-rounded-md"
-              href="images/PranayaKumarDash_Python_Backend_Developer.pdf" download="PranayaKumarDash_Resume.pdf">
+              href="assets/Pranaya_Kumar_Dash_Python_Backend_Developer_Resume.pdf" download="PranayaKumarDash_Resume.pdf">
               download cv
               <span class="tw-hover-btn-circle-dot bg-main-two-600"></span>
             </a>
@@ -341,19 +335,16 @@
   <!-- ==================== Header End Here ==================== -->
   <div id="smooth-wrapper">
     <div id="smooth-content">
+      <main id="main-content">
       <section class="banner-three-area" id="home">
         <div class="container tw-container-1800-px">
           <div class="row">
             <div class="col-xl-12">
               <div class="banner-three-wrapper position-relative z-1">
-                <div class="banner-three-man position-absolute start-50 translate-middle-x" style="z-index: 2;">
-                  <img src="images/hero_banner.png" alt="Pranaya Kumar Dash"
-                    style="filter: drop-shadow(0 10px 30px rgba(0,0,0,0.15));" />
-                </div>
-                <h1 class="banner-three-title text-black tw-mb-30" style="position: relative; z-index: 1;">
+                <h1 class="banner-three-title text-black tw-mb-30">
                   DEVELOPER
                 </h1>
-                <div class="banner-three-wrap d-flex justify-content-between align-items-end position-relative z-1">
+                <div class="banner-three-wrap position-relative z-1">
                   <div class="banner-three-left tw-rounded-lg" data-aos="fade-up" data-aos-duration="1000"
                     data-aos-delay="200">
                     <h2 class="banner-three-left-title tw-text-3xl tw-mb-6">
@@ -387,6 +378,9 @@
                   </div>
                   <div class="banner-three-center text-center" data-aos="fade-up" data-aos-duration="1000"
                     data-aos-delay="200">
+                    <div class="banner-three-man">
+                      <img src="images/hero_banner.png" alt="Pranaya Kumar Dash" />
+                    </div>
                     <h3 class="banner-three-center-title tw-text-120">
                       Scalable APIs, high-throughput systems, and database optimization.
                     </h3>
@@ -410,7 +404,7 @@
                         ORM Query Call Reduction
                       </p>
                     </div>
-                    <div class="banner-three-counter-item tw-rounded-md tw-mb-4 ms-auto bg-black">
+                    <div class="banner-three-counter-item tw-rounded-md tw-mb-4 bg-black">
                       <h4
                         class="banner-three-counter-title tw-text-101 fw-semibold font-heading text-white tw-mb-2 lh-1">
                         <span class="purecounter font-heading" data-purecounter-duration="4"
@@ -421,28 +415,6 @@
                       </p>
                     </div>
                     <div class="banner-three-counter-item tw-rounded-md tw-mb-4">
-                      <div class="d-flex align-items-center tw-mb-2">
-                        <div
-                          class="tw-w-9 tw-h-9 rounded-circle overflow-hidden tw-duration-300 hover-scale-2 tw-hover-z-9 position-relative z-1 border border-2 border-white">
-                          <img src="assets/images/thumbs/team-img1.png" alt="Pranaya Kumar Dash - Python Developer"
-                            class="w-100 h-100 object-fit-cover" />
-                        </div>
-                        <div
-                          class="tw-w-9 tw-h-9 rounded-circle overflow-hidden tw-duration-300 hover-scale-2 tw-hover-z-9 position-relative z-2 tw--ms-16-px z-1 border border-2 border-white">
-                          <img src="assets/images/thumbs/team-img2.png" alt="Django Backend Engineer"
-                            class="w-100 h-100 object-fit-cover" />
-                        </div>
-                        <div
-                          class="tw-w-9 tw-h-9 rounded-circle overflow-hidden tw-duration-300 hover-scale-2 tw-hover-z-9 position-relative z-3 tw--ms-16-px z-1 border border-2 border-white">
-                          <img src="assets/images/thumbs/team-img3.png" alt="PostgreSQL Database Specialist"
-                            class="w-100 h-100 object-fit-cover" />
-                        </div>
-                        <div
-                          class="tw-w-9 tw-h-9 rounded-circle overflow-hidden tw-duration-300 hover-scale-2 tw-hover-z-9 position-relative z-3 tw--ms-16-px z-1 border border-2 border-white">
-                          <img src="assets/images/thumbs/team-img4.png" alt="Redis & Celery Architect"
-                            class="w-100 h-100 object-fit-cover" />
-                        </div>
-                      </div>
                       <h4
                         class="banner-three-counter-title tw-text-101 fw-semibold font-heading text-heading tw-mb-2 lh-1">
                         <span class="purecounter font-heading" data-purecounter-duration="3"
@@ -507,7 +479,7 @@
                   <div class="about-three-counter d-inline-block">
                     <div class="tw-hover-btn-wrapper d-inline-block">
                       <a class="tw-btn-circle tw-hover-btn-item tw-hover-btn tw-w-160-px tw-h-160-px lh-1 d-inline-flex justify-content-center align-items-center rounded-circle position-relative overflow-hidden border border-1 border-neutral-200"
-                        href="about.html">
+                        href="#about">
                         <span class="d-flex flex-column justify-content-center">
                           <span
                             class="tw-btn-circle-icon text-heading tw-text-8 tw-transition-3 font-heading fw-medium">1+</span>
@@ -598,7 +570,7 @@
                       <div>
                         <div>
                           <h2 class="service-three-title tw-text-15 text-white tw-mb-4">
-                            <a href="service-details.html">Web Development</a>
+                            <a href="#services">Web Development</a>
                           </h2>
                         </div>
                         <div class="portfolio-list portfolio-two-list">
@@ -620,7 +592,7 @@
                       </div>
                     </div>
                     <div class="service-three-thumb">
-                      <a href="service-details.html"><img src="assets/images/thumbs/service-three-thumb1.png"
+                      <a href="#services"><img src="assets/images/thumbs/service-three-thumb1.png"
                           alt="Web Development" /></a>
                     </div>
                   </div>
@@ -638,7 +610,7 @@
                       <div>
                         <div>
                           <h2 class="service-three-title tw-text-15 text-white tw-mb-4">
-                            <a href="service-details.html">API Development</a>
+                            <a href="#services">API Development</a>
                           </h2>
                         </div>
                         <div class="portfolio-list portfolio-two-list">
@@ -660,7 +632,7 @@
                       </div>
                     </div>
                     <div class="service-three-thumb">
-                      <a href="service-details.html"><img src="assets/images/thumbs/service-three-thumb2.png"
+                      <a href="#services"><img src="assets/images/thumbs/service-three-thumb2.png"
                           alt="API Development" /></a>
                     </div>
                   </div>
@@ -677,7 +649,7 @@
                       <div>
                         <div>
                           <h2 class="service-three-title tw-text-15 text-white tw-mb-4">
-                            <a href="service-details.html">Database Engineering</a>
+                            <a href="#services">Database Engineering</a>
                           </h2>
                         </div>
                         <div class="portfolio-list portfolio-two-list">
@@ -699,7 +671,7 @@
                       </div>
                     </div>
                     <div class="service-three-thumb">
-                      <a href="service-details.html"><img src="assets/images/thumbs/service-three-thumb3.png"
+                      <a href="#services"><img src="assets/images/thumbs/service-three-thumb3.png"
                           alt="Database Engineering" /></a>
                     </div>
                   </div>
@@ -717,7 +689,7 @@
                       <div>
                         <div>
                           <h2 class="service-three-title tw-text-15 text-white tw-mb-4">
-                            <a href="service-details.html">Cloud & Async Systems</a>
+                            <a href="#services">Cloud & Async Systems</a>
                           </h2>
                         </div>
                         <div class="portfolio-list portfolio-two-list">
@@ -739,7 +711,7 @@
                       </div>
                     </div>
                     <div class="service-three-thumb">
-                      <a href="service-details.html"><img src="assets/images/thumbs/service-three-thumb4.png"
+                      <a href="#services"><img src="assets/images/thumbs/service-three-thumb4.png"
                           alt="Cloud & Async Systems" /></a>
                     </div>
                   </div>
@@ -1230,29 +1202,33 @@
                   <div class="row">
                     <div class="col-xl-12">
                       <div class="position-relative tw-mb-7">
-                        <input type="text"
+                        <label class="visually-hidden" for="first-name">First name</label>
+                        <input id="first-name" name="first_name" type="text" required
                           class="form-control bg-transparent shadow-none tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 focus-border-main-600 tw-h-18 focus-tw-placeholder-text-hidden tw-placeholder-transition-2"
-                          placeholder="First Name" />
+                          placeholder="First Name" aria-label="First name" />
                       </div>
                     </div>
                     <div class="col-xl-12">
                       <div class="position-relative tw-mb-7">
-                        <input type="email"
+                        <label class="visually-hidden" for="email-address">Email address</label>
+                        <input id="email-address" name="email" type="email" required
                           class="form-control bg-transparent shadow-none tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 focus-border-main-600 tw-h-18 focus-tw-placeholder-text-hidden tw-placeholder-transition-2"
-                          placeholder="Email Address" />
+                          placeholder="Email Address" aria-label="Email address" />
                       </div>
                     </div>
                     <div class="col-xl-12">
                       <div class="position-relative tw-mb-7">
-                        <textarea
+                        <label class="visually-hidden" for="message">Message</label>
+                        <textarea id="message" name="message" required
                           class="form-control bg-transparent shadow-none tw-h-196-px tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 focus-border-main-600 focus-tw-placeholder-text-hidden tw-placeholder-transition-2"
-                          placeholder="Message"></textarea>
+                          placeholder="Message" aria-label="Message"></textarea>
                       </div>
                     </div>
                     <div class="col-xl-12">
                       <div class="contact-button">
-                        <button
-                          class="tw-hover-btn bg-main-600 text-heading tw-text-xl fw-bold tw-py-4 tw-px-10 d-inline-flex justify-content-center w-100 hover-text-heading hover-bg-white tw-transition-3 tw-rounded-lg">
+                        <button type="submit"
+                          class="tw-hover-btn bg-main-600 text-heading tw-text-xl fw-bold tw-py-4 tw-px-10 d-inline-flex justify-content-center w-100 hover-text-heading hover-bg-white tw-transition-3 tw-rounded-lg"
+                          aria-label="Submit message">
                           submit message
                         </button>
                       </div>
@@ -1292,7 +1268,7 @@
                   </div>
                   <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                     <a class="footer-three-back-to-top tw-w-170 tw-h-170 lh-1 d-inline-flex justify-content-center align-items-center bg-main-two-600 text-white tw-text-3xl rounded-circle"
-                      href="#"><i class="ph ph-arrow-up"></i></a>
+                      href="#home" aria-label="Back to top"><i class="ph ph-arrow-up"></i></a>
                   </div>
                   <div class="text-lg-end" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                     <h4 class="tw-text-2xl text-white tw-mb-2">
@@ -1326,6 +1302,7 @@
       </section>
     </div>
   </div>
+      </main>
   <!-- Jquery js -->
   <script src="assets/js/jquery-3.7.1.min.js"></script>
   <!-- phosphor Js -->

@@ -29,6 +29,20 @@
   ////////////////////////////////////////////////////
   // 01. PreLoader Js
   document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("img").forEach((img) => {
+      if (!img.hasAttribute("loading")) {
+        const shouldEager = img.closest(".banner-three-man") || img.closest("header") || img.closest(".preloader");
+        img.setAttribute("loading", shouldEager ? "eager" : "lazy");
+        img.setAttribute("decoding", "async");
+      }
+    });
+
+    const menuToggle = document.querySelector(".tw-offcanvas-open-btn");
+    if (menuToggle) {
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+    }
+
     // Create GSAP timeline
     const tl = gsap.timeline();
     const svg = document.getElementById("preloaderSvg");
@@ -114,6 +128,7 @@
   // 04. offcanvas Menu JS
   $(".tw-offcanvas-open-btn").on("click", function () {
     $(".tw-offcanvas-2-area").addClass("opened");
+    $(this).attr("aria-expanded", "true");
 
     setTimeout(() => {
       $(".tw-text-hover-effect-word").addClass("animated-text");
@@ -129,6 +144,7 @@
 
     $(".tw-offcanvas-2-area").removeClass("opened");
     $(".body-overlay").removeClass("opened");
+    $(".tw-offcanvas-open-btn").attr("aria-expanded", "false");
   });
 
   ////////////////////////////////////////////////////
