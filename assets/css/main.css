@@ -10451,36 +10451,38 @@ body.tw-magic-cursor #magic-cursor {
 }
 
 .feature-three-left {
-  gap: 227px;
+  gap: clamp(24px, 4vw, 40px);
 }
 
 @media screen and (max-width: 1199px) {
   .feature-three-left {
-    gap: 140px;
+    gap: clamp(20px, 3vw, 32px);
   }
 }
 
 @media screen and (max-width: 991px) {
   .feature-three-left {
-    gap: 30px;
+    gap: 20px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .feature-three-left {
-    gap: 0px;
+    gap: 16px;
   }
 }
 
 @media screen and (max-width: 575px) {
   .feature-three-left {
     flex-wrap: wrap;
+    gap: 12px;
   }
 }
 
 @media screen and (max-width: 575px) {
   .feature-three-item {
     flex-wrap: wrap;
+    gap: 16px;
   }
 }
 
