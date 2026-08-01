@@ -8003,42 +8003,24 @@ input:focus-visible {
 }
 
 /* ===================== Hero Marquee Start ===================== */
-.hero-marquee-wrapper {
-  max-width: 575px;
-  width: 100%;
-  margin: 0 auto 24px;
-  position: relative;
-  overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+.hero-marquee {
+  padding: 0;
+  margin-bottom: 24px;
 }
 
-.hero-marquee-track {
-  display: flex;
-  width: max-content;
-  animation: heroMarqueeScroll 18s linear infinite;
-  white-space: nowrap;
+.hero-marquee .marquee_left {
+  padding-block: 8px;
 }
 
-.hero-marquee-track:hover {
-  animation-play-state: paused;
+.hero-marquee-title {
+  font-size: clamp(1.6rem, 4vw, 2.8rem) !important;
+  line-height: 1.2 !important;
 }
 
-.hero-marquee-item {
-  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
-  letter-spacing: 0.5px;
-  line-height: 1.4;
-  color: hsl(var(--heading-color));
-  font-family: var(--font-heading, sans-serif);
-}
-
-@keyframes heroMarqueeScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.hero-marquee-title.text-stroke {
+  -webkit-text-stroke-width: 1px;
+  color: #000000;
+  -webkit-text-stroke-color: hsl(var(--white));
 }
 /* ===================== Hero Marquee End ===================== */
 
@@ -8085,13 +8067,17 @@ input:focus-visible {
   color: hsl(var(--heading-color));
   border-radius: 50% !important;
   padding: 0;
+  margin: 0;
   border: none;
+  line-height: 0;
+  text-align: center;
   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .back-to-top-btn svg {
-  display: block;
-  margin: auto;
+  flex-shrink: 0;
+  width: 12px;
+  height: 7px;
   transform: none !important;
 }
 
