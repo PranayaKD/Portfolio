@@ -313,6 +313,12 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, background-color 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tw-hover-btn:active {
+  transform: scale(0.97);
 }
 
 .tw-hover-btn-circle-dot {
@@ -6654,62 +6660,65 @@ input:focus-visible {
 }
 
 .footer-three-bottom-title {
-  font-size: 395px;
+  font-size: clamp(2.5rem, 18vw, 395px);
   line-height: 83%;
   text-align: center;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+  width: 100%;
 }
 
 @media screen and (max-width: 1799px) {
   .footer-three-bottom-title {
-    font-size: 372px;
+    font-size: clamp(2.5rem, 18vw, 372px);
   }
 }
 
 @media screen and (max-width: 1699px) {
   .footer-three-bottom-title {
-    font-size: 345px;
+    font-size: clamp(2.5rem, 18vw, 345px);
   }
 }
 
 @media screen and (max-width: 1499px) {
   .footer-three-bottom-title {
-    font-size: 306px;
+    font-size: clamp(2.5rem, 18vw, 306px);
   }
 }
 
 @media screen and (max-width: 1399px) {
   .footer-three-bottom-title {
-    font-size: 260px;
+    font-size: clamp(2.5rem, 18vw, 260px);
   }
 }
 
 @media screen and (max-width: 1199px) {
   .footer-three-bottom-title {
-    font-size: 215px;
+    font-size: clamp(2.5rem, 18vw, 215px);
   }
 }
 
 @media screen and (max-width: 991px) {
   .footer-three-bottom-title {
-    font-size: 164px;
+    font-size: clamp(2.5rem, 18vw, 164px);
   }
 }
 
 @media screen and (max-width: 767px) {
   .footer-three-bottom-title {
-    font-size: 120px;
+    font-size: clamp(2.2rem, 18vw, 120px);
   }
 }
 
 @media screen and (max-width: 575px) {
   .footer-three-bottom-title {
-    font-size: 89px;
+    font-size: clamp(2rem, 17.5vw, 89px);
   }
 }
 
 @media screen and (max-width: 424px) {
   .footer-three-bottom-title {
-    font-size: 78px;
+    font-size: clamp(1.8rem, 17.5vw, 78px);
   }
 }
 
@@ -8778,10 +8787,11 @@ body.tw-magic-cursor #magic-cursor {
   left: 50%;
   transform: translateX(-50%);
   width: min(92%, 980px);
+  max-width: 100vw;
   text-align: center;
-  font-size: clamp(8.5rem, 20vw, 13rem) !important;
+  font-size: clamp(2.2rem, 13.5vw, 13rem) !important;
   font-weight: 900;
-  letter-spacing: -4px;
+  letter-spacing: clamp(-4px, -0.5vw, -1px);
   line-height: 0.9;
   color: rgba(0, 0, 0, 0.14);
   opacity: 1;
@@ -8874,8 +8884,18 @@ body.tw-magic-cursor #magic-cursor {
   width: 100%;
   margin: auto;
   margin-block-end: 20px;
-  font-size: clamp(1.65rem, 4vw, 3rem);
-  line-height: 1.08;
+  font-size: clamp(1.2rem, 3.2vw, 2.2rem);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms ease, text-shadow 300ms ease;
+  cursor: default;
+}
+
+.banner-three-center-title:hover {
+  transform: translateY(-3px);
+  color: hsl(var(--heading-color));
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
 .banner-three-counter-item {
@@ -8902,7 +8922,7 @@ body.tw-magic-cursor #magic-cursor {
   }
 
   .banner-three-title {
-    font-size: clamp(6.5rem, 20vw, 9rem) !important;
+    font-size: clamp(2.2rem, 13.5vw, 9rem) !important;
   }
 
   .banner-three-wrap {
@@ -8950,7 +8970,7 @@ body.tw-magic-cursor #magic-cursor {
   }
 
   .banner-three-title {
-    font-size: clamp(5rem, 22vw, 7rem) !important;
+    font-size: clamp(2.2rem, 13.5vw, 7rem) !important;
   }
 
   .banner-three-man {
@@ -8982,7 +9002,7 @@ body.tw-magic-cursor #magic-cursor {
   }
 
   .banner-three-title {
-    font-size: clamp(4.5rem, 24vw, 6.5rem) !important;
+    font-size: clamp(2.2rem, 13.5vw, 6.5rem) !important;
   }
 
   .banner-three-man {
@@ -9017,7 +9037,7 @@ body.tw-magic-cursor #magic-cursor {
 
 @media screen and (max-width: 575px) {
   .banner-three-title {
-    font-size: clamp(3.8rem, 28vw, 5.5rem) !important;
+    font-size: clamp(2.2rem, 13.5vw, 5.5rem) !important;
   }
 
   .banner-three-man {
@@ -9029,7 +9049,7 @@ body.tw-magic-cursor #magic-cursor {
   }
 
   .banner-three-center-title {
-    font-size: 2rem;
+    font-size: clamp(1.1rem, 4.5vw, 1.45rem);
   }
 }
 
@@ -9148,6 +9168,8 @@ body.tw-magic-cursor #magic-cursor {
 .about-three-counter .tw-btn-circle {
   width: 412px;
   height: 412px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50% !important;
   fill: #f5f5f5;
   box-shadow:
     0 4px 4px 0 rgba(0, 0, 0, 0.25),
@@ -9158,6 +9180,8 @@ body.tw-magic-cursor #magic-cursor {
   .about-three-counter .tw-btn-circle {
     width: 350px;
     height: 350px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50% !important;
   }
 }
 
@@ -9209,8 +9233,12 @@ body.tw-magic-cursor #magic-cursor {
 
 @media screen and (max-width: 767px) {
   .about-three-counter .tw-btn-circle {
-    width: min(100%, 280px);
-    height: min(100%, 280px);
+    width: clamp(180px, 65vw, 280px);
+    height: clamp(180px, 65vw, 280px);
+    aspect-ratio: 1 / 1;
+    border-radius: 50% !important;
+    flex-shrink: 0;
+    margin: 0 auto;
   }
 
   .about-three-counter .tw-btn-circle-icon {
