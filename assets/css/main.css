@@ -8864,6 +8864,7 @@ body.tw-magic-cursor #magic-cursor {
   gap: 2rem;
   z-index: 2;
   align-items: start;
+  justify-items: center;
 }
 
 .banner-three-left,
@@ -8876,6 +8877,9 @@ body.tw-magic-cursor #magic-cursor {
 
 .banner-three-center {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .banner-three-left,
