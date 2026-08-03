@@ -11233,35 +11233,35 @@ body.tw-magic-cursor #magic-cursor {
 
 /* ==================== Custom Infinite Marquee, Orange Hover & Logo Styling ==================== */
 
-/* 1. Static Typography Text Block with Hover Animation */
+/* 1. Static Typography Text Block with Hover Animation — stacked 3 lines */
 .hero-typography-block {
   width: 100%;
   max-width: 600px;
   margin: 0 auto 1.75rem auto;
   padding: 0 0.5rem;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 .banner-three-center-title {
   display: block;
-  font-size: clamp(0.75rem, 1.4vw, 1.15rem);
-  line-height: 1.5;
+  font-size: clamp(0.95rem, 1.7vw, 1.4rem);
+  line-height: 1.55;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   color: #111111;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    color 0.4s ease,
-    letter-spacing 0.4s ease,
-    text-shadow 0.4s ease;
+  white-space: normal;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.35s ease,
+    letter-spacing 0.35s ease,
+    text-shadow 0.35s ease;
   cursor: pointer;
   user-select: none;
 }
 
 .banner-three-center-title:hover {
-  transform: translateY(-3px) scale(1.01);
+  transform: translateY(-3px) scale(1.02);
   color: #ff5722;
   letter-spacing: 0.12em;
   text-shadow: 0 8px 20px rgba(255, 87, 34, 0.22);
