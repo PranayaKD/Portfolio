@@ -207,20 +207,59 @@
 
   ////////////////////////////////////////////////////
   // 09. Magnific Popup Js
-  $(".open-popup").magnificPopup({
-    type: "iframe",
-    removalDelay: 300,
-    mainClass: "mfp-fade",
-  });
+  if ($.fn && $.fn.magnificPopup && $(".open-popup").length) {
+    $(".open-popup").magnificPopup({
+      type: "iframe",
+      removalDelay: 300,
+      mainClass: "mfp-fade",
+    });
+  }
 
   ////////////////////////////////////////////////////
-  // 10. Counter Js
-  new PureCounter();
-  new PureCounter({
-    filesizing: true,
-    selector: ".filesizecount",
-    pulse: 2,
-  });
+  // 10. Counter Animation Js
+  if (typeof PureCounter !== "undefined") {
+    try {
+      new PureCounter({
+        selector: ".purecounter",
+        duration: 2,
+        delay: 10,
+        once: true,
+      });
+    } catch (e) {}
+  }
+
+  const counterElements = document.querySelectorAll(".purecounter");
+  if (counterElements.length) {
+    const counterObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const targetVal = parseInt(el.getAttribute("data-purecounter-end"), 10);
+            if (!isNaN(targetVal)) {
+              const duration = 2000;
+              let startTimestamp = null;
+              const animateCount = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const currentVal = Math.floor(progress * targetVal);
+                el.textContent = currentVal;
+                if (progress < 1) {
+                  window.requestAnimationFrame(animateCount);
+                } else {
+                  el.textContent = targetVal;
+                }
+              };
+              window.requestAnimationFrame(animateCount);
+            }
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    counterElements.forEach((el) => counterObserver.observe(el));
+  }
 
   ////////////////////////////////////////////////////
   // 11. Feature Widget Animation Js

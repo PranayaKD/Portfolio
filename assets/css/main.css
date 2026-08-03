@@ -11207,15 +11207,105 @@ body.tw-magic-cursor #magic-cursor {
 }
 
 .header-logo-img {
-  max-height: 40px;
-  max-width: 150px;
+  max-height: 50px !important;
+  max-width: 180px !important;
   width: auto;
   height: auto;
   object-fit: contain;
+  display: block;
 }
 
 .header-nav-padding {
   padding: 10px 0;
+}
+
+/* ==================== Custom Infinite Marquee, Orange Hover & Logo Styling ==================== */
+
+/* 1. Infinite Marquee Animation */
+.hero-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.5rem;
+  display: block !important;
+}
+
+.hero-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: heroMarqueeScroll 20s linear infinite;
+  will-change: transform;
+}
+
+.hero-marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+  white-space: nowrap;
+}
+
+@keyframes heroMarqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.hero-marquee:hover .hero-marquee-track {
+  animation-play-state: paused;
+}
+
+/* 2. Orange Hover Effect for "VIEW PROJECTS" and Navbar Buttons */
+.tw-hover-btn {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.4s ease !important;
+}
+
+.tw-hover-btn-circle-dot {
+  background-color: #ff5722 !important;
+}
+
+.tw-hover-btn:hover {
+  background-color: #ff5722 !important;
+  border-color: #ff5722 !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 25px rgba(255, 87, 34, 0.4);
+  transform: translateY(-2px);
+}
+
+.tw-hover-btn:hover .tw-hover-btn-circle-dot {
+  width: 520px;
+  height: 520px;
+  background-color: #ff5722 !important;
+}
+
+/* 3. Header Logo Clean Full Size */
+.header-three-logo {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-three-logo a.link {
+  display: inline-block;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1;
+}
+
+/* Prevent decorative shapes from blocking mouse hover/clicks */
+.about-three-shape,
+.banner-three-line-shape,
+.banner-three-carcel-shape {
+  pointer-events: none !important;
 }
 
 /*# sourceMappingURL=main.css.map */
