@@ -71,15 +71,13 @@
 
   <!-- Title -->
   <title>Pranaya Kumar Dash (pranayakd) | Python & Django Backend Developer</title>
-  <!-- Favicon -->
+  <!-- Favicon & Web Manifest -->
   <link rel="icon" href="assets/images/logo/favicon.png" type="image/png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preload" as="image" href="images/hero_banner.png" fetchpriority="high" />
   <!-- Bootstrap -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-  <!-- Swiper Bundle -->
-  <link rel="stylesheet" href="assets/css/swiper-bundle.css" />
-  <!-- Magnific Popup -->
-  <link rel="stylesheet" href="assets/css/magnific-popup.css" />
-  <!-- aos -->
+  <!-- AOS -->
   <link rel="stylesheet" href="assets/css/aos.css" />
   <!-- Main css -->
   <link rel="stylesheet" href="assets/css/main.css" />
@@ -126,7 +124,7 @@
 
   <!-- ==================== Scroll to Top End Here ==================== -->
   <div class="back-to-top-wrapper">
-    <button id="back_to_top" type="button" class="back-to-top-btn">
+    <button id="back_to_top" type="button" class="back-to-top-btn" aria-label="Back to top">
       <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M11 6L6 1L1 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
           stroke-linejoin="round" />
@@ -136,18 +134,17 @@
   <!-- ==================== Scroll to Top End Here ==================== -->
 
   <!-- ==================== Offcanvus Mobile Menu Start Here ==================== -->
-  <div class="tw-offcanvas-2-area p-relative">
+  <div class="tw-offcanvas-2-area p-relative" id="offcanvasNav" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Navigation Menu">
     <div class="tw-offcanvas-2-bg is-left left-box"></div>
     <div class="tw-offcanvas-2-bg is-right right-box d-none d-md-block"></div>
     <div class="tw-offcanvas-2-wrapper">
       <div class="tw-offcanvas-2-left left-box">
         <div class="tw-offcanvas-2-left-wrap d-flex justify-content-between align-items-center">
           <div class="twoffcanvas__logo">
-            <a class="logo-1" href="index.html"><img src="images/logo.png" alt="Pranaya Logo"
-                style="max-height: 40px; width: auto; object-fit: contain;" /></a>
+            <a class="logo-1" href="index.html"><img src="images/logo.png" alt="Pranaya Kumar Dash Logo" width="150" height="40" class="header-logo-img" /></a>
           </div>
           <div class="tw-offcanvas-2-close d-md-none text-end">
-            <button class="tw-offcanvas-2-close-btn tw-offcanvas-2-close-btn">
+            <button class="tw-offcanvas-2-close-btn tw-offcanvas-2-close-btn" aria-label="Close menu">
               <span class="text">
                 <span class="text-white">close</span>
               </span>
@@ -170,7 +167,7 @@
       </div>
       <div class="tw-offcanvas-2-right right-box d-none d-md-block p-relative">
         <div class="tw-offcanvas-2-close text-end">
-          <button class="tw-offcanvas-2-close-btn">
+          <button class="tw-offcanvas-2-close-btn" aria-label="Close menu">
             <span class="text">
               <span>close</span>
             </span>
@@ -199,8 +196,7 @@
               </li>
               <li>
                 <span class="text-main-two-600 tw-text-xl"><i class="ph ph-envelope"></i></span>
-                <a class="text-white" href="mailto:dashpranaya28@gmail.com"><span
-                    class="__cf_email__">dashpranaya28@gmail.com</span></a>
+                <a class="text-white" href="mailto:dashpranaya28@gmail.com">dashpranaya28@gmail.com</a>
               </li>
               <li>
                 <span class="text-main-two-600 tw-text-xl"><i class="ph ph-phone-call"></i></span>
@@ -248,14 +244,13 @@
   <!-- ==================== Offcanvus Mobile Menu End Here ==================== -->
 
   <!-- ==================== Header Start Here ==================== -->
-  <header class="header header-two header-three tw-transition-all tw-z-99 position-relative" style="padding: 10px 0;">
+  <header class="header header-two header-three tw-transition-all tw-z-99 position-relative header-nav-padding">
     <div class="container tw-container-1800-px">
       <nav class="d-flex align-items-center justify-content-between position-relative">
         <!-- Logo Start -->
         <div class="header-three-logo tw-rounded-md">
           <a href="index.html" class="link">
-            <img src="images/logo.png" alt="Pranaya Logo"
-              style="max-height: 40px; max-width: 150px; width: auto; height: auto; object-fit: contain;" />
+            <img src="images/logo.png" alt="Pranaya Kumar Dash Logo" width="150" height="40" class="header-logo-img" />
           </a>
         </div>
         <!-- Logo End  -->
@@ -265,22 +260,22 @@
           <ul class="d-flex tw-gap-205">
             <li>
               <a class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md"
-                href="https://linkedin.com/in/pranayakd28" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i
+                href="https://linkedin.com/in/pranayakd28" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn Profile"><i
                   class="ph-bold ph-linkedin-logo"></i></a>
             </li>
             <li>
               <a class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md"
-                href="https://github.com/PranayaKD" target="_blank" rel="noopener noreferrer" title="GitHub"><i
+                href="https://github.com/PranayaKD" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub Profile"><i
                   class="ph-bold ph-github-logo"></i></a>
             </li>
             <li>
               <a class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md"
                 href="https://www.instagram.com/_pranaya_28__/?hl=en" target="_blank" rel="noopener noreferrer"
-                title="Instagram"><i class="ph-bold ph-instagram-logo"></i></a>
+                title="Instagram" aria-label="Instagram Profile"><i class="ph-bold ph-instagram-logo"></i></a>
             </li>
             <li>
               <a class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md"
-                href="mailto:dashpranaya28@gmail.com" title="Gmail"><i class="ph-bold ph-envelope"></i></a>
+                href="mailto:dashpranaya28@gmail.com" title="Gmail" aria-label="Send Email"><i class="ph-bold ph-envelope"></i></a>
             </li>
           </ul>
         </div>
@@ -310,9 +305,9 @@
           <div class="header-three-menu">
             <button type="button"
               class="tw-offcanvas-open-btn tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center tw-transition-3 tw-rounded-md"
-              aria-label="Open navigation menu" aria-expanded="false">
+              aria-label="Open navigation menu" aria-controls="offcanvasNav" aria-expanded="false">
               <span><img class="tw-transition-3" src="assets/images/icons/header-three-toggle.svg"
-                  alt="toggle" /></span>
+                  alt="" width="24" height="24" /></span>
             </button>
           </div>
           <!-- Menu Button End  -->
@@ -355,33 +350,35 @@
                       <div class="banner-three-list">
                         <ul>
                           <li class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4">
-                            <span><img src="assets/images/icons/banner-three-pluse.svg" alt="pluse" /></span>
+                            <span><img src="assets/images/icons/banner-three-pluse.svg" alt="" width="16" height="16" /></span>
                             Web Development
                           </li>
                           <li class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4">
-                            <span><img src="assets/images/icons/banner-three-pluse.svg" alt="pluse" /></span>
+                            <span><img src="assets/images/icons/banner-three-pluse.svg" alt="" width="16" height="16" /></span>
                             Django & DRF APIs
                           </li>
                           <li class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4">
-                            <span><img src="assets/images/icons/banner-three-pluse.svg" alt="pluse" /></span>
+                            <span><img src="assets/images/icons/banner-three-pluse.svg" alt="" width="16" height="16" /></span>
                             Database Optimization
                           </li>
                           <li class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4">
-                            <span><img src="assets/images/icons/banner-three-pluse.svg" alt="pluse" /></span>
+                            <span><img src="assets/images/icons/banner-three-pluse.svg" alt="" width="16" height="16" /></span>
                             Redis & Celery Workers
                           </li>
                           <li class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4">
-                            <span><img src="assets/images/icons/banner-three-pluse.svg" alt="pluse" /></span>
+                            <span><img src="assets/images/icons/banner-three-pluse.svg" alt="" width="16" height="16" /></span>
                             AI & RAG Infrastructure
                           </li>
                         </ul>
                       </div>
                     </div>
+                    <div class="banner-three-man" data-aos="fade-up" data-aos-duration="1000"
+                      data-aos-delay="200">
+                      <img src="images/hero_banner.png" alt="Pranaya Kumar Dash" width="680" height="760"
+                        loading="eager" decoding="async" fetchpriority="high" />
+                    </div>
                     <div class="banner-three-center text-center" data-aos="fade-up" data-aos-duration="1000"
                       data-aos-delay="200">
-                      <div class="banner-three-man">
-                        <img src="images/hero_banner.png" alt="Pranaya Kumar Dash" />
-                      </div>
                       <div class="marquee hero-marquee">
                         <div class="marquee_left d-flex align-items-center justify-content-between tw-gap-16 overflow-hidden">
                           <div>
@@ -453,7 +450,7 @@
                       </div>
                     </div>
                     <div class="banner-three-line-shape position-absolute start-50 translate-middle-x z-n1">
-                      <img src="assets/images/shapes/banner-three-shape.png" alt="shape" />
+                      <img src="assets/images/shapes/banner-three-shape.png" alt="" loading="lazy" decoding="async" />
                       <div class="banner-three-carcel-shape">
                         <div><span></span></div>
                       </div>
@@ -482,7 +479,7 @@
                   <div class="about-three-thumb w-100 tw-clip-anim tw-rounded-lg" data-aos="fade-up"
                     data-aos-duration="1000" data-aos-delay="200">
                     <img class="tw-anim-img w-100 tw-rounded-lg" data-animate="true" src="images/background.webp"
-                      alt="thumb" />
+                      alt="Pranaya Kumar Dash working on backend systems" loading="lazy" decoding="async" />
                   </div>
                 </div>
                 <div class="col-xl-6">
@@ -547,7 +544,7 @@
           </div>
           <div>
             <img class="about-three-shape position-absolute start-0 w-100"
-              src="assets/images/shapes/about-three-shape.png" alt="shape" />
+              src="assets/images/shapes/about-three-shape.png" alt="" loading="lazy" decoding="async" />
           </div>
         </section>
         <!-- ======================== Marquee section start =========================== -->
@@ -593,7 +590,7 @@
                           <span
                             class="service-three-number text-white tw-text-xl d-inline-flex align-items-center tw-gap-3 lh-1 tw-mt-5 tw-transition-3">01
                             <img class="tw-transition-3" src="assets/images/icons/service-three-arrow.svg"
-                              alt="arrow" /></span>
+                              alt="" width="16" height="16" /></span>
                         </div>
                         <div>
                           <div>
@@ -605,15 +602,15 @@
                             <ul class="d-flex tw-gap-205 flex-wrap">
                               <li>
                                 <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#">HTML / CSS</a>
+                                  href="#services">HTML / CSS</a>
                               </li>
                               <li>
                                 <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#">JavaScript</a>
+                                  href="#services">JavaScript</a>
                               </li>
                               <li>
                                 <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#">Responsive Design</a>
+                                  href="#services">Responsive Design</a>
                               </li>
                             </ul>
                           </div>
@@ -621,7 +618,7 @@
                       </div>
                       <div class="service-three-thumb">
                         <a href="#services"><img src="assets/images/thumbs/service-three-thumb1.png"
-                            alt="Web Development" /></a>
+                            alt="Web Development" loading="lazy" decoding="async" /></a>
                       </div>
                     </div>
                   </div>
@@ -633,7 +630,7 @@
                           <span
                             class="service-three-number text-white tw-text-xl d-inline-flex align-items-center tw-gap-3 lh-1 tw-mt-5 tw-transition-3">02
                             <img class="tw-transition-3" src="assets/images/icons/service-three-arrow.svg"
-                              alt="arrow" /></span>
+                              alt="" width="16" height="16" /></span>
                         </div>
                         <div>
                           <div>
@@ -645,15 +642,15 @@
                             <ul class="d-flex tw-gap-205 flex-wrap">
                               <li>
                                 <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#">Django / DRF</a>
+                                  href="#services">Django / DRF</a>
                               </li>
                               <li>
                                 <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#">REST APIs</a>
+                                  href="#services">REST APIs</a>
                               </li>
                               <li>
                                 <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#">Authentication</a>
+                                  href="#services">Authentication</a>
                               </li>
                             </ul>
                           </div>
@@ -661,7 +658,7 @@
                       </div>
                       <div class="service-three-thumb">
                         <a href="#services"><img src="assets/images/thumbs/service-three-thumb2.png"
-                            alt="API Development" /></a>
+                            alt="API Development" loading="lazy" decoding="async" /></a>
                       </div>
                     </div>
                   </div>
@@ -672,7 +669,7 @@
                           <span
                             class="service-three-number text-white tw-text-xl d-inline-flex align-items-center tw-gap-3 lh-1 tw-mt-5 tw-transition-3">03
                             <img class="tw-transition-3" src="assets/images/icons/service-three-arrow.svg"
-                              alt="arrow" /></span>
+                              alt="" width="16" height="16" /></span>
                         </div>
                         <div>
                           <div>
@@ -684,15 +681,15 @@
                             <ul class="d-flex tw-gap-205 flex-wrap">
                               <li>
                                 <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#">PostgreSQL</a>
+                                  href="#services">PostgreSQL</a>
                               </li>
                               <li>
                                 <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#">Redis</a>
+                                  href="#services">Redis</a>
                               </li>
                               <li>
                                 <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#">Query Optimization</a>
+                                  href="#services">Query Optimization</a>
                               </li>
                             </ul>
                           </div>
@@ -700,7 +697,7 @@
                       </div>
                       <div class="service-three-thumb">
                         <a href="#services"><img src="assets/images/thumbs/service-three-thumb3.png"
-                            alt="Database Engineering" /></a>
+                            alt="Database Engineering" loading="lazy" decoding="async" /></a>
                       </div>
                     </div>
                   </div>
@@ -712,7 +709,7 @@
                           <span
                             class="service-three-number text-white tw-text-xl d-inline-flex align-items-center tw-gap-3 lh-1 tw-mt-5 tw-transition-3">04
                             <img class="tw-transition-3" src="assets/images/icons/service-three-arrow.svg"
-                              alt="arrow" /></span>
+                              alt="" width="16" height="16" /></span>
                         </div>
                         <div>
                           <div>
@@ -724,15 +721,15 @@
                             <ul class="d-flex tw-gap-205 flex-wrap">
                               <li>
                                 <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#">AWS / S3</a>
+                                  href="#services">AWS / S3</a>
                               </li>
                               <li>
                                 <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#">Celery Workers</a>
+                                  href="#services">Celery Workers</a>
                               </li>
                               <li>
                                 <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#">Docker</a>
+                                  href="#services">Docker</a>
                               </li>
                             </ul>
                           </div>
@@ -740,7 +737,7 @@
                       </div>
                       <div class="service-three-thumb">
                         <a href="#services"><img src="assets/images/thumbs/service-three-thumb4.png"
-                            alt="Cloud & Async Systems" /></a>
+                            alt="Cloud and Async Systems" loading="lazy" decoding="async" /></a>
                       </div>
                     </div>
                   </div>
@@ -771,11 +768,11 @@
                           <ul class="d-flex tw-gap-205 flex-wrap">
                             <li>
                               <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#">PYTHON</a>
+                                href="#services">PYTHON</a>
                             </li>
                             <li>
                               <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#">DJANGO / AI</a>
+                                href="#services">DJANGO / AI</a>
                             </li>
                           </ul>
                         </div>
@@ -790,7 +787,7 @@
                     <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
                       <a class="d-block cursor-hide tw-rounded-lg" href="projects/cliniq-ai.html"><img
                           class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb1.jpg"
-                          alt="thumb" /></a>
+                          alt="Cliniq.ai Healthcare Platform" loading="lazy" decoding="async" /></a>
                     </div>
                   </div>
                   <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
@@ -806,11 +803,11 @@
                           <ul class="d-flex tw-gap-205 flex-wrap">
                             <li>
                               <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#">FASTAPI</a>
+                                href="#services">FASTAPI</a>
                             </li>
                             <li>
                               <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#">REDIS / POSTGRESQL</a>
+                                href="#services">REDIS / POSTGRESQL</a>
                             </li>
                           </ul>
                         </div>
@@ -823,7 +820,7 @@
                     <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
                       <a class="d-block cursor-hide tw-rounded-lg" href="projects/trimrr.html"><img
                           class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb2.jpg"
-                          alt="Trimrr URL Analytics SaaS" /></a>
+                          alt="Trimrr URL Analytics SaaS" loading="lazy" decoding="async" /></a>
                     </div>
                   </div>
                   <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
@@ -839,11 +836,11 @@
                           <ul class="d-flex tw-gap-205 flex-wrap">
                             <li>
                               <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#">DJANGO</a>
+                                href="#services">DJANGO</a>
                             </li>
                             <li>
                               <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#">REST API / DOCKER</a>
+                                href="#services">REST API / DOCKER</a>
                             </li>
                           </ul>
                         </div>
@@ -856,7 +853,7 @@
                     <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
                       <a class="d-block cursor-hide tw-rounded-lg" href="projects/rentora.html"><img
                           class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb3.jpg"
-                          alt="Rentora Car Rental Platform" /></a>
+                          alt="Rentora Car Rental Platform" loading="lazy" decoding="async" /></a>
                     </div>
                   </div>
                   <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
@@ -872,11 +869,11 @@
                           <ul class="d-flex tw-gap-205 flex-wrap">
                             <li>
                               <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#">PYTHON</a>
+                                href="#services">PYTHON</a>
                             </li>
                             <li>
                               <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#">DJANGO / MYSQL</a>
+                                href="#services">DJANGO / MYSQL</a>
                             </li>
                           </ul>
                         </div>
@@ -889,13 +886,13 @@
                     <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
                       <a class="d-block cursor-hide tw-rounded-lg" href="projects/shoppermart.html"><img
                           class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb4.jpg"
-                          alt="ShopperMart E-Commerce Platform" /></a>
+                          alt="ShopperMart E-Commerce Platform" loading="lazy" decoding="async" /></a>
                     </div>
                   </div>
                   <div class="about-three-counter portfolio-three-counter d-inline-block text-center w-100 tw-mt-10">
                     <div class="tw-hover-btn-wrapper d-inline-block">
                       <a class="tw-btn-circle tw-hover-btn-item tw-hover-btn tw-w-160-px tw-h-160-px lh-1 d-inline-flex justify-content-center align-items-center rounded-circle position-relative overflow-hidden"
-                        href="#portfolio">
+                        href="#portfolio" aria-label="Discover Our Projects">
                         <span class="d-flex flex-column justify-content-center">
                           <span class="text-heading fw-bold tw-transition-3 tw-text-2xl fw-semibold">Discover <br />
                             Our Projects <i class="ph ph-arrow-up-right"></i></span>
@@ -1226,7 +1223,7 @@
                   </div>
                   <div class="footer-three-top-info tw-p-705 tw-rounded-lg d-flex tw-gap-6">
                     <div class="footer-three-top-thumb tw-w-160-px">
-                      <img class="tw-rounded-lg w-100" src="images/background.webp" alt="thumb" />
+                      <img class="tw-rounded-lg w-100" src="images/background.webp" alt="Pranaya Kumar Dash" loading="lazy" decoding="async" />
                     </div>
                     <div class="footer-three-top-content d-flex justify-content-between flex-column">
                       <div>
@@ -1240,21 +1237,21 @@
                           <li>
                             <a class="tw-w-11 tw-h-101 lh-1 d-inline-flex align-items-center justify-content-center tw-rounded-lg tw-text-xl text-heading hover-bg-main-600 hover-text-heading"
                               href="https://linkedin.com/in/pranayakd28" target="_blank" rel="noopener noreferrer"
-                              title="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                              title="LinkedIn" aria-label="LinkedIn Profile"><i class="ph ph-linkedin-logo"></i></a>
                           </li>
                           <li>
                             <a class="tw-w-11 tw-h-101 lh-1 d-inline-flex align-items-center justify-content-center tw-rounded-lg tw-text-xl text-heading hover-bg-main-600 hover-text-heading"
                               href="https://github.com/PranayaKD" target="_blank" rel="noopener noreferrer"
-                              title="GitHub"><i class="ph ph-github-logo"></i></a>
+                              title="GitHub" aria-label="GitHub Profile"><i class="ph ph-github-logo"></i></a>
                           </li>
                           <li>
                             <a class="tw-w-11 tw-h-101 lh-1 d-inline-flex align-items-center justify-content-center tw-rounded-lg tw-text-xl text-heading hover-bg-main-600 hover-text-heading"
                               href="https://www.instagram.com/_pranaya_28__/?hl=en" target="_blank"
-                              rel="noopener noreferrer" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                              rel="noopener noreferrer" title="Instagram" aria-label="Instagram Profile"><i class="ph ph-instagram-logo"></i></a>
                           </li>
                           <li>
                             <a class="tw-w-11 tw-h-101 lh-1 d-inline-flex align-items-center justify-content-center tw-rounded-lg tw-text-xl text-heading hover-bg-main-600 hover-text-heading"
-                              href="mailto:dashpranaya28@gmail.com" title="Gmail"><i class="ph ph-envelope"></i></a>
+                              href="mailto:dashpranaya28@gmail.com" title="Gmail" aria-label="Send Email"><i class="ph ph-envelope"></i></a>
                           </li>
                         </ul>
                       </div>
@@ -1264,7 +1261,7 @@
               </div>
               <div class="col-xl-6 col-lg-6">
                 <div class="footer-three-form" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                  <form action="#">
+                  <form action="https://formspree.io/f/xbjnqpkp" method="POST" id="contact-form">
                     <div class="row">
                       <div class="col-xl-12">
                         <div class="position-relative tw-mb-7">
@@ -1296,6 +1293,7 @@
                             class="tw-hover-btn bg-main-600 text-heading tw-text-xl fw-bold tw-py-4 tw-px-10 d-inline-flex justify-content-center w-100 hover-text-heading hover-bg-white tw-transition-3 tw-rounded-lg"
                             aria-label="Submit message">
                             submit message
+                            <span class="tw-hover-btn-circle-dot bg-white"></span>
                           </button>
                         </div>
                       </div>
@@ -1363,47 +1361,43 @@
             </div>
           </div>
         </section>
+      </main>
     </div>
   </div>
-  </main>
   <!-- Jquery js -->
-  <script src="assets/js/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/jquery-3.7.1.min.js" defer></script>
   <!-- phosphor Js -->
-  <script src="assets/js/phosphor-icon.js"></script>
+  <script src="assets/js/phosphor-icon.js" defer></script>
   <!-- Bootstrap Bundle Js -->
-  <script src="assets/js/boostrap.bundle.min.js"></script>
+  <script src="assets/js/boostrap.bundle.min.js" defer></script>
   <!-- aos -->
-  <script src="assets/js/aos.js"></script>
-  <!-- magnific popup js -->
-  <script src="assets/js/magnific-popup.min.js"></script>
+  <script src="assets/js/aos.js" defer></script>
   <!-- marquee -->
-  <script src="assets/js/jquery.marquee.min.js"></script>
+  <script src="assets/js/jquery.marquee.min.js" defer></script>
   <!-- counterup js -->
-  <script src="assets/js/purecounter.js"></script>
-  <!-- swiper bundle js -->
-  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/purecounter.js" defer></script>
 
   <!-- gsap js -->
-  <script src="assets/js/gsap/gsap.js"></script>
+  <script src="assets/js/gsap/gsap.js" defer></script>
   <!-- Scroll plugin -->
-  <script src="assets/js/gsap/gsap-scroll-to-plugin.js"></script>
+  <script src="assets/js/gsap/gsap-scroll-to-plugin.js" defer></script>
   <!-- Scroll smoother -->
-  <script src="assets/js/gsap/gsap-scroll-smoother.js"></script>
+  <script src="assets/js/gsap/gsap-scroll-smoother.js" defer></script>
   <!-- Scroll Trigger -->
-  <script src="assets/js/gsap/gsap-scroll-trigger.js"></script>
+  <script src="assets/js/gsap/gsap-scroll-trigger.js" defer></script>
   <!-- split text -->
-  <script src="assets/js/gsap/gsap-split-text.js"></script>
+  <script src="assets/js/gsap/gsap-split-text.js" defer></script>
   <!-- chroma js -->
-  <script src="assets/js/gsap/chroma.min.js"></script>
+  <script src="assets/js/gsap/chroma.min.js" defer></script>
 
   <!-- custom GSAP -->
-  <script src="assets/js/slider-active.js"></script>
+  <script src="assets/js/slider-active.js" defer></script>
   <!-- custom GSAP -->
-  <script src="assets/js/custom-gsap.js"></script>
+  <script src="assets/js/custom-gsap.js" defer></script>
   <!-- main js -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
   <!-- cursor js -->
-  <script src="assets/js/tw-cursor.js"></script>
+  <script src="assets/js/tw-cursor.js" defer></script>
 </body>
 
 </html>

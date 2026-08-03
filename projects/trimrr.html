@@ -5,23 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trimrr — URL Shortener SaaS by Pranaya Kumar Dash (pranayakd)</title>
 <meta name="description" content="Trimrr is a premium URL shortener SaaS built by Pranaya Kumar Dash using Django, HTMX, and Razorpay — with real-time analytics, custom aliases, and Redis-backed background queues.">
-<link rel="canonical" href="https://www.pranayakd.in/projects/trimrr.html">
+<link rel="canonical" href="https://pranayakd.in/projects/trimrr.html">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Pranaya Kumar Dash (pranayakd)">
-<link rel="icon" href="/images/logo.webp" type="image/webp">
+<link rel="icon" href="../assets/images/logo/favicon.png" type="image/png">
+<link rel="manifest" href="../site.webmanifest">
 
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://www.pranayakd.in/projects/trimrr.html">
+<meta property="og:url" content="https://pranayakd.in/projects/trimrr.html">
 <meta property="og:title" content="Trimrr — URL Shortener SaaS by Pranaya Kumar Dash">
 <meta property="og:description" content="Django + HTMX + Razorpay SaaS with real-time analytics, custom aliases, and Redis-backed background jobs.">
-<meta property="og:image" content="https://www.pranayakd.in/images/aboutme.webp">
+<meta property="og:image" content="https://pranayakd.in/images/hero_banner.png">
 <meta property="og:site_name" content="pranayakd — Portfolio">
 <meta property="og:locale" content="en_IN">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Trimrr — URL Shortener SaaS by Pranaya Kumar Dash">
 <meta name="twitter:description" content="Django + HTMX + Razorpay SaaS with real-time analytics, custom aliases, and Redis-backed background jobs.">
-<meta name="twitter:image" content="https://www.pranayakd.in/images/aboutme.webp">
+<meta name="twitter:image" content="https://pranayakd.in/images/hero_banner.png">
 
 <script type="application/ld+json">
 {
@@ -29,20 +30,20 @@
   "@graph": [
     {
       "@type": "SoftwareSourceCode",
-      "@id": "https://www.pranayakd.in/projects/trimrr.html#project",
+      "@id": "https://pranayakd.in/projects/trimrr.html#project",
       "name": "Trimrr",
       "description": "Premium URL shortener SaaS with real-time tracking analytics, custom aliases, dynamic QR codes, and integrated Razorpay subscriptions.",
       "programmingLanguage": ["Python", "Django", "HTMX"],
       "codeRepository": "https://github.com/PranayaKD/trimrr",
-      "author": { "@id": "https://www.pranayakd.in/#person" },
-      "url": "https://www.pranayakd.in/projects/trimrr.html"
+      "author": { "@id": "https://pranayakd.in/#person" },
+      "url": "https://pranayakd.in/projects/trimrr.html"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pranayakd.in/" },
-        { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://www.pranayakd.in/#repositories" },
-        { "@type": "ListItem", "position": 3, "name": "Trimrr", "item": "https://www.pranayakd.in/projects/trimrr.html" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pranayakd.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://pranayakd.in/#portfolio" },
+        { "@type": "ListItem", "position": 3, "name": "Trimrr", "item": "https://pranayakd.in/projects/trimrr.html" }
       ]
     }
   ]
@@ -69,6 +70,16 @@
     color: var(--text); background: var(--bg);
   }
   a { text-decoration: none; color: inherit; }
+  a:focus-visible, button:focus-visible, .btn:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
+  .skip-link {
+    position: absolute; top: -100px; left: 1rem; z-index: 9999;
+    background: var(--text); color: white; padding: 8px 16px; border-radius: 4px;
+    transition: top 0.2s; font-weight: 700; font-size: 13px; text-transform: uppercase;
+  }
+  .skip-link:focus { top: 1rem; }
   .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
   nav { padding: 32px 0; border-bottom: 1px solid var(--border); }
   nav a {
@@ -112,9 +123,10 @@
 </style>
 </head>
 <body>
-  <nav><div class="container"><a href="/">&larr; Back to Pranaya Kumar Dash's Portfolio</a></div></nav>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <nav><div class="container"><a href="../index.html#portfolio">&larr; Back to Pranaya Kumar Dash's Portfolio</a></div></nav>
 
-  <main class="container">
+  <main id="main-content" class="container">
     <span class="eyebrow">Django &middot; HTMX &middot; Razorpay &middot; Redis / Celery</span>
     <h1>Trimrr — URL Shortener SaaS</h1>
 
@@ -158,13 +170,13 @@
       <a href="https://github.com/PranayaKD/trimrr" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
         <i class="devicon-github-original"></i> View on GitHub
       </a>
-      <a href="/#repositories" class="btn btn-secondary">See More Projects</a>
+      <a href="../index.html#portfolio" class="btn btn-secondary">See More Projects</a>
     </div>
   </main>
 
   <footer>
     <div class="container">
-      <p>Built by <a href="/" style="color: var(--accent); font-weight: 700;">Pranaya Kumar Dash (pranayakd)</a> — Python &amp; Django Backend Developer, Bengaluru, India.</p>
+      <p>Built by <a href="../index.html" style="color: var(--accent); font-weight: 700;">Pranaya Kumar Dash (pranayakd)</a> — Python &amp; Django Backend Developer, Bengaluru, India.</p>
     </div>
   </footer>
 </body>

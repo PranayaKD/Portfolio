@@ -573,9 +573,16 @@
       hoverItem.children[index].style.transform = `translate(${x}px, ${y}px)`;
     }
   }
-  hoverItem.forEach((item, i) => {
+  hoverItem.forEach((item) => {
+    let ticking = false;
     item.addEventListener("mousemove", (e) => {
-      setInterval(moveImage(e, item, 1), 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          moveImage(e, item, 1);
+          ticking = false;
+        });
+        ticking = true;
+      }
     });
   });
 

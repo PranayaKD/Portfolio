@@ -125,9 +125,20 @@
   }
 
   ////////////////////////////////////////////////////
-  // 04. offcanvas Menu JS
+  // 04. offcanvas Menu JS & Accessibility
+  function closeOffcanvas() {
+    $(".tw-offcanvas-2-area").removeClass("opened");
+    $(".body-overlay").removeClass("opened");
+    $(".tw-offcanvas-open-btn").attr("aria-expanded", "false");
+    $(".tw-offcanvas-2-area").attr("aria-hidden", "true");
+    setTimeout(() => {
+      $(".tw-text-hover-effect-word").removeClass("animated-text");
+    }, 1200);
+  }
+
   $(".tw-offcanvas-open-btn").on("click", function () {
     $(".tw-offcanvas-2-area").addClass("opened");
+    $(".tw-offcanvas-2-area").attr("aria-hidden", "false");
     $(this).attr("aria-expanded", "true");
 
     setTimeout(() => {
@@ -138,13 +149,13 @@
   ////////////////////////////////////////////////////
   // 05. offcanvas two Menu JS
   $(".tw-offcanvas-2-close-btn").on("click", function () {
-    setTimeout(() => {
-      $(".tw-text-hover-effect-word").removeClass("animated-text");
-    }, 1200);
+    closeOffcanvas();
+  });
 
-    $(".tw-offcanvas-2-area").removeClass("opened");
-    $(".body-overlay").removeClass("opened");
-    $(".tw-offcanvas-open-btn").attr("aria-expanded", "false");
+  $(document).on("keydown", function (e) {
+    if (e.key === "Escape" && $(".tw-offcanvas-2-area").hasClass("opened")) {
+      closeOffcanvas();
+    }
   });
 
   ////////////////////////////////////////////////////
@@ -163,12 +174,17 @@
   });
 
   ////////////////////////////////////////////////////
-  // 07. AOS Js
-  AOS.init({
-    once: false, // animation will happen every time you scroll
-    offset: 0, // start animation when element enters the viewport
-    anchorPlacement: "top-bottom", // when the bottom of the element hits the bottom of the screen
-  });
+  // 07. AOS Js (Respects prefers-reduced-motion)
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!prefersReducedMotion && typeof AOS !== "undefined") {
+    AOS.init({
+      once: false,
+      offset: 0,
+      anchorPlacement: "top-bottom",
+    });
+  } else if (typeof AOS !== "undefined") {
+    AOS.init({ disable: true });
+  }
 
   // 08. Backtotop Js
   function back_to_top() {
@@ -312,4 +328,63 @@
 
     initRipples();
   });
+
+  ////////////////////////////////////////////////////
+  // 15. Contact Form Formspree Async Submission (TASK 2 & 13)
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const submitBtn = contactForm.querySelector("button[type='submit']");
+      const originalText = submitBtn ? submitBtn.innerHTML : "submit message";
+      const toastContainer = document.getElementById("toast-container");
+
+      function showToast(message, type) {
+        if (!toastContainer) return alert(message);
+        const toast = document.createElement("div");
+        toast.className = `toast-message ${type} tw-p-4 tw-rounded-md tw-mb-2 text-white fw-bold`;
+        toast.style.backgroundColor = type === "success" ? "#10B981" : "#EF4444";
+        toast.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
+        toast.textContent = message;
+        toastContainer.appendChild(toast);
+        setTimeout(() => toast.remove(), 4000);
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "Sending... <span class='tw-hover-btn-circle-dot bg-white'></span>";
+      }
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (response.ok) {
+          showToast("Thank you! Your message has been sent successfully.", "success");
+          contactForm.reset();
+        } else {
+          const data = await response.json();
+          if (Object.hasOwn(data, "errors")) {
+            showToast(data["errors"].map((error) => error["message"]).join(", "), "error");
+          } else {
+            showToast("Oops! There was a problem submitting your form.", "error");
+          }
+        }
+      } catch (error) {
+        showToast("Network error. Please check your connection and try again.", "error");
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+      }
+    });
+  }
 })(jQuery);

@@ -8006,10 +8006,18 @@ input:focus-visible {
 .hero-marquee {
   padding: 0;
   margin-bottom: 24px;
+  overflow: hidden;
+  width: 100%;
 }
 
 .hero-marquee .marquee_left {
   padding-block: 8px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.hero-marquee .marquee_left > div {
+  min-width: max-content;
 }
 
 .hero-marquee-title {
@@ -8835,7 +8843,8 @@ body.tw-magic-cursor #magic-cursor {
   line-height: 0.9;
   color: rgba(0, 0, 0, 0.14);
   opacity: 1;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
   z-index: 1;
   pointer-events: none;
   user-select: none;
@@ -8848,6 +8857,9 @@ body.tw-magic-cursor #magic-cursor {
   width: min(100%, 680px);
   max-width: 680px;
   margin: 0 auto 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .banner-three-man img {
@@ -8855,12 +8867,14 @@ body.tw-magic-cursor #magic-cursor {
   width: 100%;
   height: auto;
   object-fit: contain;
+  max-height: min(72vh, 760px);
 }
 
 .banner-three-wrap {
   width: 100%;
   display: grid;
   grid-template-columns: minmax(240px, 1fr) minmax(320px, 560px) minmax(240px, 1fr);
+  grid-template-rows: auto auto;
   gap: 2rem;
   z-index: 2;
   align-items: start;
@@ -8868,6 +8882,7 @@ body.tw-magic-cursor #magic-cursor {
 }
 
 .banner-three-left,
+.banner-three-man,
 .banner-three-center,
 .banner-three-right {
   width: 100%;
@@ -8875,11 +8890,31 @@ body.tw-magic-cursor #magic-cursor {
   z-index: 2;
 }
 
+/* Desktop: place hero image and center text in the middle column */
+.banner-three-man {
+  grid-column: 2;
+  grid-row: 1;
+}
+
 .banner-three-center {
+  grid-column: 2;
+  grid-row: 2;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.banner-three-left {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.banner-three-right {
+  grid-column: 3;
+  grid-row: 1 / 3;
 }
 
 .banner-three-left,
@@ -8971,11 +9006,15 @@ body.tw-magic-cursor #magic-cursor {
 
   .banner-three-wrap {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
 
   .banner-three-left,
+  .banner-three-man,
   .banner-three-right,
   .banner-three-center {
+    grid-column: auto;
+    grid-row: auto;
     justify-self: stretch;
     max-width: 100%;
   }
@@ -8984,6 +9023,10 @@ body.tw-magic-cursor #magic-cursor {
   .banner-three-right,
   .banner-three-center {
     padding: 30px 25px;
+  }
+
+  .banner-three-man {
+    order: 1;
   }
 
   .banner-three-center {
@@ -8997,10 +9040,6 @@ body.tw-magic-cursor #magic-cursor {
 
   .banner-three-right {
     order: 4;
-  }
-
-  .banner-three-man {
-    order: 1;
   }
 
   .banner-three-counter-item {
@@ -9017,10 +9056,18 @@ body.tw-magic-cursor #magic-cursor {
     font-size: clamp(2.2rem, 13.5vw, 7rem) !important;
   }
 
+  .banner-three-center {
+    width: 100%;
+  }
+
   .banner-three-man {
-    max-width: min(100%, 420px);
-    margin-bottom: 2rem;
+    max-width: min(100%, 460px);
+    margin-bottom: 1.75rem;
     order: 1;
+  }
+
+  .banner-three-man img {
+    max-height: min(62vh, 560px);
   }
 
   .banner-three-wrap {
@@ -9051,8 +9098,12 @@ body.tw-magic-cursor #magic-cursor {
 
   .banner-three-man {
     max-width: min(100%, 360px);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     order: 1;
+  }
+
+  .banner-three-man img {
+    max-height: min(56vh, 460px);
   }
 
   .banner-three-wrap {
@@ -9081,15 +9132,42 @@ body.tw-magic-cursor #magic-cursor {
 
 @media screen and (max-width: 575px) {
   .banner-three-title {
-    font-size: clamp(2.2rem, 13.5vw, 5.5rem) !important;
+    top: 0.25rem;
+    width: min(96%, 460px);
+    font-size: clamp(1.9rem, 10vw, 3.25rem) !important;
+    line-height: 0.95;
+  }
+
+  .banner-three-wrapper {
+    padding-top: clamp(3.75rem, 8vw, 4.75rem);
+    gap: 1rem;
   }
 
   .banner-three-man {
-    max-width: min(100%, 300px);
+    max-width: min(100%, 280px);
+    margin-bottom: 1.25rem;
+  }
+
+  .banner-three-man img {
+    max-height: min(50vh, 360px);
   }
 
   .banner-three-wrap {
     gap: 1.2rem;
+  }
+
+  .banner-three-left-title {
+    font-size: clamp(1.2rem, 4.2vw, 1.55rem);
+  }
+
+  .hero-marquee {
+    display: none;
+  }
+
+  .banner-three-button a {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 
   .banner-three-center-title {
@@ -11060,6 +11138,84 @@ body.tw-magic-cursor #magic-cursor {
   .contact-ip-left {
     margin-block-end: 60px;
   }
+}
+
+/* ==========================================================================
+   PRODUCTION READINESS MOBILE & ACCESSIBILITY OVERRIDES
+   ========================================================================== */
+
+/* Task A & C: Mobile Hero Photo & Responsive Image bounds */
+.banner-three-man {
+  width: 100%;
+  max-width: min(100%, 360px);
+  margin: 0 auto 1.5rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-three-man img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  display: block;
+}
+
+@media screen and (max-width: 575px) {
+  .banner-three-man {
+    max-width: min(100%, 280px);
+    margin-bottom: 1.25rem;
+  }
+  .banner-three-man img {
+    max-height: 340px;
+  }
+}
+
+/* Task B: Disable marquee on mobile viewports to prevent horizontal overflow */
+@media screen and (max-width: 768px) {
+  .marquee, .hero-marquee {
+    display: none !important;
+  }
+}
+
+/* Task 4: Prefers Reduced Motion Global Enforcement */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Task 5 & 9: Mobile Narrow Viewport (320px - 390px) Typography & Layout Utilities */
+@media screen and (max-width: 480px) {
+  .banner-three-title {
+    font-size: clamp(1.75rem, 8vw, 2.5rem) !important;
+  }
+  .banner-three-left-title {
+    font-size: clamp(1.15rem, 3.8vw, 1.4rem) !important;
+  }
+  .tw-text-15 {
+    font-size: clamp(1.25rem, 4.5vw, 1.75rem) !important;
+  }
+  .tw-container-1800-px {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+.header-logo-img {
+  max-height: 40px;
+  max-width: 150px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.header-nav-padding {
+  padding: 10px 0;
 }
 
 /*# sourceMappingURL=main.css.map */
