@@ -11221,41 +11221,48 @@ body.tw-magic-cursor #magic-cursor {
 
 /* ==================== Custom Infinite Marquee, Orange Hover & Logo Styling ==================== */
 
-/* 1. Infinite Marquee Animation */
-.hero-marquee {
+/* 1. Static Typography Text Block with Hover Animation (No Marquee/Looping) */
+.hero-typography-block {
   width: 100%;
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 1.5rem;
-  display: block !important;
+  max-width: 580px;
+  margin: 0 auto 1.75rem auto;
+  padding: 0 1rem;
 }
 
-.hero-marquee-track {
-  display: flex;
-  width: max-content;
-  animation: heroMarqueeScroll 20s linear infinite;
-  will-change: transform;
+.banner-three-center-title {
+  display: block;
+  font-size: clamp(1.15rem, 2.8vw, 1.85rem);
+  line-height: 1.4;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #111111;
+  -webkit-text-stroke: 1px #111111;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.4s ease,
+              letter-spacing 0.4s ease,
+              text-shadow 0.4s ease;
+  cursor: pointer;
+  user-select: none;
 }
 
-.hero-marquee-content {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  padding-right: 2.5rem;
-  white-space: nowrap;
+.hero-dot {
+  color: #ff5722;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease;
+  display: inline-block;
+  margin: 0 0.3rem;
 }
 
-@keyframes heroMarqueeScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.banner-three-center-title:hover {
+  transform: translateY(-4px) scale(1.02);
+  color: #ff5722;
+  -webkit-text-stroke: 0px transparent;
+  letter-spacing: 0.04em;
+  text-shadow: 0 10px 25px rgba(255, 87, 34, 0.25);
 }
 
-.hero-marquee:hover .hero-marquee-track {
-  animation-play-state: paused;
+.banner-three-center-title:hover .hero-dot {
+  transform: rotate(180deg) scale(1.3);
+  color: #111111;
 }
 
 /* 2. Orange Hover Effect for "VIEW PROJECTS" and Navbar Buttons */
