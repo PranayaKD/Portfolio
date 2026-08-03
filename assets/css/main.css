@@ -8016,7 +8016,7 @@ input:focus-visible {
   max-width: 100%;
 }
 
-.hero-marquee .marquee_left > div {
+.hero-marquee .marquee_left>div {
   min-width: max-content;
 }
 
@@ -8030,6 +8030,7 @@ input:focus-visible {
   color: #000000;
   -webkit-text-stroke-color: hsl(var(--white));
 }
+
 /* ===================== Hero Marquee End ===================== */
 
 /* ===================== Scroll to Top Start ================================= */
@@ -8058,6 +8059,7 @@ input:focus-visible {
   .back-to-top-wrapper {
     right: 20px;
   }
+
   .back-to-top-wrapper.back-to-top-btn-show {
     bottom: 24px;
   }
@@ -8831,20 +8833,20 @@ body.tw-magic-cursor #magic-cursor {
 
 .banner-three-title {
   position: absolute;
-  top: 1rem;
+  top: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
-  width: min(92%, 980px);
+  width: min(98%, 1400px);
   max-width: 100vw;
   text-align: center;
-  font-size: clamp(2.2rem, 13.5vw, 13rem) !important;
+  font-size: clamp(2rem, 10vw, 10.5rem) !important;
   font-weight: 900;
-  letter-spacing: clamp(-4px, -0.5vw, -1px);
-  line-height: 0.9;
-  color: rgba(0, 0, 0, 0.14);
+  letter-spacing: clamp(-6px, -0.6vw, -1px);
+  line-height: 0.92;
+  color: rgba(0, 0, 0, 0.12);
   opacity: 1;
-  white-space: normal;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
+  overflow: hidden;
   z-index: 1;
   pointer-events: none;
   user-select: none;
@@ -9001,7 +9003,7 @@ body.tw-magic-cursor #magic-cursor {
   }
 
   .banner-three-title {
-    font-size: clamp(2.2rem, 13.5vw, 9rem) !important;
+    font-size: clamp(1.8rem, 9vw, 7rem) !important;
   }
 
   .banner-three-wrap {
@@ -9053,7 +9055,7 @@ body.tw-magic-cursor #magic-cursor {
   }
 
   .banner-three-title {
-    font-size: clamp(2.2rem, 13.5vw, 7rem) !important;
+    font-size: clamp(1.6rem, 8vw, 5.5rem) !important;
   }
 
   .banner-three-center {
@@ -9093,7 +9095,7 @@ body.tw-magic-cursor #magic-cursor {
   }
 
   .banner-three-title {
-    font-size: clamp(2.2rem, 13.5vw, 6.5rem) !important;
+    font-size: clamp(1.4rem, 7vw, 4.5rem) !important;
   }
 
   .banner-three-man {
@@ -9132,10 +9134,11 @@ body.tw-magic-cursor #magic-cursor {
 
 @media screen and (max-width: 575px) {
   .banner-three-title {
-    top: 0.25rem;
-    width: min(96%, 460px);
-    font-size: clamp(1.9rem, 10vw, 3.25rem) !important;
+    top: 0.5rem;
+    width: min(99%, 700px);
+    font-size: clamp(1.1rem, 5.5vw, 2.5rem) !important;
     line-height: 0.95;
+    white-space: nowrap;
   }
 
   .banner-three-wrapper {
@@ -11167,6 +11170,7 @@ body.tw-magic-cursor #magic-cursor {
     max-width: min(100%, 280px);
     margin-bottom: 1.25rem;
   }
+
   .banner-three-man img {
     max-height: 340px;
   }
@@ -11174,14 +11178,19 @@ body.tw-magic-cursor #magic-cursor {
 
 /* Task B: Disable marquee on mobile viewports to prevent horizontal overflow */
 @media screen and (max-width: 768px) {
-  .marquee, .hero-marquee {
+
+  .marquee,
+  .hero-marquee {
     display: none !important;
   }
 }
 
 /* Task 4: Prefers Reduced Motion Global Enforcement */
 @media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
+
+  *,
+  ::before,
+  ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -11194,12 +11203,15 @@ body.tw-magic-cursor #magic-cursor {
   .banner-three-title {
     font-size: clamp(1.75rem, 8vw, 2.5rem) !important;
   }
+
   .banner-three-left-title {
     font-size: clamp(1.15rem, 3.8vw, 1.4rem) !important;
   }
+
   .tw-text-15 {
     font-size: clamp(1.25rem, 4.5vw, 1.75rem) !important;
   }
+
   .tw-container-1800-px {
     padding-left: 15px !important;
     padding-right: 15px !important;
@@ -11221,48 +11233,38 @@ body.tw-magic-cursor #magic-cursor {
 
 /* ==================== Custom Infinite Marquee, Orange Hover & Logo Styling ==================== */
 
-/* 1. Static Typography Text Block with Hover Animation (No Marquee/Looping) */
+/* 1. Static Typography Text Block with Hover Animation */
 .hero-typography-block {
   width: 100%;
-  max-width: 580px;
+  max-width: 600px;
   margin: 0 auto 1.75rem auto;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
+  overflow: hidden;
 }
 
 .banner-three-center-title {
   display: block;
-  font-size: clamp(1.15rem, 2.8vw, 1.85rem);
-  line-height: 1.4;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  font-size: clamp(0.75rem, 1.4vw, 1.15rem);
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   color: #111111;
-  -webkit-text-stroke: 1px #111111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.4s ease,
-              letter-spacing 0.4s ease,
-              text-shadow 0.4s ease;
+    color 0.4s ease,
+    letter-spacing 0.4s ease,
+    text-shadow 0.4s ease;
   cursor: pointer;
   user-select: none;
 }
 
-.hero-dot {
-  color: #ff5722;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease;
-  display: inline-block;
-  margin: 0 0.3rem;
-}
-
 .banner-three-center-title:hover {
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-3px) scale(1.01);
   color: #ff5722;
-  -webkit-text-stroke: 0px transparent;
-  letter-spacing: 0.04em;
-  text-shadow: 0 10px 25px rgba(255, 87, 34, 0.25);
-}
-
-.banner-three-center-title:hover .hero-dot {
-  transform: rotate(180deg) scale(1.3);
-  color: #111111;
+  letter-spacing: 0.12em;
+  text-shadow: 0 8px 20px rgba(255, 87, 34, 0.22);
 }
 
 /* 2. Orange Hover Effect for "VIEW PROJECTS" and Navbar Buttons */
