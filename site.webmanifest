@@ -1,11 +1,11 @@
 {
-  "name": "Pranaya Kumar Dash - Python & Django Developer",
+  "name": "Pranaya Kumar Dash - Senior Python & Django Backend Developer",
   "short_name": "pranayakd",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0d0e12",
   "theme_color": "#ff5101",
-  "description": "Portfolio of Pranaya Kumar Dash (pranayakd), a Python & Django backend developer in Bengaluru, India.",
+  "description": "Portfolio of Pranaya Kumar Dash (pranayakd), a Senior Python & Django Backend Developer in Bengaluru, India.",
   "icons": [
     {
       "src": "/assets/images/logo/favicon.png",
@@ -15,3 +15,4 @@
     }
   ]
 }
+
