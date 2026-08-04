@@ -43,7 +43,7 @@
       menuToggle.setAttribute("aria-label", "Open navigation menu");
     }
 
-    // Create GSAP timeline
+    // Create GSAP timeline (Ultra-fast 0.2s preloader for backend speed focus)
     if (typeof gsap !== "undefined") {
       const tl = gsap.timeline();
       const svg = document.getElementById("preloaderSvg");
@@ -51,24 +51,24 @@
       const flat = "M0 2S175 1 500 1s500 1 500 1V0H0Z";
 
       tl.to(".preloader-heading .load-text, .preloader-heading .cont", {
-        delay: 0.8,
-        y: -80,
+        delay: 0.05,
+        y: -40,
         opacity: 0,
-        duration: 0.5,
+        duration: 0.1,
       })
         .to(svg, {
-          duration: 0.3,
+          duration: 0.08,
           attr: { d: curve },
           ease: "power2.inOut",
         })
         .to(svg, {
-          duration: 0.5,
+          duration: 0.08,
           attr: { d: flat },
           ease: "power2.inOut",
         })
         .to(".preloader", {
           y: "-130%",
-          duration: 0.4,
+          duration: 0.12,
           ease: "power4.inOut",
         })
         .set(".preloader", {

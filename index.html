@@ -456,10 +456,10 @@
                         <span
                           class="banner-three-counter-title tw-text-101 fw-semibold font-heading text-heading tw-mb-2 lh-1 d-block">
                           <span class="purecounter font-heading" data-purecounter-duration="2"
-                            data-purecounter-end="50"></span>%
+                            data-purecounter-end="90"></span>%
                         </span>
                         <p class="banner-three-counter-paragraph tw-text-lg fw-medium text-heading mb-0">
-                          ORM Query Call Reduction
+                          ORM Query Count Reduction (select_related / composite indexing)
                         </p>
                       </div>
                       <div class="banner-three-counter-item tw-rounded-md tw-mb-4 bg-black">
@@ -469,17 +469,17 @@
                             data-purecounter-end="8"></span>+
                         </span>
                         <p class="banner-three-counter-paragraph tw-text-lg fw-medium text-white mb-0">
-                          SaaS Applications Built
+                          Production &amp; Project Systems Built
                         </p>
                       </div>
                       <div class="banner-three-counter-item tw-rounded-md tw-mb-4">
                         <span
                           class="banner-three-counter-title tw-text-101 fw-semibold font-heading text-heading tw-mb-2 lh-1 d-block">
-                          <span class="purecounter font-heading" data-purecounter-duration="3"
-                            data-purecounter-end="66"></span>+
+                          &lt;<span class="purecounter font-heading" data-purecounter-duration="3"
+                            data-purecounter-end="10"></span>ms
                         </span>
                         <p class="banner-three-counter-paragraph tw-text-lg fw-medium text-heading mb-0">
-                          Latency Reduction (Sub-300ms)
+                          Redis Caching Lookup Latency
                         </p>
                       </div>
                     </div>
@@ -556,20 +556,20 @@
                   data-aos-duration="1000" data-aos-delay="200">
                   <span class="banner-three-counter-title tw-text-101 fw-semibold font-heading text-heading tw-mb-2 lh-1 d-block">
                     <span class="purecounter font-heading" data-purecounter-duration="4"
-                      data-purecounter-end="99"></span>%
+                      data-purecounter-end="42"></span> &rarr; <span class="purecounter font-heading" data-purecounter-duration="1" data-purecounter-end="4"></span>
                   </span>
                   <p class="banner-three-counter-paragraph tw-text-lg fw-medium text-heading mb-0">
-                    API Response Reliability
+                    Queries Per Request (Django ORM Optimization via select_related)
                   </p>
                 </div>
                 <div class="banner-three-counter-item tw-rounded-md position-relative" data-aos="fade-up"
                   data-aos-duration="1000" data-aos-delay="300">
                   <span class="banner-three-counter-title tw-text-101 fw-semibold font-heading text-heading tw-mb-2 lh-1 d-block">
-                    <span class="purecounter font-heading" data-purecounter-duration="2"
-                      data-purecounter-end="50"></span>k+
+                    &lt;<span class="purecounter font-heading" data-purecounter-duration="2"
+                      data-purecounter-end="250"></span>ms
                   </span>
                   <p class="banner-three-counter-paragraph tw-text-lg fw-medium text-heading mb-0">
-                    Database Query Load Reduction
+                    Average P95 API Response Latency Across Endpoints
                   </p>
                 </div>
               </div>
@@ -777,22 +777,26 @@
                 <h2 class="visually-hidden">Featured Projects Portfolio</h2>
                 <div
                   class="portfolio-three-wrapper d-flex justify-content-between flex-wrap align-items-start position-relative z-1">
+                  <!-- Cliniq.ai -->
                   <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
                     <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
                       <div class="tw-mb-6">
                         <div>
-                          <h3 class="tw-text-605 fw-medium tw-mb-4">
+                          <h3 class="tw-text-605 fw-medium tw-mb-2">
                             <a class="hover-text-main-two-600" href="projects/cliniq-ai.html">Cliniq.ai Healthcare
                               SaaS</a>
                           </h3>
+                          <p class="text-white-50 tw-text-sm tw-mb-4">
+                            Built RAG pipeline APIs using FastAPI, PostgreSQL (pgvector), and Redis distributed lock synchronization to prevent concurrent write collisions during AI record processing.
+                          </p>
                         </div>
                         <div class="portfolio-three-list portfolio-list">
                           <ul class="d-flex tw-gap-205 flex-wrap">
                             <li>
-                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">PYTHON</span>
+                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">FASTAPI / RAG</span>
                             </li>
                             <li>
-                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">DJANGO / AI</span>
+                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">PGVECTOR / REDIS LOCKS</span>
                             </li>
                           </ul>
                         </div>
@@ -810,22 +814,27 @@
                           alt="Cliniq.ai Healthcare Platform UI preview" loading="lazy" decoding="async" /></a>
                     </div>
                   </div>
+
+                  <!-- Trimrr -->
                   <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
                     <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
                       <div class="tw-mb-6">
                         <div>
-                          <h3 class="tw-text-605 fw-medium tw-mb-4">
+                          <h3 class="tw-text-605 fw-medium tw-mb-2">
                             <a class="hover-text-main-two-600" href="projects/trimrr.html">Trimrr URL Analytics
                               SaaS</a>
                           </h3>
+                          <p class="text-white-50 tw-text-sm tw-mb-4">
+                            Engineered an async URL shortener handling high-frequency redirects. Implemented Redis caching for sub-10ms lookup latency and Celery task queues for async click stream analytics aggregation into PostgreSQL.
+                          </p>
                         </div>
                         <div class="portfolio-three-list portfolio-list">
                           <ul class="d-flex tw-gap-205 flex-wrap">
                             <li>
-                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">FASTAPI</span>
+                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">SUB-10MS REDIS CACHE</span>
                             </li>
                             <li>
-                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">REDIS / POSTGRESQL</span>
+                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">CELERY ASYNC QUEUES</span>
                             </li>
                           </ul>
                         </div>
@@ -841,22 +850,27 @@
                           alt="Trimrr URL Analytics SaaS dashboard preview" loading="lazy" decoding="async" /></a>
                     </div>
                   </div>
+
+                  <!-- Rentora -->
                   <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
                     <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
                       <div class="tw-mb-6">
                         <div>
-                          <h3 class="tw-text-605 fw-medium tw-mb-4">
+                          <h3 class="tw-text-605 fw-medium tw-mb-2">
                             <a class="hover-text-main-two-600" href="projects/rentora.html">Rentora Car Rental
                               Platform</a>
                           </h3>
+                          <p class="text-white-50 tw-text-sm tw-mb-4">
+                            Architected vehicle booking REST APIs with Django REST Framework. Used <code class="text-main-two-600">transaction.atomic()</code> and row locks to eliminate double-booking race conditions during high concurrency.
+                          </p>
                         </div>
                         <div class="portfolio-three-list portfolio-list">
                           <ul class="d-flex tw-gap-205 flex-wrap">
                             <li>
-                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">DJANGO</span>
+                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">DJANGO REST FRAMEWORK</span>
                             </li>
                             <li>
-                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">REST API / DOCKER</span>
+                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">TRANSACTION LOCKING</span>
                             </li>
                           </ul>
                         </div>
@@ -872,22 +886,27 @@
                           alt="Rentora Car Rental Platform preview" loading="lazy" decoding="async" /></a>
                     </div>
                   </div>
+
+                  <!-- ShopperMart -->
                   <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
                     <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
                       <div class="tw-mb-6">
                         <div>
-                          <h3 class="tw-text-605 fw-medium tw-mb-4">
+                          <h3 class="tw-text-605 fw-medium tw-mb-2">
                             <a class="hover-text-main-two-600" href="projects/shoppermart.html">ShopperMart E-Commerce
                               Platform</a>
                           </h3>
+                          <p class="text-white-50 tw-text-sm tw-mb-4">
+                            Developed core e-commerce backend with Django &amp; MySQL. Optimized catalog queries with composite indexing and implemented secure Stripe webhook processing handlers.
+                          </p>
                         </div>
                         <div class="portfolio-three-list portfolio-list">
                           <ul class="d-flex tw-gap-205 flex-wrap">
                             <li>
-                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">PYTHON</span>
+                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">PYTHON / DJANGO</span>
                             </li>
                             <li>
-                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">DJANGO / MYSQL</span>
+                              <span class="text-uppercase text-heading fw-medium position-relative z-1 tw-transition-3">MYSQL INDEXING / WEBHOOKS</span>
                             </li>
                           </ul>
                         </div>
