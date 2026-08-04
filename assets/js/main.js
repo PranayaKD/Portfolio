@@ -27,12 +27,12 @@
   "use strict";
 
   ////////////////////////////////////////////////////
-  // 01. PreLoader & Image Loading Optimization (LCP/INP)
+  // 01. PreLoader Js
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("img").forEach((img) => {
       if (!img.hasAttribute("loading")) {
-        const isHero = img.closest(".banner-three-man") || img.closest(".header-three-logo") || img.closest(".preloader");
-        img.setAttribute("loading", isHero ? "eager" : "lazy");
+        const shouldEager = img.closest(".banner-three-man") || img.closest("header") || img.closest(".preloader");
+        img.setAttribute("loading", shouldEager ? "eager" : "lazy");
         img.setAttribute("decoding", "async");
       }
     });
@@ -43,57 +43,52 @@
       menuToggle.setAttribute("aria-label", "Open navigation menu");
     }
 
-    // Create GSAP timeline (Ultra-fast 0.2s preloader for backend speed focus)
-    if (typeof gsap !== "undefined") {
-      const tl = gsap.timeline();
-      const svg = document.getElementById("preloaderSvg");
-      const curve = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
-      const flat = "M0 2S175 1 500 1s500 1 500 1V0H0Z";
-
-      tl.to(".preloader-heading .load-text, .preloader-heading .cont", {
-        delay: 0.05,
-        y: -40,
-        opacity: 0,
-        duration: 0.1,
+    // Create GSAP timeline
+    const tl = gsap.timeline();
+    const svg = document.getElementById("preloaderSvg");
+    const curve = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
+    const flat = "M0 2S175 1 500 1s500 1 500 1V0H0Z";
+    // Text animation
+    tl.to(".preloader-heading .load-text, .preloader-heading .cont", {
+      delay: 1,
+      y: -80,
+      opacity: 0,
+      duration: 0.6,
+    })
+      // SVG curve animation
+      .to(svg, {
+        duration: 0.3,
+        attr: { d: curve },
+        ease: "power2.inOut",
       })
-        .to(svg, {
-          duration: 0.08,
-          attr: { d: curve },
-          ease: "power2.inOut",
-        })
-        .to(svg, {
-          duration: 0.08,
-          attr: { d: flat },
-          ease: "power2.inOut",
-        })
-        .to(".preloader", {
-          y: "-130%",
-          duration: 0.12,
-          ease: "power4.inOut",
-        })
-        .set(".preloader", {
-          display: "none",
-          zIndex: -1,
-        });
-    }
+      // Flatten SVG
+      .to(svg, {
+        duration: 0.6,
+        attr: { d: flat },
+        ease: "power2.inOut",
+      })
+      // Slide preloader up
+      .to(".preloader", {
+        y: "-130%",
+        duration: 0.5,
+        ease: "power4.inOut",
+      })
+      // Remove from DOM flow
+      .set(".preloader", {
+        display: "none",
+        zIndex: -1,
+      });
   });
 
   ////////////////////////////////////////////////////
-  // 02. Sticky Header (Passive listener for INP)
-  window.addEventListener(
-    "scroll",
-    () => {
-      const header = document.querySelector(".header");
-      if (header) {
-        if (window.scrollY >= 260) {
-          header.classList.add("fixed-header");
-        } else {
-          header.classList.remove("fixed-header");
-        }
-      }
-    },
-    { passive: true }
-  );
+  // 02. Sticky Js
+  $(window).on("scroll", function () {
+    if ($(window).scrollTop() >= 260) {
+      $(".header").addClass("fixed-header");
+    } else {
+      $(".header").removeClass("fixed-header");
+    }
+  });
 
   ////////////////////////////////////////////////////
   // 03. Menu Controls JS
