@@ -8841,7 +8841,7 @@ body.tw-magic-cursor #magic-cursor {
   text-align: center;
   font-size: clamp(2rem, 10vw, 10.5rem) !important;
   font-weight: 900;
-  letter-spacing: clamp(4px, 1.2vw, 15px);
+  letter-spacing: clamp(2px, 0.6vw, 8px);
   line-height: 0.92;
   color: rgba(0, 0, 0, 0.12);
   opacity: 1;
@@ -9006,7 +9006,7 @@ body.tw-magic-cursor #magic-cursor {
 
   .banner-three-title {
     font-size: clamp(1.8rem, 9vw, 7rem) !important;
-    letter-spacing: clamp(3px, 1vw, 10px);
+    letter-spacing: clamp(1px, 0.5vw, 6px);
   }
 
   .banner-three-wrap {
