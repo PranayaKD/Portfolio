@@ -8841,7 +8841,7 @@ body.tw-magic-cursor #magic-cursor {
   text-align: center;
   font-size: clamp(2rem, 10vw, 10.5rem) !important;
   font-weight: 900;
-  letter-spacing: clamp(-6px, -0.6vw, -1px);
+  letter-spacing: clamp(4px, 1.2vw, 15px);
   line-height: 0.92;
   color: rgba(0, 0, 0, 0.12);
   opacity: 1;
@@ -8950,6 +8950,8 @@ body.tw-magic-cursor #magic-cursor {
 
 .banner-three-left-title {
   font-size: clamp(1.85rem, 3.8vw, 2.4rem);
+  letter-spacing: clamp(0.01em, 0.035vw, 0.06em);
+  text-wrap: balance;
 }
 
 .banner-three-list {
@@ -9004,6 +9006,7 @@ body.tw-magic-cursor #magic-cursor {
 
   .banner-three-title {
     font-size: clamp(1.8rem, 9vw, 7rem) !important;
+    letter-spacing: clamp(3px, 1vw, 10px);
   }
 
   .banner-three-wrap {
@@ -9056,6 +9059,7 @@ body.tw-magic-cursor #magic-cursor {
 
   .banner-three-title {
     font-size: clamp(1.6rem, 8vw, 5.5rem) !important;
+    letter-spacing: clamp(2px, 0.8vw, 8px);
   }
 
   .banner-three-center {
@@ -9096,6 +9100,7 @@ body.tw-magic-cursor #magic-cursor {
 
   .banner-three-title {
     font-size: clamp(1.4rem, 7vw, 4.5rem) !important;
+    letter-spacing: clamp(2px, 0.6vw, 6px);
   }
 
   .banner-three-man {
@@ -9137,6 +9142,7 @@ body.tw-magic-cursor #magic-cursor {
     top: 0.5rem;
     width: min(99%, 700px);
     font-size: clamp(1.1rem, 5.5vw, 2.5rem) !important;
+    letter-spacing: clamp(1px, 0.5vw, 4px);
     line-height: 0.95;
     white-space: nowrap;
   }
@@ -9751,8 +9757,16 @@ body.tw-magic-cursor #magic-cursor {
     -4px -4px 0 0 rgba(255, 255, 255, 0.25);
 }
 
+.portfolio-three-shape {
+  top: -28px;
+  overflow: visible;
+}
+
 .portfolio-three-shape-title {
   font-size: 642px;
+  line-height: 0.8;
+  margin: 0;
+  transform: translateY(-8px);
 }
 
 @media screen and (max-width: 1799px) {
@@ -11202,6 +11216,7 @@ body.tw-magic-cursor #magic-cursor {
 @media screen and (max-width: 480px) {
   .banner-three-title {
     font-size: clamp(1.75rem, 8vw, 2.5rem) !important;
+    letter-spacing: clamp(1px, 0.4vw, 3px);
   }
 
   .banner-three-left-title {
