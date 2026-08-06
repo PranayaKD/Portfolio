@@ -27,11 +27,18 @@ if ($("body").not(".is-mobile").hasClass("tw-magic-cursor")) {
     opacity: $ballOpacity,
   });
 
-  document.addEventListener("mousemove", mouseMove);
+  var $mousePending = false;
+  document.addEventListener("mousemove", mouseMove, { passive: true });
 
   function mouseMove(e) {
-    $mouse.x = e.clientX;
-    $mouse.y = e.clientY;
+    if (!$mousePending) {
+      $mousePending = true;
+      requestAnimationFrame(function () {
+        $mouse.x = e.clientX;
+        $mouse.y = e.clientY;
+        $mousePending = false;
+      });
+    }
   }
 
   gsap.ticker.add(updatePosition);
@@ -41,7 +48,7 @@ if ($("body").not(".is-mobile").hasClass("tw-magic-cursor")) {
       $pos.x += ($mouse.x - $pos.x) * $ratio;
       $pos.y += ($mouse.y - $pos.y) * $ratio;
 
-      gsap.set($ball, { x: $pos.x, y: $pos.y });
+      gsap.set($ball, { force3D: true, x: $pos.x, y: $pos.y });
     }
   }
 

@@ -11328,8 +11328,27 @@ body.tw-magic-cursor #magic-cursor {
 /* Prevent decorative shapes from blocking mouse hover/clicks */
 .about-three-shape,
 .banner-three-line-shape,
-.banner-three-carcel-shape {
+.banner-three-carcel-shape,
+.portfolio-three-shape {
   pointer-events: none !important;
+}
+
+.portfolio-three-shape {
+  position: absolute !important;
+  left: 0;
+  right: 0;
+  top: 100px !important;
+  z-index: -1 !important;
+  overflow: visible !important;
+  height: 0 !important;
+  margin: 0 !important;
+}
+
+.portfolio-three-shape-title {
+  position: relative !important;
+  z-index: -1 !important;
+  line-height: 0.7 !important;
+  user-select: none;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -59,9 +59,9 @@
     });
     let smoother = ScrollSmoother.create({
       smoothTouch: 0.2,
-      smooth: 4,
+      smooth: 0.8,
       effects: true,
-      normalizeScroll: false,
+      normalizeScroll: true,
       ignoreMobileResize: true,
     });
   }
