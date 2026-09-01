@@ -51,13 +51,12 @@
     gsap.registerPlugin(
       ScrollTrigger,
       ScrollSmoother,
-      TweenMax,
       ScrollToPlugin,
     );
     gsap.config({
       nullTargetWarn: false,
     });
-    let smoother = ScrollSmoother.create({
+    window.smoother = ScrollSmoother.create({
       smoothTouch: 0.2,
       smooth: 0.8,
       effects: true,
@@ -102,13 +101,13 @@
 
   ////////////////////////////////////////////////////
   // 03. Text Invart Js
-  if ($(".tw-itm-title tw-itm-anim").length) {
+  if ($(".tw-itm-title.tw-itm-anim").length) {
     let staggerAmount = 0.03,
       translateXValue = 20,
       delayValue = 0.1,
       easeType = "power2.out",
       animatedTextElements = document.querySelectorAll(
-        ".tw-itm-title tw-itm-anim",
+        ".tw-itm-title.tw-itm-anim",
       );
 
     animatedTextElements.forEach((element) => {

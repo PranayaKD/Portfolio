@@ -126,24 +126,66 @@
 
   ////////////////////////////////////////////////////
   // 04. offcanvas Menu JS & Accessibility
+  let lastFocusedElement = null;
+
+  function getFocusableElements(container) {
+    if (!container || !container.length) return [];
+    return container
+      .find(
+        'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      )
+      .filter(":visible")
+      .toArray();
+  }
+
   function closeOffcanvas() {
-    $(".tw-offcanvas-2-area").removeClass("opened");
+    const $offcanvas = $(".tw-offcanvas-2-area");
+    if (!$offcanvas.hasClass("opened")) return;
+
+    $offcanvas.removeClass("opened");
     $(".body-overlay").removeClass("opened");
     $(".tw-offcanvas-open-btn").attr("aria-expanded", "false");
-    $(".tw-offcanvas-2-area").attr("aria-hidden", "true");
+    $offcanvas.attr("aria-hidden", "true");
+
+    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+      lastFocusedElement.focus();
+    } else {
+      const openBtn = document.querySelector(".tw-offcanvas-open-btn");
+      if (openBtn) openBtn.focus();
+    }
+
     setTimeout(() => {
       $(".tw-text-hover-effect-word").removeClass("animated-text");
     }, 1200);
   }
 
-  $(".tw-offcanvas-open-btn").on("click", function () {
-    $(".tw-offcanvas-2-area").addClass("opened");
-    $(".tw-offcanvas-2-area").attr("aria-hidden", "false");
-    $(this).attr("aria-expanded", "true");
+  function openOffcanvas(triggerEl) {
+    lastFocusedElement = triggerEl || document.activeElement;
+    const $offcanvas = $(".tw-offcanvas-2-area");
+
+    $offcanvas.addClass("opened");
+    $offcanvas.attr("aria-hidden", "false");
+    $(".tw-offcanvas-open-btn").attr("aria-expanded", "true");
 
     setTimeout(() => {
       $(".tw-text-hover-effect-word").addClass("animated-text");
     }, 900);
+
+    setTimeout(() => {
+      const closeBtn = $offcanvas.find(".tw-offcanvas-2-close-btn:visible").first();
+      if (closeBtn.length) {
+        closeBtn.trigger("focus");
+      } else {
+        const focusables = getFocusableElements($offcanvas);
+        if (focusables.length) {
+          focusables[0].focus();
+        }
+      }
+    }, 50);
+  }
+
+  $(".tw-offcanvas-open-btn").on("click", function () {
+    openOffcanvas(this);
   });
 
   ////////////////////////////////////////////////////
@@ -152,9 +194,46 @@
     closeOffcanvas();
   });
 
+  $(document).on("click", ".tw-main-menu-mobile a", function () {
+    closeOffcanvas();
+  });
+
   $(document).on("keydown", function (e) {
-    if (e.key === "Escape" && $(".tw-offcanvas-2-area").hasClass("opened")) {
+    const $offcanvas = $(".tw-offcanvas-2-area");
+    if (!$offcanvas.hasClass("opened")) return;
+
+    if (e.key === "Escape") {
+      e.preventDefault();
       closeOffcanvas();
+      return;
+    }
+
+    if (e.key === "Tab") {
+      const focusables = getFocusableElements($offcanvas);
+      if (focusables.length === 0) {
+        e.preventDefault();
+        return;
+      }
+      if (focusables.length === 1) {
+        e.preventDefault();
+        focusables[0].focus();
+        return;
+      }
+
+      const firstElement = focusables[0];
+      const lastElement = focusables[focusables.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement || !$offcanvas[0].contains(document.activeElement)) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+      } else {
+        if (document.activeElement === lastElement || !$offcanvas[0].contains(document.activeElement)) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
     }
   });
 

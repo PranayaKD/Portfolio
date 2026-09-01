@@ -6093,13 +6093,17 @@ input:focus-visible {
 }
 
 .preloader .preloader-heading .load-text {
-  font-size: 30px;
+  font-size: clamp(20px, 6vw, 30px);
   font-weight: 600;
   color: hsl(var(--white));
-  letter-spacing: 15px;
+  letter-spacing: clamp(6px, 2.5vw, 15px);
   font-family: var(--body-font);
   text-transform: uppercase;
   z-index: 20;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .load-text span {
@@ -8971,14 +8975,7 @@ body.tw-magic-cursor #magic-cursor {
   line-height: 1.35;
   letter-spacing: -0.01em;
   text-wrap: balance;
-  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms ease, text-shadow 300ms ease;
   cursor: default;
-}
-
-.banner-three-center-title:hover {
-  transform: translateY(-3px);
-  color: hsl(var(--heading-color));
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
 .banner-three-counter-item {
@@ -9045,6 +9042,16 @@ body.tw-magic-cursor #magic-cursor {
 
   .banner-three-right {
     order: 4;
+  }
+
+  .mobile-counter-cards {
+    display: block !important;
+    order: 5;
+    padding: 30px 25px;
+  }
+
+  .about-three-wrap-shape {
+    display: none !important;
   }
 
   .banner-three-counter-item {
@@ -11248,7 +11255,6 @@ body.tw-magic-cursor #magic-cursor {
 
 /* ==================== Custom Infinite Marquee, Orange Hover & Logo Styling ==================== */
 
-/* 1. Static Typography Text Block with Hover Animation — stacked 3 lines */
 .hero-typography-block {
   width: 100%;
   max-width: 600px;
@@ -11259,27 +11265,143 @@ body.tw-magic-cursor #magic-cursor {
   gap: 0.35rem;
 }
 
+/* 2. Unified Hero Left & Right Matching Cards */
+.banner-three-left,
+.banner-three-right {
+  max-width: 360px !important;
+  width: 100%;
+  background: #f5f5f5 !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+  padding: 24px 26px !important;
+  margin-top: 4.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+}
+
+.banner-three-left-title {
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem) !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.banner-three-list ul li {
+  margin-bottom: 0.75rem !important;
+  font-size: 0.95rem !important;
+}
+
+.banner-three-right {
+  gap: 12px !important;
+}
+
+.banner-three-right .banner-three-counter-item {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 12px 16px !important;
+  border-radius: 0.65rem !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+.banner-three-right .banner-three-counter-item:first-child {
+  background: #ffffff !important;
+}
+
+.banner-three-right .banner-three-counter-item:nth-child(2) {
+  background: #111111 !important;
+}
+
+.banner-three-right .banner-three-counter-item:nth-child(3) {
+  background: #ffffff !important;
+}
+
+.banner-three-counter-item .banner-three-counter-title {
+  font-size: 1.65rem !important;
+  margin-bottom: 0.15rem !important;
+}
+
+.banner-three-counter-item .banner-three-counter-paragraph {
+  font-size: 0.82rem !important;
+  line-height: 1.35 !important;
+}
+
 .banner-three-center-title {
   display: block;
-  font-size: clamp(0.95rem, 1.7vw, 1.4rem);
-  line-height: 1.55;
+  font-size: clamp(0.72rem, 1.15vw, 1.05rem) !important;
+  line-height: 1.5;
   font-weight: 700;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.04em;
   color: #111111;
-  white-space: normal;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    color 0.35s ease,
-    letter-spacing 0.35s ease,
-    text-shadow 0.35s ease;
-  cursor: pointer;
+  white-space: nowrap !important;
+  cursor: default;
   user-select: none;
+  transition: none !important;
+  transform: none !important;
 }
 
 .banner-three-center-title:hover {
-  transform: translateY(-3px) scale(1.02);
-  color: #ff5722;
-  letter-spacing: 0.12em;
-  text-shadow: 0 8px 20px rgba(255, 87, 34, 0.22);
+  transform: none !important;
+  color: #111111 !important;
+  letter-spacing: 0.04em !important;
+  text-shadow: none !important;
+}
+
+.about-three-wrap-shape {
+  position: absolute !important;
+  inset-block-start: -140px !important;
+  width: 100%;
+  inset-inline-start: 0;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.about-three-wrap-shape .banner-three-counter-item {
+  max-width: 260px !important;
+}
+
+.about-three-wrap-shape .banner-three-counter-item:last-child {
+  margin-top: 40px !important;
+}
+
+@media screen and (max-width: 1199px) {
+  .banner-three-left,
+  .banner-three-right {
+    max-width: 100% !important;
+    padding: 20px !important;
+    margin-top: 1rem !important;
+  }
+
+  .banner-three-counter-item {
+    max-width: 100% !important;
+  }
+
+  .about-three-wrap-shape {
+    position: static !important;
+    inset-block-start: 0 !important;
+    margin-block-start: 24px;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  
+  .about-three-wrap-shape .banner-three-counter-item:last-child {
+    margin-top: 0 !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .banner-three-center-title {
+    white-space: normal !important;
+    font-size: 0.85rem;
+  }
+  .about-three-wrap-shape {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mobile-counter-cards {
+  display: none !important;
 }
 
 /* 2. Orange Hover Effect for "VIEW PROJECTS" and Navbar Buttons */

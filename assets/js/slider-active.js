@@ -16,7 +16,7 @@
 
   ////////////////////////////////////////////////////
   // 01. Brand Js
-  if (document.querySelector(".brand-active")) {
+  if (typeof Swiper !== "undefined" && document.querySelector(".brand-active")) {
     new Swiper(".brand-active", {
       slidesPerView: 1,
       spaceBetween: 30,
@@ -36,7 +36,7 @@
 
   ////////////////////////////////////////////////////
   // 02. Testimonial Js
-  if (document.querySelector(".testimonial-active")) {
+  if (typeof Swiper !== "undefined" && document.querySelector(".testimonial-active")) {
     new Swiper(".testimonial-active", {
       slidesPerView: 3,
       spaceBetween: 10,
@@ -59,7 +59,7 @@
 
   ////////////////////////////////////////////////////
   // 03. Service Js
-  if (document.querySelector(".service-active")) {
+  if (typeof Swiper !== "undefined" && document.querySelector(".service-active")) {
     new Swiper(".service-active", {
       slidesPerView: 1,
       spaceBetween: 30,
@@ -96,7 +96,7 @@
 
   ////////////////////////////////////////////////////
   // 06. Testimonial Three Js
-  if (document.querySelector(".testimonial-three-active")) {
+  if (typeof Swiper !== "undefined" && document.querySelector(".testimonial-three-active")) {
     new Swiper(".testimonial-three-active", {
       slidesPerView: 2,
       spaceBetween: 10,
