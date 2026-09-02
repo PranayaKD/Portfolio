@@ -100,94 +100,22 @@
   }
 
   ////////////////////////////////////////////////////
-  // 03. Text Invart Js
+  // 03. Text Reveal / Invert JS
   if ($(".tw-itm-title.tw-itm-anim").length) {
-    let staggerAmount = 0.03,
-      translateXValue = 20,
-      delayValue = 0.1,
-      easeType = "power2.out",
-      animatedTextElements = document.querySelectorAll(
-        ".tw-itm-title.tw-itm-anim",
-      );
-
-    animatedTextElements.forEach((element) => {
-      let animationSplitText = new SplitText(element, { type: "chars, words" });
-
-      ScrollTrigger.create({
-        trigger: element,
-        start: "top 85%",
-        onEnter: () => {
-          gsap.from(animationSplitText.chars, {
-            duration: 1,
-            delay: delayValue,
-            x: translateXValue,
-            autoAlpha: 0,
-            stagger: staggerAmount,
-            ease: easeType,
-          });
-        },
-      });
-    });
-  }
-  if ($(".tw-sub-tilte").length) {
-    var agtsub = $(".tw-sub-tilte");
-    if (agtsub.length == 0) return;
-    gsap.registerPlugin(SplitText);
-    agtsub.each(function (index, el) {
-      el.split = new SplitText(el, {
-        type: "lines,words,chars",
-        linesClass: "split-line",
-      });
-      if ($(el).hasClass("tw-sub-anim")) {
-        gsap.set(el.split.chars, {
-          opacity: 0,
-          x: "7",
-        });
-      }
-      el.anim = gsap.to(el.split.chars, {
+    $(".tw-itm-title.tw-itm-anim").each(function () {
+      const el = this;
+      const split = new SplitText(el, { type: "words, lines", linesClass: "split-line" });
+      gsap.from(split.words, {
         scrollTrigger: {
           trigger: el,
-          start: "top 90%",
-          end: "top 60%",
-          markers: false,
-          scrub: 1,
+          start: "top 85%",
+          toggleActions: "play none none none",
         },
-        x: "0",
-        y: "0",
-        opacity: 1,
-        duration: 0.7,
-        stagger: 0.2,
-      });
-    });
-  }
-  if ($(".tw-itm-title").length) {
-    var txtheading = $(".tw-itm-title");
-    if (txtheading.length == 0) return;
-    gsap.registerPlugin(SplitText);
-    txtheading.each(function (index, el) {
-      el.split = new SplitText(el, {
-        type: "lines,words,chars",
-        linesClass: "split-line",
-      });
-      if ($(el).hasClass("tw-itm-anim")) {
-        gsap.set(el.split.chars, {
-          opacity: 0.3,
-          x: "-7",
-        });
-      }
-      el.anim = gsap.to(el.split.chars, {
-        scrollTrigger: {
-          trigger: el,
-          start: "top 92%",
-          end: "top 60%",
-          markers: false,
-          scrub: 1,
-        },
-        x: "0",
-        y: "0",
-        opacity: 1,
-        duration: 0.7,
-        stagger: 0.2,
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.04,
+        ease: "power3.out",
       });
     });
   }
